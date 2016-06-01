@@ -1344,7 +1344,7 @@ namespace Map_Editor
                     }
                     binaryWriter.Flush();
                     binaryWriter.Dispose();
-                    MessageBox.Show("保存成功");
+                    MessageBox.Show("Map Saved");
                 }
             }
         }
@@ -1858,8 +1858,10 @@ namespace Map_Editor
         {
             for (var i = 0; i < objectDatas.Length; i++)
             {
+                bool back = false;
+
                 //back
-                if (datas[i].CellInfo.BackImage != 0)
+                if ((datas[i].CellInfo.BackImage & 0x1FFFF) != 0)
                 {
                     if ((objectDatas[i].CellInfo.BackImage & 0x1FFFFFFF) != 0)
                     {
@@ -1871,8 +1873,10 @@ namespace Map_Editor
                         M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackImage |=
                             objectDatas[i].CellInfo.BackImage & 0x20000000;
                     }
+
+                    back = true;
                 }
-                if (datas[i].CellInfo.BackIndex >= 0)
+                if (back && datas[i].CellInfo.BackIndex >= 0)
                 {
                     M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackIndex =
                         datas[i].CellInfo.BackIndex;
