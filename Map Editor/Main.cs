@@ -2686,6 +2686,12 @@ namespace Map_Editor
                         mapPoint.Y = mapHeight - OffSetY - 1;
                     }
                     break;
+                case Keys.Z:
+                    selectImageIndex--;
+                    break;
+                case Keys.X:
+                    selectImageIndex++;
+                    break;
             }
 
             if (M2CellInfo != null)
