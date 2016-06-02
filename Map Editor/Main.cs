@@ -2298,23 +2298,10 @@ namespace Map_Editor
             {
                 Directory.CreateDirectory(Libraries.ObjectsPath);
             }
-            var folder = new DirectoryInfo(Libraries.ObjectsPath);
-            var subDir = folder.GetDirectories();
 
-            foreach (var file in folder.GetFiles("*.X"))
+            foreach (string file in Directory.EnumerateFileSystemEntries(Libraries.ObjectsPath, "*.X", SearchOption.AllDirectories))
             {
-                ObjectslistBox.Items.Add(Path.GetFileNameWithoutExtension(file.Name));
-            }
-            if (subDir.Length <= 0)
-            {
-                return;
-            }
-            foreach (var directoryInfo in subDir)
-            {
-                foreach (var file in directoryInfo.GetFiles("*.X"))
-                {
-                    ObjectslistBox.Items.Add(directoryInfo.Name + "\\" + Path.GetFileNameWithoutExtension(file.FullName));
-                }
+                ObjectslistBox.Items.Add(file.Replace(Libraries.ObjectsPath, "").Replace(".X", ""));
             }
         }
 
