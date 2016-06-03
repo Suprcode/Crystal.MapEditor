@@ -1858,43 +1858,32 @@ namespace Map_Editor
         {
             for (var i = 0; i < objectDatas.Length; i++)
             {
-                bool back = false;
-
-                //back
-                if ((datas[i].CellInfo.BackImage & 0x1FFFF) != 0)
+                if ((datas[i].CellInfo.BackImage) != 0)
                 {
                     if ((objectDatas[i].CellInfo.BackImage & 0x1FFFFFFF) != 0)
                     {
-                        M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackImage |=
-                            objectDatas[i].CellInfo.BackImage & 0x1FFFFFFF;
+                        M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackImage |= objectDatas[i].CellInfo.BackImage & 0x1FFFFFFF;
                     }
                     if ((objectDatas[i].CellInfo.BackImage & 0x20000000) != 0)
                     {
-                        M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackImage |=
-                            objectDatas[i].CellInfo.BackImage & 0x20000000;
+                        M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackImage |= objectDatas[i].CellInfo.BackImage & 0x20000000;
                     }
-
-                    back = true;
                 }
-                if (back && datas[i].CellInfo.BackIndex >= 0)
+                if (datas[i].CellInfo.BackIndex >= 0)
                 {
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackIndex =
-                        datas[i].CellInfo.BackIndex;
+                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackIndex = datas[i].CellInfo.BackIndex;
                 }
 
                 //middle
                 if (objectDatas[i].CellInfo.MiddleImage != 0)
                 {
-                    if ((M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].MiddleAnimationFrame & 0x7F) !=
-                        0)
+                    if ((M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].MiddleAnimationFrame & 0x7F) != 0)
                     {
                         M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].MiddleAnimationFrame = 0;
                         M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].MiddleAnimationTick = 0;
                     }
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].MiddleImage =
-                        datas[i].CellInfo.MiddleImage;
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].MiddleIndex =
-                        datas[i].CellInfo.MiddleIndex;
+                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].MiddleImage = datas[i].CellInfo.MiddleImage;
+                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].MiddleIndex = datas[i].CellInfo.MiddleIndex;
                 }
                 if (objectDatas[i].CellInfo.MiddleIndex != 0)
                 {
@@ -1904,59 +1893,48 @@ namespace Map_Editor
                 //front
                 if (objectDatas[i].CellInfo.FrontImage != 0)
                 {
-                    if ((M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontAnimationFrame & 0x7F) !=
-                        0)
+                    if ((M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontAnimationFrame & 0x7F) != 0)
                     {
                         M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontAnimationFrame = 0;
                         M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontAnimationTick = 0;
                     }
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontImage =
-                        datas[i].CellInfo.FrontImage;
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontIndex =
-                        datas[i].CellInfo.FrontIndex;
+                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontImage = datas[i].CellInfo.FrontImage;
+                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontIndex = datas[i].CellInfo.FrontIndex;
                 }
                 if (objectDatas[i].CellInfo.FrontIndex != 0)
                 {
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontIndex =
-                        datas[i].CellInfo.FrontIndex;
+                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontIndex = datas[i].CellInfo.FrontIndex;
                 }
                 //Door
                 if (datas[i].CellInfo.DoorIndex != 0)
                 {
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].DoorIndex =
-                        datas[i].CellInfo.DoorIndex;
+                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].DoorIndex = datas[i].CellInfo.DoorIndex;
                 }
                 if (datas[i].CellInfo.DoorOffset != 0)
                 {
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].DoorOffset =
-                        datas[i].CellInfo.DoorOffset;
+                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].DoorOffset = datas[i].CellInfo.DoorOffset;
                 }
                 //Animation
                 if (datas[i].CellInfo.MiddleAnimationFrame != 0)
                 {
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].MiddleAnimationFrame =
-                        datas[i].CellInfo.MiddleAnimationFrame;
+                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].MiddleAnimationFrame = datas[i].CellInfo.MiddleAnimationFrame;
                 }
                 if (datas[i].CellInfo.MiddleAnimationTick != 0)
                 {
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].MiddleAnimationTick =
-                        datas[i].CellInfo.MiddleAnimationTick;
+                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].MiddleAnimationTick = datas[i].CellInfo.MiddleAnimationTick;
                 }
                 if (datas[i].CellInfo.FrontAnimationFrame != 0)
                 {
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontAnimationFrame =
-                        datas[i].CellInfo.FrontAnimationFrame;
+                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontAnimationFrame = datas[i].CellInfo.FrontAnimationFrame;
                 }
                 if (datas[i].CellInfo.FrontAnimationTick != 0)
                 {
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontAnimationTick =
-                        datas[i].CellInfo.FrontAnimationTick;
+                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].FrontAnimationTick = datas[i].CellInfo.FrontAnimationTick;
                 }
                 //light
                 if (datas[i].CellInfo.Light != 0)
                 {
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].Light =
-                        datas[i].CellInfo.Light;
+                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].Light = datas[i].CellInfo.Light;
                 }
             }
         }
