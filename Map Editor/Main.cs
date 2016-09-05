@@ -1858,20 +1858,30 @@ namespace Map_Editor
         {
             for (var i = 0; i < objectDatas.Length; i++)
             {
-                if ((datas[i].CellInfo.BackImage) != 0)
+                if ((datas[i].CellInfo.BackImage & 0x20000000) != 0)
                 {
-                    if ((objectDatas[i].CellInfo.BackImage & 0x1FFFFFFF) != 0)
+                    if (((datas[i].CellInfo.BackImage & 0x1FFFF) - 1) == -1 || datas[i].CellInfo.BackIndex == -1)
                     {
-                        M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackImage |= objectDatas[i].CellInfo.BackImage & 0x1FFFFFFF;
+                        M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackImage |= 0x20000000;
+
                     }
-                    if ((objectDatas[i].CellInfo.BackImage & 0x20000000) != 0)
+                    else
                     {
-                        M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackImage |= objectDatas[i].CellInfo.BackImage & 0x20000000;
+                        M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackImage = datas[i].CellInfo.BackImage;
+                        M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackIndex = datas[i].CellInfo.BackIndex;
                     }
                 }
-                if (datas[i].CellInfo.BackIndex >= 0)
+                else
                 {
-                    M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackIndex = datas[i].CellInfo.BackIndex;
+                    if (((datas[i].CellInfo.BackImage & 0x1FFFF) - 1) == -1 || datas[i].CellInfo.BackIndex == -1)
+                    {
+                        //do nothing
+                    }
+                    else
+                    {
+                        M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackImage = datas[i].CellInfo.BackImage;
+                        M2CellInfo[cellX + datas[i].X, cellY + datas[i].Y].BackIndex = datas[i].CellInfo.BackIndex;
+                    }
                 }
 
                 //middle
