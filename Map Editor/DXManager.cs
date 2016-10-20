@@ -54,17 +54,10 @@ namespace Map_Editor
         public static bool Blending;
 
         /// <summary>
-        ///  雷达纹理
-        /// </summary>
-        public static Texture RadarTexture;
-        /// <summary>
         /// 光源纹理集合
         /// </summary>
         public static List<Texture> Lights = new List<Texture>();
-        /// <summary>
-        /// 无背景位置纹理
-        /// </summary>
-        public static Texture PoisonDotBackground;
+
         /// <summary>
         /// 光源坐标集合
         /// </summary>

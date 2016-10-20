@@ -171,7 +171,7 @@ namespace Map_Editor
                             MapCells[x, y].FishingCell = true;
                     }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //if (Settings.LogErrors) CMain.SaveError(ex.ToString());
             }
@@ -219,7 +219,7 @@ namespace Map_Editor
                             MapCells[x, y].FishingCell = true;
                     }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //if (Settings.LogErrors) CMain.SaveError(ex.ToString());
             }
@@ -260,7 +260,7 @@ namespace Map_Editor
                             MapCells[x, y].FishingCell = true;
                     }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //if (Settings.LogErrors) CMain.SaveError(ex.ToString());
             }
@@ -308,7 +308,7 @@ namespace Map_Editor
                     }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
               //  if (Settings.LogErrors) CMain.SaveError(ex.ToString());
             }
@@ -353,7 +353,7 @@ namespace Map_Editor
                             MapCells[x, y].FishingCell = true;
                     }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                // if (Settings.LogErrors) CMain.SaveError(ex.ToString());
             }
@@ -418,7 +418,7 @@ namespace Map_Editor
 
                     }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                // if (Settings.LogErrors) CMain.SaveError(ex.ToString());
             }
@@ -469,7 +469,7 @@ namespace Map_Editor
 
                     }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //if (Settings.LogErrors) CMain.SaveError(ex.ToString());
             }
@@ -514,7 +514,7 @@ namespace Map_Editor
                             MapCells[x, y].FishingCell = true;
                     }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                // if (Settings.LogErrors) CMain.SaveError(ex.ToString());
             }
@@ -572,7 +572,7 @@ namespace Map_Editor
                             MapCells[x, y].FishingCell = true;
                     }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //if (Settings.LogErrors) CMain.SaveError(ex.ToString());
             }

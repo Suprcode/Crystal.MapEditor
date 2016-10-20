@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Microsoft.DirectX;
 using Microsoft.DirectX.Direct3D;
 using Font = System.Drawing.Font;
+using System.Linq;
 
 namespace Map_Editor
 {
@@ -121,7 +122,7 @@ namespace Map_Editor
                     RenderEnviroment();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -228,7 +229,7 @@ namespace Map_Editor
             catch (DeviceLostException)
             {
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 DXManager.AttemptRecovery();
             }
@@ -2287,7 +2288,13 @@ namespace Map_Editor
                 Directory.CreateDirectory(Libraries.ObjectsPath);
             }
 
-            foreach (string file in Directory.EnumerateFileSystemEntries(Libraries.ObjectsPath, "*.X", SearchOption.AllDirectories))
+            var files = (from x in Directory.EnumerateFileSystemEntries(Libraries.ObjectsPath, "*.X", SearchOption.AllDirectories)
+                        orderby x
+                        select x).ToArray();
+
+            Array.Sort(files, new AlphanumComparatorFast());
+
+            foreach (string file in files)
             {
                 ObjectslistBox.Items.Add(file.Replace(Libraries.ObjectsPath, "").Replace(".X", ""));
             }
@@ -2435,6 +2442,7 @@ namespace Map_Editor
 
             graphics.Save();
             graphics.Dispose();
+
             return preview;
         }
 
@@ -2694,6 +2702,8 @@ namespace Map_Editor
             var name = ObjectslistBox.SelectedItem + ".X";
             var objectFile = Application.StartupPath + "\\Objects\\" + name;
             objectDatas = ReadObjectsFile(objectFile);
+
+
             picObjects.Image = GetObjectPreview(26, 24, objectDatas);
         }
 
@@ -2949,47 +2959,34 @@ namespace Map_Editor
                 case 3:
                 case 4:
                     return TileType.Center;
-                    break;
                 case 5:
                     return TileType.UpLeft;
-                    break;
                 case 6:
                     return TileType.UpRight;
-                    break;
                 case 7:
                     return TileType.DownLeft;
-                    break;
                 case 8:
                     return TileType.DownRight;
-                    break;
                 case 10:
                     return TileType.InUpLeft;
-                    break;
                 case 11:
                     return TileType.InUpRight;
-                    break;
                 case 12:
                     return TileType.InDownLeft;
-                    break;
                 case 13:
                     return TileType.InDownRight;
-                    break;
                 case 15:
                 case 16:
                     return TileType.Up;
-                    break;
                 case 17:
                 case 18:
                     return TileType.Down;
-                    break;
                 case 20:
                 case 22:
                     return TileType.Left;
-                    break;
                 case 21:
                 case 23:
                     return TileType.Right;
-                    break;
             }
             return TileType.None;
         }
@@ -3023,47 +3020,34 @@ namespace Map_Editor
                     case 3:
                     case 4:
                         return TileType.Center;
-                        break;
                     case 10:
                         return TileType.UpLeft;
-                        break;
                     case 11:
                         return TileType.UpRight;
-                        break;
                     case 12:
                         return TileType.DownLeft;
-                        break;
                     case 13:
                         return TileType.DownRight;
-                        break;
                     case 15:
                         return TileType.InUpLeft;
-                        break;
                     case 16:
                         return TileType.InUpRight;
-                        break;
                     case 17:
                         return TileType.InDownLeft;
-                        break;
                     case 18:
                         return TileType.InDownRight;
-                        break;
                     case 20:
                     case 21:
                         return TileType.Up;
-                        break;
                     case 22:
                     case 23:
                         return TileType.Down;
-                        break;
                     case 25:
                     case 27:
                         return TileType.Left;
-                        break;
                     case 26:
                     case 28:
                         return TileType.Right;
-                        break;
                 }
             }
             else
@@ -3076,47 +3060,34 @@ namespace Map_Editor
                     case 8:
                     case 9:
                         return TileType.Center;
-                        break;
                     case 18:
                         return TileType.UpLeft;
-                        break;
                     case 17:
                         return TileType.UpRight;
-                        break;
                     case 16:
                         return TileType.DownLeft;
-                        break;
                     case 15:
                         return TileType.DownRight;
-                        break;
                     case 13:
                         return TileType.InUpLeft;
-                        break;
                     case 12:
                         return TileType.InUpRight;
-                        break;
                     case 11:
                         return TileType.InDownLeft;
-                        break;
                     case 10:
                         return TileType.InDownRight;
-                        break;
                     case 22:
                     case 23:
                         return TileType.Up;
-                        break;
                     case 20:
                     case 21:
                         return TileType.Down;
-                        break;
                     case 26:
                     case 28:
                         return TileType.Left;
-                        break;
                     case 25:
                     case 27:
                         return TileType.Right;
-                        break;
                 }
             }
             return TileType.None;

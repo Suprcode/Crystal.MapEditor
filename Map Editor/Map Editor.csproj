@@ -26,6 +26,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <AssemblyVersion>2016.10.20.2127</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -133,6 +134,7 @@
     <Compile Include="FrmSetDoor.Designer.cs">
       <DependentUpon>FrmSetDoor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utility.cs" />
     <EmbeddedResource Include="CellInfoControl.resx">
       <DependentUpon>CellInfoControl.cs</DependentUpon>
     </EmbeddedResource>

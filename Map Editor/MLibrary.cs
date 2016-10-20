@@ -20,7 +20,7 @@ namespace Map_Editor
         public const string LibPath = @".\Data\Map\WemadeMir2\";
         public const string ShandaMir2LibPath = @".\Data\Map\ShandaMir2\";
 
-        public const string ObjectsPath = @".\Objects\";
+        public const string ObjectsPath = @".\Data\Objects\";
         //Map
         public static readonly MLibrary[] MapLibs = new MLibrary[400];
 
