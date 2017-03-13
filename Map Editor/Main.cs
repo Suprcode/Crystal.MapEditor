@@ -2454,7 +2454,7 @@ namespace Map_Editor
         private void btnDeleteObjects_Click(object sender, EventArgs e)
         {
             var name = ObjectslistBox.SelectedItem + ".X";
-            var objectFile = Application.StartupPath + "\\Objects\\" + name;
+            var objectFile = Application.StartupPath + "\\Data\\Objects\\" + name;
             if (File.Exists(objectFile))
             {
                 File.Delete(objectFile);
@@ -2700,7 +2700,7 @@ namespace Map_Editor
         private void ObjectslistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var name = ObjectslistBox.SelectedItem + ".X";
-            var objectFile = Application.StartupPath + "\\Objects\\" + name;
+            var objectFile = Application.StartupPath + "\\Data\\Objects\\" + name;
             objectDatas = ReadObjectsFile(objectFile);
 
 
