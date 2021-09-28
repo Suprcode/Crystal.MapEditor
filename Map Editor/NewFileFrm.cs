@@ -28,8 +28,41 @@ namespace Map_Editor
             else
             {
                 _delSetMapSize(w, h);
+                DialogResult = DialogResult.OK;
                 Close();
             }
+        }
+
+        private void txtWidth_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    KeyPressEventArgs arg = new KeyPressEventArgs(Convert.ToChar(Keys.Enter));
+                    btnOk_Click(sender, arg);
+                    break;
+            }
+        }
+
+        private void txtHeight_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    KeyPressEventArgs arg = new KeyPressEventArgs(Convert.ToChar(Keys.Enter));
+                    btnOk_Click(sender, arg);
+                    break;
+            }
+        }
+
+        private void txtWidth_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

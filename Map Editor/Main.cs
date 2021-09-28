@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
@@ -26,6 +27,8 @@ namespace Map_Editor
         public delegate void DelSetLightProperty(byte light);
 
         public delegate void DelSetMapSize(int w, int h);
+
+        
 
         private const int CellWidth = 48;
         private const int CellHeight = 32;
@@ -100,6 +103,18 @@ namespace Map_Editor
         private ListItem wemadeMir2ListItem;
         private ListItem wemadeMir3ListItem;
 
+        //TileCutter
+        private bool grid = true;
+        public static Point MPoint;
+        private Bitmap cellHighlight = new Bitmap(48, 32);
+        public int CellSizeX;
+        public int CellSizeY;
+        public int[,] SelectedCells;
+        private MLibrary _library;
+        //private MLibrary.MImage _selectedImage;
+        public Bitmap _mainImage;
+        private bool pictureBox_loaded = false;
+
         public Main()
         {
             InitializeComponent();
@@ -109,6 +124,10 @@ namespace Map_Editor
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
             Application.Idle += Application_Idle;
+            
+            //Tilecutter
+            pictureBox_Grid.Parent = pictureBox_Image;
+            pictureBox_Highlight.Parent = pictureBox_Grid;
         }
 
         private void Application_Idle(object sender, EventArgs e)
@@ -150,7 +169,7 @@ namespace Map_Editor
                 AnimationCount++;
             }
 
-            Text = string.Format("FPS: {0}---Map:W {1}:H {2} ----W,S,A,D，观察地图<{3}>", FPS, mapWidth, mapHeight,
+            Text = string.Format("FPS: {0}---Map:W {1}:H {2} ----W,S,A,D,--v.1.0--<{3}>", FPS, mapWidth, mapHeight,
                 mapFileName);
         }
 
@@ -270,6 +289,19 @@ namespace Map_Editor
             ReadObjectsToListBox();
 
             DXManager.Create(MapPanel);
+
+            //TileCutter
+            comboBox_cellSize.SelectedIndex = 0;
+            gridUpdate(false);
+
+            //loads embedded icons
+            System.Reflection.Assembly thisExe;
+            thisExe = System.Reflection.Assembly.GetExecutingAssembly();
+            System.IO.Stream file = thisExe.GetManifestResourceStream("Map_Editor.Resources.Square.png");
+            using (Graphics g = Graphics.FromImage(cellHighlight))
+            {
+                g.DrawImage(Image.FromStream(file), new Point(0, 0));
+            }
         }
 
 
@@ -865,6 +897,7 @@ namespace Map_Editor
             {
                 byte animation;
                 bool blend;
+
                 for (var y = mapPoint.Y - 1; y <= mapPoint.Y + OffSetY + 35; y++)
                 {
                     if (y >= mapHeight || y < 0) continue;
@@ -1023,59 +1056,9 @@ namespace Map_Editor
             }
         }
 
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            var frm = new NewFileFrm(SetMapSize);
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                M2CellInfo = new CellInfo[mapWidth, mapHeight];
-                for (var x = 0; x < mapWidth; x++)
-                {
-                    for (var y = 0; y < mapHeight; y++)
-                    {
-                        M2CellInfo[x, y] = new CellInfo();
-                    }
-                }
-            }
-            mapPoint = new Point(0, 0);
-        }
-
-        private void btnOpen_Click(object sender, EventArgs e)
-        {
-            ClearImage();
-            var openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                var filePath = openFileDialog.FileName;
-                map = new MapReader(filePath);
-                M2CellInfo = map.MapCells;
-                mapPoint = new Point(0, 0);
-                SetMapSize(map.Width, map.Height);
-                mapFileName = openFileDialog.FileName;
-            }
-        }
-
         private void btnDispose_Click(object sender, EventArgs e)
         {
             Dispose();
-        }
-
-        private void btnNarrow_Click(object sender, EventArgs e)
-        {
-            if (map != null)
-            {
-                NarrowZoom();
-                SetMapSize(mapWidth, mapHeight);
-            }
-        }
-
-        private void btnEnlarge_Click(object sender, EventArgs e)
-        {
-            if (map != null)
-            {
-                EnlargeZoom();
-                SetMapSize(mapWidth, mapHeight);
-            }
         }
 
         private void chkBack_Click(object sender, EventArgs e)
@@ -1439,26 +1422,7 @@ namespace Map_Editor
                     binaryWriter.Flush();
                     binaryWriter.Dispose();
                     fileStream.Dispose();
-                    MessageBox.Show("保存成功");
-                }
-            }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            Save();
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            if (M2CellInfo != null)
-            {
-                for (var x = 0; x < mapWidth; x++)
-                {
-                    for (var y = 0; y < mapHeight; y++)
-                    {
-                        M2CellInfo[x, y] = new CellInfo();
-                    }
+                    MessageBox.Show("Map Saved");
                 }
             }
         }
@@ -2103,24 +2067,6 @@ namespace Map_Editor
             _editor.UnDo = unTemp;
         }
 
-        private void btnUnDo_Click(object sender, EventArgs e)
-        {
-            UnDo();
-        }
-
-        private void btnReDo_Click(object sender, EventArgs e)
-        {
-            ReDo();
-        }
-
-        private void btnSaveToObjects_Click(object sender, EventArgs e)
-        {
-            if (M2CellInfo == null) return;
-            SaveObjectsFile();
-            ObjectslistBox.Items.Clear();
-            ReadObjectsToListBox();
-        }
-
         private void SaveObjectsFile()
         {
             var saveFileDialog = new SaveFileDialog();
@@ -2133,9 +2079,9 @@ namespace Map_Editor
                 var flag = false;
                 int tempX = 0, tempY = 0;
                 var list = new List<CellInfoData>();
-                for (var y = 0; y < mapHeight; y++)
+                for (var y = p1.Y; y <= p2.Y; y++)
                 {
-                    for (var x = 0; x < mapWidth; x++)
+                    for (var x = p1.X; x <= p2.X; x++)
                     {
                         if (!flag)
                         {
@@ -2193,18 +2139,29 @@ namespace Map_Editor
 
         private void MapPanel_MouseDown(object sender, MouseEventArgs e)
         {
+            //stops the p1 and p2 values resetting when right clicking to get the menu
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                return;
+            }
+
+
+
             if (M2CellInfo != null)
             {
                 switch (layer)
                 {
                     case Layer.GraspingMir2Front:
                         p1 = new Point(cellX, cellY);
-                        p2 = Point.Empty;
+                        p2 = p1; //sets p2 to the first cell clicked so we don't have to move mouse to update the area selected
+
+                        //p2 = Point.Empty;
                         Grasping = true;
                         break;
                     case Layer.GraspingInvertMir3FrontMiddle:
                         p1 = new Point(cellX, cellY);
-                        p2 = Point.Empty;
+                        p2 = p1;
+                        //p2 = Point.Empty;
                         Grasping = true;
                         break;
                 }
@@ -2616,64 +2573,258 @@ namespace Map_Editor
 
         private void Jump(int x, int y)
         {
-            if (x - OffSetX/2 >= mapWidth || y - OffSetY/2 >= mapHeight)
-            {
-                MessageBox.Show("X,Y is error point");
-                return;
-            }
-            if (x - OffSetX/2 < 0 || y - OffSetY/2 < 0)
-            {
-                mapPoint.X = x;
-                mapPoint.Y = y;
-                return;
-            }
-            mapPoint.X = x - OffSetX/2;
-            mapPoint.Y = y - OffSetX/2;
-        }
+            //if (x - OffSetX/2 >= mapWidth || y - OffSetY/2 >= mapHeight)
+            //{
+            //    MessageBox.Show("X,Y is error point");
+            //    return;
+            //}
+            //if (x - OffSetX/2 < 0 || y - OffSetY/2 < 0)
+            //{
+            //    mapPoint.X = x;
+            //    mapPoint.Y = y;
+            //    return;
+            //}
+            //mapPoint.X = x - OffSetX/2;
+            //mapPoint.Y = y - OffSetX/2;
 
-        private void btnAbout_Click(object sender, EventArgs e)
-        {
-            Form frmAbout = new FrmAbout();
-            frmAbout.ShowDialog();
+            //sets the mapPoint
+            mapPoint.X = x;
+            mapPoint.Y = y;
+
+
+            //checks if the mapPoint is within the map limits and sets it to min or max position if not
+            if (mapPoint.X + OffSetX >= mapWidth)
+            {
+                mapPoint.X = mapWidth - OffSetX - 1;
+            }
+
+            if (mapPoint.X < 0)
+            {
+                mapPoint.X = 0;
+            }
+
+            if (mapPoint.Y < 0)
+            {
+                mapPoint.Y = 0;
+            }
+
+            if (mapPoint.Y + OffSetY >= mapHeight)
+            {
+                mapPoint.Y = mapHeight - OffSetY - 1;
+            }
+            setScrollBar();
         }
 
         private void Main_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
+                //Movement
                 case Keys.D:
-                    mapPoint.X++;
-                    if (mapPoint.X + OffSetX >= mapWidth)
-                    {
-                        mapPoint.X = mapWidth - OffSetX - 1;
-                    }
+                    Jump(mapPoint.X + 1, mapPoint.Y);
                     break;
                 case Keys.A:
-                    mapPoint.X--;
-                    if (mapPoint.X < 0)
-                    {
-                        mapPoint.X = 0;
-                    }
+                    Jump(mapPoint.X - 1, mapPoint.Y);
                     break;
                 case Keys.W:
-                    mapPoint.Y--;
-                    if (mapPoint.Y < 0)
-                    {
-                        mapPoint.Y = 0;
-                    }
+                    Jump(mapPoint.X, mapPoint.Y - 1);
                     break;
                 case Keys.S:
-                    mapPoint.Y++;
-                    if (mapPoint.Y + OffSetY >= mapHeight)
+                    Jump(mapPoint.X, mapPoint.Y + 1);
+                    break;
+
+                //Shortcuts
+                case Keys.J:
+                    if (M2CellInfo != null)
                     {
-                        mapPoint.Y = mapHeight - OffSetY - 1;
+                        Form jump = new FrmJump(Jump);
+                        if (jump.ShowDialog() == DialogResult.OK)
+                        {
+                        }
                     }
                     break;
+                case Keys.B: //Added by M2P
+                    layer = Layer.BackLimit;
+                    cmbEditorLayer.SelectedIndex = 4;
+                    break;
+                case Keys.F: //Added by M2P
+                    layer = Layer.FrontLimit;
+                    cmbEditorLayer.SelectedIndex = 5;
+                    break;
+                case Keys.C: //Added by M2P
+                    layer = Layer.ClearBackFrontLimit;
+                    cmbEditorLayer.SelectedIndex = 14;
+                    break;
+                case Keys.G:
+                    chkDrawGrids.Checked = !chkDrawGrids.Checked;
+                    break;
+                case Keys.H: //Added by M2P
+                    tabControl1.SelectedTab = tabHelp;
+                    break;
+                case Keys.M: //Added by M2P
+                    createMiniMap();
+                    break;
+                case Keys.N:
+                    NewMap();
+                    break;
+                case Keys.O:
+                    OpenMap();
+                    break;
+                case Keys.R:
+                    tabControl1.SelectedTab = tabObjects;
+                    break;
+                case Keys.T:
+                    tabControl1.SelectedTab = tabTiles;
+                    break;
+                case Keys.X: //Added by M2P
+                    if (e.Control)
+                SaveObjectsFile();
+                break;
                 case Keys.Z:
+                    if (e.Control)
+                    {
+                        ReDo();
+                    }
+                    else
+                    {
+                        UnDo();
+                    }
+                    break;
+                case Keys.Oemcomma:
                     selectImageIndex--;
                     break;
-                case Keys.X:
+                case Keys.OemPeriod:
                     selectImageIndex++;
+                    break;
+                case Keys.Add:
+                    
+                    if (e.Shift)
+                    {
+                        zoomMIN = zoomMAX;
+                    }
+                    ZoomIn();
+                        break;
+                case Keys.Subtract:
+                    if (e.Shift)
+                    {
+                        zoomMIN = 1;
+                    }
+                    ZoomOut();
+                    break;
+                    
+
+                case Keys.Oem8: //The ` key next to the number keys ... not a tilde and not a ' 
+                    layer = Layer.None;
+                    cmbEditorLayer.SelectedIndex = 0;
+                    break;
+                case Keys.Escape:
+                    layer = Layer.None;
+                    cmbEditorLayer.SelectedIndex = 0;
+                    break;
+                case Keys.Oemtilde: 
+                    layer = Layer.None;
+                    cmbEditorLayer.SelectedIndex = 0;
+                    break;
+
+
+                case Keys.D1:
+                    layer = Layer.FrontImage;
+                    cmbEditorLayer.SelectedIndex = 3;
+                    break;
+                case Keys.D2:
+                    layer = Layer.MiddleImage;
+                    cmbEditorLayer.SelectedIndex = 2;
+                    break;
+                case Keys.D3:
+                    layer = Layer.BackImage;
+                    cmbEditorLayer.SelectedIndex = 1;
+                    break;
+                case Keys.D4: //Added by M2P
+                    layer = Layer.GraspingMir2Front;
+                    cmbEditorLayer.SelectedIndex = 7;
+                    break;
+                case Keys.D5:
+                    layer = Layer.PlaceObjects;
+                    cmbEditorLayer.SelectedIndex = 9;
+                    break;
+                case Keys.D6: //Added by M2P
+                    layer = Layer.GraspingInvertMir3FrontMiddle;
+                    cmbEditorLayer.SelectedIndex = 8;
+                    break;
+                case Keys.D7:
+                    layer = Layer.ClearFront;
+                    cmbEditorLayer.SelectedIndex = 13;
+                    break;
+                case Keys.D8:
+                    layer = Layer.ClearMidd;
+                    cmbEditorLayer.SelectedIndex = 12;
+                    break;
+                case Keys.D9:
+                    layer = Layer.ClearBack;
+                    cmbEditorLayer.SelectedIndex = 11;
+                    break;
+                case Keys.D0:
+                    layer = Layer.BrushMir2BigTiles;
+                    cmbEditorLayer.SelectedIndex = 17;
+                    break;
+                case Keys.Oemplus:
+                    layer = Layer.BrushMir3BigTiles;
+                    cmbEditorLayer.SelectedIndex = 19;
+                    break;
+                case Keys.OemMinus:
+                    layer = Layer.BrushSmTiles;
+                    cmbEditorLayer.SelectedIndex = 18;
+                    break;
+
+
+                case Keys.F1:
+                    e.SuppressKeyPress = true;
+                    tabControl1.SelectedTab = tabWemadeMir2;
+                    break;
+                case Keys.F2:
+                    e.SuppressKeyPress = true;
+                    tabControl1.SelectedTab = tabShandaMir2;
+                    break;
+                case Keys.F3:
+                    e.SuppressKeyPress = true;
+                    tabControl1.SelectedTab = tabWemadeMir3;
+                    break;
+                case Keys.F4: //Added by M2P
+                    e.SuppressKeyPress = true;
+                    tabControl1.SelectedTab = tabTileCutter;
+                    break;
+                case Keys.F5:
+                    e.SuppressKeyPress = true;
+                    tabControl1.SelectedTab = tabMap;
+                    break;
+                case Keys.F6:
+                    e.SuppressKeyPress = true;
+                    chkFront.Checked = !chkFront.Checked;
+                    break;
+                case Keys.F7:
+                    e.SuppressKeyPress = true;
+                    chkMidd.Checked = !chkMidd.Checked;
+                    break;
+                case Keys.F8:
+                    e.SuppressKeyPress = true;
+                    chkBack.Checked = !chkBack.Checked;
+                    break;
+                case Keys.F9:
+                    e.SuppressKeyPress = true;
+                    chkShowCellInfo.Checked = !chkShowCellInfo.Checked;
+                    cellInfoControl.Visible = chkShowCellInfo.Checked;
+                    break;
+                case Keys.F10:
+                    e.SuppressKeyPress = true; //Stops the F10 key switching focus to the File Menu
+                    chkFrontTag.Checked = !chkFrontTag.Checked;
+                    break;
+                case Keys.F11:
+                    e.SuppressKeyPress = true;
+                    chkMiddleTag.Checked = !chkMiddleTag.Checked;
+                    break;
+                case Keys.F12: //Reserved - M2P added (Ctrl-F12)F12 shortcut to toggle (View Front Limit)'View Back Limit' via GUI element property panel!
+                    e.SuppressKeyPress = true;
+                    //chkTopTag.Checked = !chkTopTag.Checked;
                     break;
             }
 
@@ -2697,6 +2848,14 @@ namespace Map_Editor
             }
         }
 
+        private void Main_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.ControlKey)
+            {
+                keyDown = false;
+            }
+        }
+
         private void ObjectslistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var name = ObjectslistBox.SelectedItem + ".X";
@@ -2711,15 +2870,6 @@ namespace Map_Editor
         {
             chkMiddleTag.Checked = !chkMiddleTag.Checked;
         }
-
-        private void Main_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.ControlKey)
-            {
-                keyDown = false;
-            }
-        }
-
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -2774,11 +2924,6 @@ namespace Map_Editor
                     MapPanel.Controls.Add(cellInfoControl);
                 }
             }
-        }
-
-        private void btnMir3ToMir2_Click(object sender, EventArgs e)
-        {
-            InvertMir3Layer();
         }
 
         private void WemadeMir2LibListView_Click(object sender, EventArgs e)
@@ -3988,8 +4133,7 @@ namespace Map_Editor
                 }
             } //最后检查完一趟, 假如发现没有地砖需要变化调整, 则说明调整完毕了。。算法比较复杂, 大家可以慢慢看代码搞清楚, 调整地砖也不止这一种算法, 大家有兴趣的可以想想自己的一些算法来绘制自动化的样式
         }
-
-
+        
         private Bitmap GetTilesPreview(ListItem selectListView, int index)
         {
             var preview = new Bitmap(6*CellWidth, 6*CellHeight);
@@ -4246,6 +4390,261 @@ namespace Map_Editor
             return -1;
         }
 
+        private void menuClearMap_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are You sure you want to clear map tiles?", "Clear Map", MessageBoxButtons.OKCancel);
+
+            if (dr == DialogResult.OK)
+            {
+                if (M2CellInfo != null)
+                {
+                    for (var x = 0; x < mapWidth; x++)
+                    {
+                        for (var y = 0; y < mapHeight; y++)
+                        {
+                            M2CellInfo[x, y] = new CellInfo();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void setScrollBar()
+        {
+            OffSetX = MapPanel.Width / (CellWidth * zoomMIN / zoomMAX);
+            OffSetY = MapPanel.Height / (CellHeight * zoomMIN / zoomMAX);
+
+            if (mapWidth - OffSetX >= 0) hScrollBar.Maximum = mapWidth - OffSetX;
+            else hScrollBar.Maximum = 0;
+            if (mapHeight - OffSetY >= 0) vScrollBar.Maximum = mapHeight - OffSetY;
+            else vScrollBar.Maximum = 0;
+
+            if (mapPoint.X >= 0)
+            {
+                if (mapPoint.X <= mapWidth) hScrollBar.Value = mapPoint.X;
+                else hScrollBar.Value = mapWidth - 1;
+            }
+            else hScrollBar.Value = 0;
+
+            if (mapPoint.Y >= 0)
+            {
+                if (mapPoint.Y <= mapHeight) vScrollBar.Value = mapPoint.Y;
+                else vScrollBar.Value = mapHeight - 1;
+            }
+            else vScrollBar.Value = 0;
+        }
+
+        private void menuNew_Click(object sender, EventArgs e)
+        {
+            NewMap();
+        }
+
+        private void NewMap()
+        {
+            var frm = new NewFileFrm(SetMapSize);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                M2CellInfo = new CellInfo[mapWidth, mapHeight];
+                for (var x = 0; x < mapWidth; x++)
+                {
+                    for (var y = 0; y < mapHeight; y++)
+                    {
+                        M2CellInfo[x, y] = new CellInfo();
+                    }
+                }
+                mapPoint = new Point(0, 0);
+                setScrollBar();
+            }
+            
+        }
+
+        private void menuOpen_Click(object sender, EventArgs e)
+        {
+            OpenMap();
+        }
+
+        private void OpenMap()
+        {
+            ClearImage();
+            var openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var filePath = openFileDialog.FileName;
+                map = new MapReader(filePath);
+                M2CellInfo = map.MapCells;
+                mapPoint = new Point(0, 0);
+                SetMapSize(map.Width, map.Height);
+                mapFileName = openFileDialog.FileName;
+                setScrollBar();
+            }
+        }
+
+        private void menuSave_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
+        private void menuUndo_Click(object sender, EventArgs e)
+        {
+            UnDo();
+        }
+
+        private void menuRedo_Click(object sender, EventArgs e)
+        {
+            ReDo();
+        }
+
+        private void menuZoomIn_Click(object sender, EventArgs e)
+        {
+            ZoomIn();
+        }
+
+        private void ZoomIn()
+        {
+            if (map != null)
+            {
+                EnlargeZoom();
+                SetMapSize(mapWidth, mapHeight);
+            }
+
+        }
+
+        private void menuZoomOut_Click(object sender, EventArgs e)
+        {
+            ZoomOut();
+        }
+
+        private void ZoomOut()
+        {
+            if (map != null)
+            {
+                NarrowZoom();
+                SetMapSize(mapWidth, mapHeight);
+            }
+        }
+
+
+        //#region Tool panel buttons
+        ////Buttons for the Tool panel
+        //private void btn_Move_Click(object sender, EventArgs e)
+        //{
+        //    layer = Layer.None;
+        //}
+
+        //private void btn_Select_Click(object sender, EventArgs e)
+        //{
+        //    layer = Layer.GraspingMir2Front;
+        //}
+
+
+
+        //#endregion
+
+        private void hScrollBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            Jump(hScrollBar.Value, mapPoint.Y);
+        }
+
+        private void vScrollBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            Jump(mapPoint.X , vScrollBar.Value);
+        }
+
+        private void menu_DeleteSelectedCellData_Click(object sender, EventArgs e)
+        {
+            if (M2CellInfo != null)
+            {
+                DialogResult dr = MessageBox.Show("Are You sure you want to delete selected Cell Data?", "Delete", MessageBoxButtons.OKCancel);
+
+                if (dr == DialogResult.OK)
+                {
+                    //this should swap the points if point 2 is not a higher value
+                    if (p1.X > p2.X)
+                    {
+                        p1.X += p2.X;
+                        p2.X = p1.X - p2.X - 1;
+                        p1.X -= p2.X;
+                    }
+
+                    if (p1.Y > p2.Y)
+                    {
+                        p1.Y += p2.Y;
+                        p2.Y = p1.Y - p2.Y - 1;
+                        p1.Y -= p2.Y;
+                    }
+
+                    for (var x = p1.X; x <= p2.X; x++)
+                    {
+                        for (var y = p1.Y; y <= p2.Y; y++)
+                        {
+                            M2CellInfo[x, y] = new CellInfo();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void menu_SaveObject_Click(object sender, EventArgs e)
+        {
+            if (M2CellInfo == null) return;
+
+            //this should swap the points if point 2 is not a higher value
+            if (p1.X > p2.X)
+            {
+                p1.X += p2.X;
+                p2.X = p1.X - p2.X - 1;
+                p1.X -= p2.X;
+            }
+
+            if (p1.Y > p2.Y)
+            {
+                p1.Y += p2.Y;
+                p2.Y = p1.Y - p2.Y - 1;
+                p1.Y -= p2.Y;
+            }
+
+            SaveObjectsFile();
+            ObjectslistBox.Items.Clear();
+            ReadObjectsToListBox();
+        }
+
+        private void menuFreeMemory_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void menuJump_Click(object sender, EventArgs e)
+        {
+            if (M2CellInfo != null)
+            {
+                Form jump = new FrmJump(Jump);
+                if (jump.ShowDialog() == DialogResult.OK)
+                {
+                }
+            }
+        }
+
+        private void menuInvertMir3Layer_Click(object sender, EventArgs e)
+        {
+            InvertMir3Layer();
+        }
+
+        private void menuAbout_Click(object sender, EventArgs e)
+        {
+            Form frmAbout = new FrmAbout();
+            frmAbout.ShowDialog();
+        }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            OpenMap();
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            NewMap();
+        }
+
         private int RandomAutoMir3Tile(TileType tileType)
         {
             //传奇3 bigTile 30块 2 中组合
@@ -4378,6 +4777,390 @@ namespace Map_Editor
             return -1;
         }
 
+        private void btnMiniMap_Click(object sender, EventArgs e)
+        {
+            createMiniMap();
+        }
+
+        private void btnFreeMemory_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
+        //loads image for TileCutter
+        private void btn_load_Click(object sender, EventArgs e)
+        {
+            if (loadImageDialog.ShowDialog() != DialogResult.OK) return;
+            string fileName = loadImageDialog.FileName;
+
+            try
+            {
+                _mainImage = new Bitmap(fileName);
+                pictureBox_Image.Image = _mainImage;
+
+                //resize the picturebox to force scrollbars to appear if too large to fit on screen
+                pictureBox_Image.Width = _mainImage.Width;
+                pictureBox_Image.Height = _mainImage.Height;
+                pictureBox_Grid.Width = _mainImage.Width;
+                pictureBox_Grid.Height = _mainImage.Height;
+                pictureBox_Highlight.Width = _mainImage.Width;
+                pictureBox_Highlight.Height = _mainImage.Height;
+                pictureBox_loaded = true;
+            }
+            catch
+            {
+                //error loading image
+            }
+
+            //loads array for storing selected cells
+            CellSizeX = (comboBox_cellSize.SelectedIndex + 1) * 48;
+            CellSizeY = (comboBox_cellSize.SelectedIndex + 1) * 32;
+            SelectedCells = new int[(pictureBox_Image.Image.Width / CellSizeX + 2), (pictureBox_Image.Image.Height / CellSizeY + 2)];
+
+            //update grid
+            gridUpdate(false);
+        }
+
+        //TileCutter
+        private void gridUpdate(bool toggle)
+        {
+            if (pictureBox_Image.Image != null)
+            {
+                if (toggle)
+                    grid = grid == true ? false : true;
+
+
+                Bitmap image;
+                if (grid)
+                {
+
+                    image = new Bitmap(pictureBox_Grid.Width, pictureBox_Grid.Height);
+                    CellSizeX = (comboBox_cellSize.SelectedIndex + 1) * 48;
+                    CellSizeY = (comboBox_cellSize.SelectedIndex + 1) * 32;
+
+
+                    //vert
+                    for (int y = 0; y < ((pictureBox_Image.Image.Height / CellSizeY) + 2) * CellSizeY + 1; y++)
+                    {
+                        for (int x = 0; x < ((pictureBox_Image.Image.Width / CellSizeX) + 2) * CellSizeX; x++)
+                        {
+                            if (x >= pictureBox_Grid.Width || y >= pictureBox_Grid.Height) continue;
+                            image.SetPixel(x, y, Color.HotPink);
+                        }
+                        y += CellSizeY - 1;
+                    }
+
+                    //horiz
+                    for (int x = 0; x < ((pictureBox_Image.Image.Width / CellSizeX) + 2) * CellSizeX + 1; x++)
+                    {
+                        for (int y = 0; y < ((pictureBox_Image.Image.Height / CellSizeY) + 2) * CellSizeY; y++)
+                        {
+                            if (x >= pictureBox_Grid.Width || y >= pictureBox_Grid.Height) continue;
+                            image.SetPixel(x, y, Color.HotPink);
+                        }
+                        x += CellSizeX - 1;
+                    }
+
+
+
+                    pictureBox_Grid.Image = image;
+                }
+                else
+                {
+                    image = new Bitmap(1, 1);
+                    pictureBox_Grid.Image = image;
+                }
+            }
+        }
+
+        //TileCutter
+        #region Move TileCutter Image
+        private void btn_up_Click(object sender, EventArgs e)
+        {
+            pictureBox_Image.Padding = new Padding(pictureBox_Image.Padding.Left, pictureBox_Image.Padding.Top - 1, 0, 0);
+            pictureBox_Image.Image = pictureBox_Image.Image;
+        }
+
+        private void btn_down_Click(object sender, EventArgs e)
+        {
+            pictureBox_Image.Padding = new Padding(pictureBox_Image.Padding.Left, pictureBox_Image.Padding.Top + 1, 0, 0);
+            pictureBox_Image.Image = pictureBox_Image.Image;
+        }
+
+        private void btn_left_Click(object sender, EventArgs e)
+        {
+            pictureBox_Image.Padding = new Padding(pictureBox_Image.Padding.Left - 1, pictureBox_Image.Padding.Top, 0, 0);
+            pictureBox_Image.Image = pictureBox_Image.Image;
+            //MessageBox.Show(pictureBox_Image.Padding.Left.ToString());
+        }
+
+        private void btn_right_Click(object sender, EventArgs e)
+        {
+            pictureBox_Image.Padding = new Padding(pictureBox_Image.Padding.Left + 1, pictureBox_Image.Padding.Top, 0, 0);
+            pictureBox_Image.Image = pictureBox_Image.Image;
+        }
+        #endregion
+
+        //TileCutter
+        private void btn_grid_Click(object sender, EventArgs e)
+        {
+            gridUpdate(true);
+        }
+
+        //TileCutter
+        private void pictureBox_Highlight_Click(object sender, EventArgs e)
+        {
+            if (pictureBox_loaded != true) return;
+
+            //Find mouse position
+            MPoint = pictureBox_Grid.PointToClient(Cursor.Position);
+
+            //test mouse select cells
+            if (MPoint.Y >= 0)
+            {
+                MPoint.Y = (MPoint.Y / CellSizeY);
+                if (MPoint.X >= 0)
+                {
+                    MPoint.X = (MPoint.X / CellSizeX);
+
+                }
+                else
+                    MPoint.X = -1;
+            }
+            else
+                MPoint.Y = -1;
+
+            if (MPoint.X >= 0 && MPoint.Y >= 0 && MPoint.X <= (pictureBox_Image.Image.Width / CellSizeX) + 1 && MPoint.Y <= (pictureBox_Image.Image.Height / CellSizeY) + 1)
+            {
+                Bitmap image;
+                if (grid)
+                {
+                    image = new Bitmap(pictureBox_Grid.Width, pictureBox_Grid.Height);
+
+                    SelectedCells[MPoint.X, MPoint.Y] = SelectedCells[MPoint.X, MPoint.Y] == 1 ? 0 : 1;
+
+
+                    for (int y = 0; y <= (pictureBox_Image.Image.Height / CellSizeY) + 1; y++)
+                    {
+                        for (int x = 0; x <= (pictureBox_Image.Image.Width / CellSizeX) + 1; x++)
+                        {
+                            if (SelectedCells[x, y] == 1)
+                            {
+                                //MessageBox.Show(x + " " + y);
+                                using (Graphics g = Graphics.FromImage(image))
+                                {
+                                    g.DrawImage(cellHighlight, new Point(x * CellSizeX, y * CellSizeY));
+                                }
+                            }
+                        }
+                    }
+
+
+                    //using (Graphics g = Graphics.FromImage(image))
+                    //{
+                    //g.DrawImage(cellHighlight, new Point(MPoint.X * CellSizeX, MPoint.Y * CellSizeY));
+                    //}
+                    pictureBox_Highlight.Image = image;
+                }
+                else
+                {
+                    image = new Bitmap(1, 1);
+                    pictureBox_Highlight.Image = image;
+                }
+            }
+        }
+
+        //TileCutter
+        private void comboBox_cellSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gridUpdate(false);
+        }
+
+        //TileCutter
+        private void Main_ResizeEnd(object sender, EventArgs e)
+        {
+            gridUpdate(false);
+        }
+
+        private void btn_vCut_Click(object sender, EventArgs e)
+        {
+            //add the padding to the mainimage
+            Bitmap _mainImageTemp = new Bitmap(_mainImage.Width + pictureBox_Image.Padding.Left, _mainImage.Height + pictureBox_Image.Padding.Top);
+            using (Graphics g = Graphics.FromImage(_mainImageTemp))
+            {
+                g.DrawImage(_mainImage, pictureBox_Image.Padding.Left, pictureBox_Image.Padding.Top, _mainImage.Width, _mainImage.Height);
+            }
+
+            //Create a Library file to save the images in
+            if (SaveLibraryDialog.ShowDialog() != DialogResult.OK) return;
+            if (_library != null) _library.Close();
+            _library = new MLibrary(SaveLibraryDialog.FileName);
+
+            //adds a single blank cell to the library
+            _library.AddImage(null, 0, 0);
+
+            //cycle through and find image segments
+            int tempY = 0;
+            for (int x = 0; x < ((pictureBox_Image.Image.Width / CellSizeX) + 2); x++)
+            {
+                for (int y = 0; y < ((pictureBox_Image.Image.Height / CellSizeY) + 2); y++)
+                {
+                    //looks for blank parts at top of cell
+                    bool isBlank = true;
+                    if (tempY == 0)
+                    {
+                        for (int h = 0; h < CellSizeY; h++)
+                        {
+                            for (int w = 0; w < CellSizeX; w++)
+                            {
+                                if (w * x > _mainImageTemp.Width || h * y > _mainImageTemp.Height) continue;
+                                Color col = _mainImageTemp.GetPixel(w * x, h * y);
+
+                                if (col.A != 0)
+                                {
+                                    isBlank = false;
+                                    break;
+                                }
+                                //MessageBox.Show(w + " " + h);
+                            }
+                            if (!isBlank) break;
+                        }
+                        if (isBlank) continue;
+                    }
+
+                    if (SelectedCells[x, y] == 1)
+                    {
+                        Bitmap image = new Bitmap(CellSizeX, CellSizeY * (tempY + 1), PixelFormat.Format32bppArgb);
+                        using (Graphics g = Graphics.FromImage(image))
+                        {
+                            g.DrawImage(_mainImageTemp, new Rectangle(0, 0, image.Width, image.Height), new Rectangle(x * CellSizeX, (y - tempY) * CellSizeY, image.Width, image.Height), GraphicsUnit.Pixel);
+                        }
+                        //checks if cell image is blank
+                        //bool isBlank = true;
+                        for (int h = 0; h < image.Height; h++)
+                        {
+                            for (int w = 0; w < image.Width; w++)
+                            {
+                                Color col = image.GetPixel(w, h);
+                                if (col.A != 0) isBlank = false;
+                                //MessageBox.Show(col.A.ToString());
+                            }
+                        }
+
+                        if (!isBlank) _library.AddImage(image, 0, 0);
+                        tempY = 0;
+                        continue;
+                    }
+                    tempY++;
+                }
+
+                //force last image in column to save if it has not already
+                if (tempY > 0)
+                {
+                    Bitmap image = new Bitmap(CellSizeX, CellSizeY * (tempY), PixelFormat.Format32bppArgb);
+                    using (Graphics g = Graphics.FromImage(image))
+                    {
+                        g.DrawImage(_mainImageTemp, new Rectangle(0, 0, image.Width, image.Height), new Rectangle(x * CellSizeX, (((pictureBox_Image.Image.Height / CellSizeY) + 2) - tempY) * CellSizeY, image.Width, image.Height), GraphicsUnit.Pixel);
+                    }
+                    //checks if cell image is blank
+                    bool isBlank = true;
+                    for (int h = 0; h < image.Height; h++)
+                    {
+                        for (int w = 0; w < image.Width; w++)
+                        {
+                            Color col = image.GetPixel(w, h);
+                            if (col.A != 0) isBlank = false;
+                            //MessageBox.Show(col.A.ToString());
+                        }
+                    }
+
+                    if (!isBlank)
+                    {
+                        //trim image
+
+                        _library.AddImage(image, 0, 0);
+                    }
+                    tempY = 0; //reset when moving to next column
+                }
+
+
+
+
+
+            }
+
+
+
+
+
+
+            _library.Save();
+
+
+
+        }
+
+        private void btnRefreshList_Click(object sender, EventArgs e)
+        {
+            ObjectslistBox.Items.Clear();
+            ReadObjectsToListBox();
+        }
+
+        private void menuSelectAllCells_Click(object sender, EventArgs e)
+        {
+            Bitmap image = new Bitmap(pictureBox_Grid.Width, pictureBox_Grid.Height);
+            for (int y = 0; y <= (pictureBox_Image.Image.Height / CellSizeY) + 1; y++)
+            {
+                for (int x = 0; x <= (pictureBox_Image.Image.Width / CellSizeX) + 1; x++)
+                {
+                    SelectedCells[x, y] = 1;
+                    
+                    using (Graphics g = Graphics.FromImage(image))
+                    {
+                        g.DrawImage(cellHighlight, new Point(x * CellSizeX, y * CellSizeY));
+                    }
+                }
+            }
+            pictureBox_Highlight.Image = image;
+        }
+
+        private void menuDeselectAllCells_Click(object sender, EventArgs e)
+        {
+            for (int y = 0; y <= (pictureBox_Image.Image.Height / CellSizeY) + 1; y++)
+            {
+                for (int x = 0; x <= (pictureBox_Image.Image.Width / CellSizeX) + 1; x++)
+                {
+                    SelectedCells[x, y] = 0;
+                }
+            }
+            pictureBox_Highlight.Image = new Bitmap(pictureBox_Grid.Width, pictureBox_Grid.Height);
+        }
+
+        private void toolStripDropDownButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbEditorLayer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private int RandomAutoSmTile(TileType iTileType)
         {
             //然后我们根据这个规律就可以返回某种地砖类型的某一块了。。
@@ -4387,6 +5170,153 @@ namespace Map_Editor
             }
             //中间地砖
             return selectTilesIndex*smTileBlock + random.Next(8);
+        }
+
+        //Akaras: This should create the correct size MiniMap to use in game... just photoshop it to add caves and doorway icons if needed
+        public void createMiniMap()
+        {
+            Bitmap miniBitmap = new Bitmap(mapWidth * 12, mapHeight * 8, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            //backimage
+            for (int y = 0; y <= mapHeight - 1; y++)
+            {
+                for (int x = 0; x <= mapWidth - 1; x++)
+                {
+                    if ((M2CellInfo[x, y].BackImage & 0x1FFFFFFF) != 0)
+                    {
+                        try
+                        {
+                            Libraries.MapLibs[M2CellInfo[x, y].BackIndex].CheckImage((M2CellInfo[x, y].BackImage & 0x1FFFFFFF) - 1);
+                            var mi = Libraries.MapLibs[M2CellInfo[x, y].BackIndex].Images[(M2CellInfo[x, y].BackImage & 0x1FFFFFFF) - 1];
+                            if (mi.Image != null || mi.ImageTexture != null)
+                            {
+                                using (Graphics g = Graphics.FromImage(miniBitmap))
+                                {
+                                    Rectangle temprect = new Rectangle((x * 12), (y * 8), 24, 16);
+                                    g.DrawImage(mi.Image, temprect);
+                                }
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+
+                    }
+                    x++;
+                }
+                y++;
+            }
+
+            //MiddleImage
+            for (int y = 0; y <= mapHeight - 1; y++)
+            {
+                for (int x = 0; x <= mapWidth - 1; x++)
+                {
+                    if ((M2CellInfo[x, y].MiddleImage) != 0)
+                    {
+                        try
+                        {
+                            Libraries.MapLibs[M2CellInfo[x, y].MiddleIndex].CheckImage((M2CellInfo[x, y].MiddleImage) - 1);
+                            var mi = Libraries.MapLibs[M2CellInfo[x, y].MiddleIndex].Images[(M2CellInfo[x, y].MiddleImage) - 1];
+                            if (mi.Image != null || mi.ImageTexture != null)
+                            {
+                                using (Graphics g = Graphics.FromImage(miniBitmap))
+                                {
+                                    Rectangle temprect = new Rectangle((x * 12), (y * 8) - (mi.Image.Height / 4) + 8, mi.Image.Width / 4, mi.Image.Height / 4);
+                                    g.DrawImage(mi.Image, temprect);
+                                }
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+
+                }
+            }
+
+
+
+            //FrontImage
+            for (int y = 0; y <= mapHeight - 1; y++)
+            {
+                for (int x = 0; x <= mapWidth - 1; x++)
+                {
+                    if ((M2CellInfo[x, y].FrontImage & 0x7FFF) != 0 && (M2CellInfo[x, y].FrontAnimationFrame & 0x80) < 1) //skips drawing if image is animated <<will this cause missing spots for waterfalls and such?
+                    {
+                        try
+                        {
+                            Libraries.MapLibs[M2CellInfo[x, y].FrontIndex].CheckImage((M2CellInfo[x, y].FrontImage & 0x7FFF) - 1);
+                            var mi = Libraries.MapLibs[M2CellInfo[x, y].FrontIndex].Images[(M2CellInfo[x, y].FrontImage & 0x7FFF) - 1];
+                            if (mi.Image != null || mi.ImageTexture != null)
+                            {
+                                using (Graphics g = Graphics.FromImage(miniBitmap))
+                                {
+                                    Rectangle temprect = new Rectangle((x * 12), (y * 8) - (mi.Image.Height / 4) + 8, mi.Image.Width / 4, mi.Image.Height / 4);
+                                    g.DrawImage(mi.Image, temprect);
+                                }
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+
+                    }
+
+                }
+            }
+
+            miniBitmap = new Bitmap(miniBitmap, (miniBitmap.Width / 8), (miniBitmap.Height / 8));
+
+            string SimpleFileName = Path.GetDirectoryName(mapFileName) + @"\" + Path.GetFileNameWithoutExtension(mapFileName);
+            //MessageBox.Show(SimpleFileName);
+            miniBitmap.Save(SimpleFileName + "_MiniMap.png", ImageFormat.Png);
+            MessageBox.Show("Saved... " + SimpleFileName + "_MiniMap.png"); //TODO: this shows even if failed to save
+
+
+            //Akaras: Removed this as it was not popular as it is probably easier to photoshop the main MiniMap to 1/2 size and add borders
+            //kept the code here if anyone finds a use for it :)
+            //BigMap
+
+            //miniBitmap = new Bitmap(miniBitmap, miniBitmap.Width / 2, miniBitmap.Height / 2);
+            //using (Graphics g = Graphics.FromImage(miniBitmap))
+            //{
+            //    Rectangle temprect = new Rectangle(0, 0, 40, 40);
+            //    g.DrawImage(BigMapTL, temprect);
+            //    temprect = new Rectangle(miniBitmap.Width - 40, 0, 40, 40);
+            //    g.DrawImage(BigMapTR, temprect);
+            //    temprect = new Rectangle(0, miniBitmap.Height - 40, 40, 40);
+            //    g.DrawImage(BigMapBL, temprect);
+            //    temprect = new Rectangle(miniBitmap.Width - 40, miniBitmap.Height - 40, 40, 40);
+            //    g.DrawImage(BigMapBR, temprect);
+
+            //    // colour the side lines
+            //    Color tcol1 = Color.FromArgb(255, 225, 212, 186);
+            //    Color tcol2 = Color.FromArgb(255, 165, 133, 70);
+            //    for (int i = 38; i < miniBitmap.Width - 38; i++)
+            //    {
+            //        miniBitmap.SetPixel(i, 0, tcol1); //top first colour
+            //        miniBitmap.SetPixel(i, 1, tcol2); //top second colour
+            //        miniBitmap.SetPixel(i, miniBitmap.Height - 1, tcol1); //Bottom first colour
+            //        miniBitmap.SetPixel(i, miniBitmap.Height - 2, tcol2); //Bottom second colour
+            //    }
+            //    for (int i = 38; i < miniBitmap.Height - 38; i++)
+            //    {
+            //        miniBitmap.SetPixel(0, i, tcol1); //Left first colour
+            //        miniBitmap.SetPixel(1, i, tcol2); //Left second colour
+            //        miniBitmap.SetPixel(miniBitmap.Width - 1, i, tcol1); //Right first colour
+            //        miniBitmap.SetPixel(miniBitmap.Width - 2, i, tcol2); //Right second colour
+            //    }
+            //}
+
+            //SimpleFileName = Path.GetDirectoryName(SelectedMapName) + @"\" + Path.GetFileNameWithoutExtension(SelectedMapName);
+            //MessageBox.Show("Saved... " + SimpleFileName);
+            //miniBitmap.Save(SimpleFileName + "_BigMap.png", ImageFormat.Png);
+            //miniBitmap.Dispose();
+
         }
 
         private enum Layer

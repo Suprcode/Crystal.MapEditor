@@ -36,7 +36,6 @@ namespace Map_Editor
             ListItems[1] = new ListItem("Smtiles", 1);
             MapLibs[2] = new MLibrary(@".\Data\Map\WemadeMir2\Objects");
             ListItems[2] = new ListItem("Objects", 2);
-
             for (int i = 2; i < 27; i++)
             {
                 if (File.Exists(@".\Data\Map\WemadeMir2\Objects" + i + ".lib"))
@@ -70,7 +69,7 @@ namespace Map_Editor
             }
             MapLibs[120] = new MLibrary(@".\Data\Map\ShandaMir2\Objects");
             ListItems[120] = new ListItem("Objects", 120);
-            for (int i = 1; i < 31; i++)
+            for (int i = 1; i < 79; i++)
             {
                 if (File.Exists(@".\Data\Map\ShandaMir2\Objects" + (i + 1) + ".lib"))
                 {
@@ -79,8 +78,8 @@ namespace Map_Editor
                 }
 
             }
-            MapLibs[190] = new MLibrary(@".\Data\Map\ShandaMir2\AniTiles1");
-            ListItems[190] = new ListItem("AniTiles1", 190);
+            MapLibs[199] = new MLibrary(@".\Data\Map\ShandaMir2\AniTiles1");
+            ListItems[199] = new ListItem("AniTiles1", 199);
             //wemade mir3 (allowed from 200-299)
             string[] Mapstate = { "", "wood\\", "sand\\", "snow\\", "forest\\" };
             for (int i = 0; i < Mapstate.Length; i++)
@@ -288,7 +287,7 @@ namespace Map_Editor
     }
     public sealed class MLibrary
     {
-        public const int LibVersion = 3;
+        public const int LibVersion = 2;
         public static bool Load = true;
         public string FileName;
 
@@ -299,6 +298,8 @@ namespace Map_Editor
 
         private BinaryReader _reader;
         private FileStream _stream;
+
+
 
         public MLibrary(string filename)
         {
@@ -317,7 +318,7 @@ namespace Map_Editor
             _stream = new FileStream(FileName, FileMode.Open, FileAccess.Read);
             _reader = new BinaryReader(_stream);
             CurrentVersion = _reader.ReadInt32();
-            if (CurrentVersion < 2)
+            if (CurrentVersion != LibVersion)
             {
                 MessageBox.Show("Wrong version, expecting lib version: " + LibVersion.ToString() + " found version: " + CurrentVersion.ToString() + ".", "Failed to open", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 return;
@@ -325,13 +326,6 @@ namespace Map_Editor
             Count = _reader.ReadInt32();
             Images = new List<MImage>();
             IndexList = new List<int>();
-
-
-            int frameSeek = 0;
-            if (CurrentVersion >= 3)
-            {
-                frameSeek = _reader.ReadInt32();
-            }
 
             for (int i = 0; i < Count; i++)
                 IndexList.Add(_reader.ReadInt32());
@@ -342,7 +336,6 @@ namespace Map_Editor
             //for (int i = 0; i < Count; i++)
             //    CheckImage(i);
         }
-
 
         public void Close()
         {
