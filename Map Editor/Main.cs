@@ -169,7 +169,7 @@ namespace Map_Editor
                 AnimationCount++;
             }
 
-            Text = string.Format("FPS: {0}---Map:W {1}:H {2} ----W,S,A,D,--v.1.0--<{3}>", FPS, mapWidth, mapHeight,
+            Text = string.Format("FPS: {0}---Map:W {1}:H {2} ----W,S,A,D,--Suprcode--v.1.1--<{3}>", FPS, mapWidth, mapHeight,
                 mapFileName);
         }
 
@@ -2015,7 +2015,7 @@ namespace Map_Editor
                 {
                     if (points[i].X >= mapWidth || points[i].Y >= mapHeight || points[i].X < 0 || points[i].Y < 0)
                     {
-                        MessageBox.Show("放置位置不对，或地图过小！");
+                        MessageBox.Show("Object Outside Map Boundary!");
                         return false;
                     }
                     cellInfoDatas[i] = new CellInfoData(points[i].X, points[i].Y,
@@ -2673,6 +2673,10 @@ namespace Map_Editor
                 case Keys.R:
                     tabControl1.SelectedTab = tabObjects;
                     break;
+               // case Keys.S: //Added by M2P - If set 'Save Map' Shortcut 'Ctrl-S' in 'Properties -> menuSave', if in back tiles placing mode, Saving map triggers back tiles brushing since 'Ctrl' key is not 'released'!
+               //     if (e.Control)
+               //         Save();
+               //     break;
                 case Keys.T:
                     tabControl1.SelectedTab = tabTiles;
                     break;
@@ -2822,7 +2826,7 @@ namespace Map_Editor
                     e.SuppressKeyPress = true;
                     chkMiddleTag.Checked = !chkMiddleTag.Checked;
                     break;
-                case Keys.F12: //Reserved - M2P added (Ctrl-F12)F12 shortcut to toggle (View Front Limit)'View Back Limit' via GUI element property panel!
+                case Keys.F12: //Reserved XX - M2P added (Ctrl-F12)F12 shortcut to toggle (View Front Limit)'View Back Limit' via GUI element property panel!
                     e.SuppressKeyPress = true;
                     //chkTopTag.Checked = !chkTopTag.Checked;
                     break;

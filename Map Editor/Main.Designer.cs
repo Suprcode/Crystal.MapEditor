@@ -1362,7 +1362,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.picObjects);
             this.splitContainer2.Size = new System.Drawing.Size(1772, 1068);
-            this.splitContainer2.SplitterDistance = 45;
+            this.splitContainer2.SplitterDistance = 43;
             this.splitContainer2.TabIndex = 3;
             // 
             // btnRefreshList
@@ -1394,7 +1394,7 @@
             this.picObjects.Location = new System.Drawing.Point(0, 0);
             this.picObjects.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picObjects.Name = "picObjects";
-            this.picObjects.Size = new System.Drawing.Size(1772, 1019);
+            this.picObjects.Size = new System.Drawing.Size(1772, 1021);
             this.picObjects.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.picObjects.TabIndex = 0;
             this.picObjects.TabStop = false;
