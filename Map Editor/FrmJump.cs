@@ -25,14 +25,38 @@ namespace Map_Editor
 
         private void btnJump_Click(object sender, EventArgs e)
         {
-            if (txtX.Text.Trim()!=String.Empty)
+            if (txtX.Text.Trim() != String.Empty)
             {
-                if (txtY.Text.Trim()!=String.Empty)
+                if (txtY.Text.Trim() != String.Empty)
                 {
                     int x = Convert.ToInt32(txtX.Text.Trim());
                     int y = Convert.ToInt32(txtY.Text.Trim());
                     _delJump(x, y);
-                }   
+                    Dispose();
+                    //this.Close();
+                }
+            }
+        }
+
+        private void txtX_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    KeyPressEventArgs arg = new KeyPressEventArgs(Convert.ToChar(Keys.Enter));
+                    btnJump_Click(sender, arg);
+                    break;
+            }
+        }
+
+        private void txtY_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    KeyPressEventArgs arg = new KeyPressEventArgs(Convert.ToChar(Keys.Enter));
+                    btnJump_Click(sender, arg);
+                    break;
             }
         }
     }

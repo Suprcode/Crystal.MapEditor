@@ -70,7 +70,7 @@ namespace Map_Editor
             }
             MapLibs[120] = new MLibrary(@".\Data\Map\ShandaMir2\Objects");
             ListItems[120] = new ListItem("Objects", 120);
-            for (int i = 1; i < 31; i++)
+            for (int i = 1; i < 79; i++)
             {
                 if (File.Exists(@".\Data\Map\ShandaMir2\Objects" + (i + 1) + ".lib"))
                 {
@@ -79,8 +79,8 @@ namespace Map_Editor
                 }
 
             }
-            MapLibs[190] = new MLibrary(@".\Data\Map\ShandaMir2\AniTiles1");
-            ListItems[190] = new ListItem("AniTiles1", 190);
+            MapLibs[199] = new MLibrary(@".\Data\Map\ShandaMir2\AniTiles1");
+            ListItems[199] = new ListItem("AniTiles1", 199);
             //wemade mir3 (allowed from 200-299)
             string[] Mapstate = { "", "wood\\", "sand\\", "snow\\", "forest\\" };
             for (int i = 0; i < Mapstate.Length; i++)

@@ -23,13 +23,46 @@ namespace Map_Editor
             int h = Convert.ToInt32(txtHeight.Text.Trim());
             if (w<=0||h<=0||w>=1000||h>=1000)
             {
-                MessageBox.Show("地图限制1000*1000");
+                MessageBox.Show("Map Size Max 1000*1000");
             }
             else
             {
                 _delSetMapSize(w, h);
+                DialogResult = DialogResult.OK;
                 Close();
             }
+        }
+
+        private void txtWidth_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    KeyPressEventArgs arg = new KeyPressEventArgs(Convert.ToChar(Keys.Enter));
+                    btnOk_Click(sender, arg);
+                    break;
+            }
+        }
+
+        private void txtHeight_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    KeyPressEventArgs arg = new KeyPressEventArgs(Convert.ToChar(Keys.Enter));
+                    btnOk_Click(sender, arg);
+                    break;
+            }
+        }
+
+        private void txtWidth_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
