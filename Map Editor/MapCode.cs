@@ -215,6 +215,11 @@ namespace Map_Editor
                             };
                         offSet++;
 
+                        if (MapCells[x, y].FrontIndex == 102)
+                        {
+                            MapCells[x, y].FrontIndex = 90;
+                        }
+
                         if (MapCells[x, y].Light == 100 || MapCells[x, y].Light == 101)
                             MapCells[x, y].FishingCell = true;
                     }

@@ -36,6 +36,7 @@ namespace Map_Editor
             ListItems[1] = new ListItem("Smtiles", 1);
             MapLibs[2] = new MLibrary(@".\Data\Map\WemadeMir2\Objects");
             ListItems[2] = new ListItem("Objects", 2);
+            MapLibs[90] = new MLibrary(@".\Data\Map\WemadeMir2\Objects_32bit");
 
             for (int i = 2; i < 28; i++)
             {
