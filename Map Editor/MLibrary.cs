@@ -37,7 +37,7 @@ namespace Map_Editor
             MapLibs[2] = new MLibrary(@".\Data\Map\WemadeMir2\Objects");
             ListItems[2] = new ListItem("Objects", 2);
 
-            for (int i = 2; i < 27; i++)
+            for (int i = 2; i < 28; i++)
             {
                 if (File.Exists(@".\Data\Map\WemadeMir2\Objects" + i + ".lib"))
                 {
