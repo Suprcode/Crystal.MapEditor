@@ -4,13 +4,13 @@ using System.Collections;
 namespace Map_Editor
 {
     ///<summary>
-    ///主要用于文件名的比较。
+    ///Mainly used for file name comparison.
     ///</summary>
     public class FilesNameComparerClass : IComparer
     {
         // Calls CaseInsensitiveComparer.Compare with the parameters reversed.
         ///<summary>
-        ///比较两个字符串，如果含用数字，则数字按数字的大小来比较。
+        ///Compare two strings. If they contain numbers, the numbers are compared based on their size.
         ///</summary>
         ///<param name="x"></param>
         ///<param name="y"></param>
@@ -74,9 +74,9 @@ namespace Map_Editor
             //            return( (new CaseInsensitiveComparer()).Compare( y, x ) );
         }
     }
-    // 调用时的代码如下：
+    // The calling code is as follows:
     //IComparer fileNameComparer = new FilesNameComparerClass();
     //List.Sort( fileNameComparer );
-    //这样排序后的字符串就为按字符串中的数值排序了,为：
+    //The sorted strings are sorted by the values ​​in the strings, as follows:
     //aa1,aa2,aa10,aa100
 }

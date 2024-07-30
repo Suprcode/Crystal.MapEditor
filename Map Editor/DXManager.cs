@@ -17,49 +17,49 @@ namespace Map_Editor
     {
         public static List<MLibrary.MImage> TextureList = new List<MLibrary.MImage>();
         /// <summary>
-        /// 主设备
+        /// Master Device
         /// </summary>
         public static Device Device;
         /// <summary>
-        /// 精灵
+        /// Elf
         /// </summary>
         public static Sprite Sprite, TextSprite;
         /// <summary>
-        /// 线
+        /// Wire
         /// </summary>
         public static Line Line;
         /// <summary>
-        /// 当前表面 或者 现有表面
+        /// Current Surface or Existing Surface
         /// </summary>
         public static Surface CurrentSurface;
         /// <summary>
-        /// 主表面
+        /// Main surface
         /// </summary>
         public static Surface MainSurface;
         /// <summary>
-        /// 描述呈现参数。 
+        /// Describes a rendering parameter. 
         /// </summary>
         public static PresentParameters Parameters;
         /// <summary>
-        /// 设备是否丢失 true 丢失 、false 未丢失
+        /// Whether the device is lost: true if lost, false if not lost
         /// </summary>
         public static bool DeviceLost;
         /// <summary>
-        /// 不透明度
+        /// Opacity
         /// </summary>
         public static float Opacity = 1F;
         /// <summary>
-        /// 是否混合
+        /// Blending
         /// </summary>
         public static bool Blending;
 
         /// <summary>
-        /// 光源纹理集合
+        /// Light Texture Collection
         /// </summary>
         public static List<Texture> Lights = new List<Texture>();
 
         /// <summary>
-        /// 光源坐标集合
+        /// Light source coordinates collection
         /// </summary>
         public static Point[] LightSizes =
         {
@@ -83,101 +83,100 @@ namespace Map_Editor
             _control = control;
             Parameters = new PresentParameters
             {
-                //检索或设置后台缓冲区的格式//	一种 32 位 RGB 像素格式，其中每种颜色使用 8 位。
+                //Retrieves or sets the format of the back buffer // A 32-bit RGB pixel format using 8 bits per color.
                 BackBufferFormat = Format.X8R8G8B8,
-                //检索或设置呈现标志 //通知驱动程序，后台缓冲区包含视频数据
+                //Retrieve or set the presentation flag //Notify the driver that the back buffer contains video data
                 PresentFlag = PresentFlag.LockableBackBuffer,
-                //检索或设置交换链的后台缓冲区的高度
+                //Retrieves or sets the height of the swap chain's back buffer
                 BackBufferWidth = control.Width,
-                //检索或设置交换链的后台缓冲区的宽度
+                //Retrieves or sets the width of the swap chain's back buffer
                 BackBufferHeight = control.Height,
-                //检索或设置交换效果 ////当前屏幕绘制后它将自动从内存中删除
+                //Retrieve or set the swap effect ////After the current screen is drawn it will be automatically deleted from memory
                 SwapEffect = SwapEffect.Discard,
-                //用于描述适配器刷新率与 Device 的 Present 运算完成速率之间的关系
-                //One 驱动程序需要等待垂直回描周期（运行库将实施跟踪以防止脱节）。Present 运算受影响的频率不超过屏幕的刷新率；运行库在适配器的每个刷新周期内至多完成一次 Present 运算。对于窗口式和全屏交换链而言，此选项都始终可用。
-                //Immediate 运行库将立即更新窗口工作区，并且，在适配器刷新周期内可能不止更新一次。Present 运算可能马上受到影响。对于窗口式和全屏交换链而言，此选项都始终可用
+                //Describes the relationship between the adapter refresh rate and the rate at which the Device's Present operations are completed
+				//One The driver needs to wait for the vertical retrace cycle (the runtime will implement tracking to prevent disconnection). The frequency of the Present operation being affected does not exceed the refresh rate of the screen; the runtime completes at most one Present operation per adapter refresh cycle. This option is always available for both windowed and fullscreen swap chains.
+				//Immediate The runtime will update the window client area immediately, and may update it more than once during the adapter refresh cycle. The Present operation may be affected immediately. This option is always available for both windowed and fullscreen swap chains
                 PresentationInterval =  PresentInterval.One,
-                //指示应用程序是否在窗口模式下运行。//如果应用程序运行时有窗口，则为 true，否则为 false
+                //Indicates whether the application is running in windowed mode. //If the application runs with a window, it is true, otherwise it is false
                 Windowed = true
             };
 
-            //检索特定于设备的信息。
+            //Retrieve device-specific information.
             Caps devCaps = Manager.GetDeviceCaps(0, DeviceType.Hardware);
 
-            // 指定设备类型。
+            // Specifies the device type.
 
             //---------------DeviceType------------
-            //NullReference	4	一个空参考光栅器的版本。
-            //Software	3	一个软件的设备。
-            //Reference	2	微软Direct3D的特点是在软件中实现的；然而，参考光栅化程序尽可能使用特殊的CPU指令。
-            //Hardware 1 一个硬件的设备
+			//NullReference 4 A null reference rasterizer version.
+			//Software 3 A software device.
+			//Reference 2 Microsoft Direct3D features are implemented in software; however, the reference rasterizer uses special CPU instructions whenever possible.
+			//Hardware 1 A hardware device
             DeviceType devType = DeviceType.Reference;
-            //定义在创建设备时要使用的标志
-            CreateFlags devFlags = CreateFlags.HardwareVertexProcessing; //指定硬件顶点处理
-            //检索一个对象，该值指示主要和附属设备所支持的顶点着色器版本。 检索一个对象，该值指示主要和下属像素着色器版本。
+            //Defines the flags to use when creating a device
+            CreateFlags devFlags = CreateFlags.HardwareVertexProcessing; //Specifying hardware vertex processing
+            //Retrieves an object indicating the vertex shader versions supported by the primary and subordinate devices. Retrieves an object indicating the primary and subordinate pixel shader versions.
             if (devCaps.VertexShaderVersion.Major >= 2 && devCaps.PixelShaderVersion.Major >= 2)
-                //设备类型
+                //Equipment type
                 devType = DeviceType.Hardware;
 
-            //NoWindowChanges	2048    微软Direct3D指示运行时不要以任何方式改变焦点的窗口。请谨慎使用！ 支持集中管理事件的负担(ALT标签等)瀑布上的应用，和适当的反应(切换显示模式等)应编码。
-            //DisableDriverManagementEx	1024	 指定资源管理利用Direct3D代替设备。Direct3D调用资源不会失败的错误，如视频内存不足。
-            //AdapterGroupDevice	512	
-            //DisableDriverManagement	256	指定资源管理利用Direct3D代替设备。Direct3D调用资源不会失败的错误，如视频内存不足。
-            //MixedVertexProcessing	128	指定混合顶点处理(包括软件和硬件)。
-            //HardwareVertexProcessing	64	指定硬件顶点处理。
-            //SoftwareVertexProcessing	32	指定软件顶点处理。
-            //PureDevice	16	 如果设备不支持顶点处理，应用程序可以只使用后改变顶点。
-            //MultiThreaded	4	指示应用程序请求的Direct3D的多线程安全。这会导致Direct3D更频繁地检查其全球关键节，这会降低性能。从Microsoft DirectX 9.0 SDK更新(2003夏天)，这总是指定枚举值，除非该参数四。ForceNoMultiThreadedFlag设置为true。
-            //FpuPreserve	2	指示应用程序需要浮点单元(FPU)异常或双精度浮点异常启用。默认情况下，Direct3D使用单精度。 因为每次它被称为Direct3D设置FPU状态，设置此标志减少了Direct3D性能。
+            //NoWindowChanges 2048 Microsoft Direct3D instructs the runtime not to change the focused window in any way. Use with caution! The burden of supporting centralized management events (ALT tabs, etc.) falls on the application, and appropriate responses (switching display modes, etc.) should be coded.
+			//DisableDriverManagementEx 1024 Specifies that resource management utilizes Direct3D instead of the device. Direct3D resource calls will not fail for errors such as insufficient video memory.
+			//AdapterGroupDevice 512
+			//DisableDriverManagement 256 Specifies that resource management utilizes Direct3D instead of the device. Direct3D resource calls will not fail for errors such as insufficient video memory.
+			//MixedVertexProcessing 128 Specifies mixed vertex processing (both software and hardware).
+			//HardwareVertexProcessing 64 Specifies hardware vertex processing.
+			//SoftwareVertexProcessing 32 Specifies software vertex processing.
+			//PureDevice 16 If the device does not support vertex processing, the application can only use post-change vertices.
+			//MultiThreaded 4 indicates that the application requests multithreaded safety for Direct3D. This causes Direct3D to check its global critical sections more frequently, which can reduce performance. Starting with the Microsoft DirectX 9.0 SDK Update (Summer 2003), this always specifies the enumeration value unless the parameter is four. ForceNoMultiThreadedFlag is set to true.
+			//FpuPreserve 2 indicates that the application requires floating-point unit (FPU) exceptions or double-precision floating-point exceptions to be enabled. By default, Direct3D uses single precision. Because Direct3D sets the FPU state each time it is called, setting this flag reduces Direct3D performance.
 
-
-            //指示设备是否支持硬件转换和照明。
+			//Indicates whether the device supports hardware transformations and lighting.
             if (devCaps.DeviceCaps.SupportsHardwareTransformAndLight)
-                //指定硬件顶点处理。
+                //Specifies hardware vertex processing.
                 devFlags = CreateFlags.HardwareVertexProcessing;
 
-            //指示设备是否支持光栅化、转换、照明和阴影在硬件。
+            //Indicates whether the device supports rasterization, transformations, lighting, and shading in hardware.
             if (devCaps.DeviceCaps.SupportsPureDevice)
-                //如果设备不支持顶点处理，应用程序可以只使用改变后的顶点。
+                //If the device does not support vertex processing, the application can just use the altered vertices.
                 devFlags |= CreateFlags.PureDevice;
 
-            //            参数
+            //            Parameter
             //adapter
-            //    一个标识对象表示哪个物理设备的序号。设备 0 表示默认设备。在此参数中可使用的最大值为物理设备总数减 1。
+            //    An ordinal number that identifies which physical device the object represents. Device 0 represents the default device. The maximum value that can be used in this parameter is the total number of physical devices minus 1.
 
             //deviceType
-            //    DeviceType 枚举类型的一个成员，它表示所需的设备类型。如果所需的设备类型不可用，则该方法将失败。
+            //    DeviceType A member of an enumeration type that represents the type of device required. This method fails if the required device type is not available.
 
             //renderWindow
-            //    Form 或任何其他 Control 派生类的句柄。此参数指示要绑定到设备的图面。
-            //    指定的窗口必须是顶级窗口，Null 值不受支持。
+            //    Form or any other Control A handle to a derived class. This parameter indicates the surface to be bound to the device.
+            //    The specified window must be a top-level window, Null values ​​are not supported.
 
             //behaviorFlags
-            //    控制设备创建操作的一个或多个选项的组合。
+            //    A combination of one or more options that control the device creation operation.
 
             //presentationParameters
-            //    一个 PresentParameters 对象，它描述要创建的设备的表示参数。
+            //    一个 PresentParameters Object that describes the presentation parameters of the device to be created.
             Device = new Device(Manager.Adapters.Default.Adapter, devType, control, devFlags, Parameters);
-            //在设备将要丢失时发生
+            //Occurs when the device is about to be lost
             Device.DeviceLost += Device_DeviceLost;
-            //设备调整大小时发生
+            //Occurs when the device is resized
             Device.DeviceResizing += Device_DeviceResizing;
-            //重置设备之后发生
+            //Occurs after resetting the device
             Device.DeviceReset += Device_DeviceReset;
-            //当调用 Dispose 方法时，或者当设备对象被终结并被垃圾回收器回收时。
+            //When the Dispose method is called, or when the device object is finalized and reclaimed by the garbage collector.
             Device.Disposing += Device_Disposing;
             //Device.DeviceLost += (o, e) => DeviceLost = true;
             //Device.DeviceResizing += (o, e) => e.Cancel = true;
             //Device.DeviceReset += (o, e) => LoadTextures();
             //Device.Disposing += (o, e) => Clean();
 
-            //允许使用Microsoft Windows图形设备接口(GDI)在全屏应用程序对话框。
+            //Enables use of the Microsoft Windows Graphics Device Interface (GDI) in full-screen application dialog boxes.
             Device.SetDialogBoxesEnabled(true);
 
             LoadTextures();
         }
 
-        #region Device 事件
+        #region Device Event
         private static void Device_Disposing(object sender, EventArgs e)
         {
             Clean();
@@ -207,142 +206,141 @@ namespace Map_Editor
         }
         #endregion
         /// <summary>
-        /// 加载纹理
+        /// Loading Textures
         /// </summary>
         private static unsafe void LoadTextures()
-        {//unsafe 关键字表示不安全上下文,该上下文是任何涉及指针的操作所必需的。
+        {//The unsafe keyword denotes an unsafe context, which is required for any operation involving pointers.
 
-            //Sprite 提供的方法和属性用于简化使用 Direct3D 绘制子画面的过程。
-            //初始化 Sprite 类的新实例。 
-            //            参数
-            //device
-            //    Device 的一个实例。
+            //The methods and properties provided by Sprite are used to simplify the process of drawing sprites using Direct3D.
+			//Initialize a new instance of the Sprite class.
+			//Parameters
+			//device
+			//An instance of Device.
             Sprite = new Sprite(Device);
             TextSprite = new Sprite(Device);
-            //Line 类在两个点之间绘制一条直线。
+            //The Line class draws a straight line between two points.
             Line = new Line(Device) { Width = 1F };
-            //获取指定的后台缓冲区。 
-            //参数
-            //swapChain
-            //无符号整数，它指定交换链。
+            //Get the specified back buffer.
+			//Parameters
+			//swapChain
+			//Unsigned integer that specifies the swap chain.
 
-            //backBuffer
-            //要返回的后台缓冲区对象的索引。
+			//backBuffer
+			//The index of the back buffer object to return.
 
-            //backBufferType
-            //    要返回的后台缓冲区的类型。只有 Mono 是有效值。
-            //返回值 ：一个 Surface，它表示返回的后台缓冲区图面。
+			//backBufferType
+			//The type of the back buffer to return. Only Mono is a valid value.
+			//Return value: A Surface that represents the returned back buffer surface.
             MainSurface = Device.GetBackBuffer(0, 0, BackBufferType.Mono);
             CurrentSurface = MainSurface;
 
-            //SetRenderTarget 为设备设置新的颜色缓冲区。 
-            // 参数
+			//SetRenderTarget sets a new color buffer for the device.
+			// Parameters
 
-            //renderTarget
-            //    呈现目标的索引 Surface。
+			//renderTarget
+			// The indexed Surface of the render target.
 
-            //newZStencil
-            //    新颜色缓冲区 Surface。如果将该参数设置为 空引用（在 Visual Basic 中为 Nothing），则会禁用相应 renderTarget 的颜色缓冲区。设备必须始终与一个颜色缓冲区相关联。
-            //    新呈现目标图面至少必须指定 Usage。
-            Device.SetRenderTarget(0, MainSurface);
+			//newZStencil
+			// The new color buffer Surface. If this parameter is set to a null reference (Nothing in Visual Basic), the color buffer for the corresponding renderTarget is disabled. A device must always be associated with a color buffer.
+			// The new render target surface must specify at least Usage.
+			Device.SetRenderTarget(0, MainSurface);
 
+			//if (RadarTexture == null || RadarTexture.Disposed)
+			//{
+			// //Parameters
 
-            //if (RadarTexture == null || RadarTexture.Disposed)
-            //{
-            //    //参数
+			// //device
+			// // Type: Microsoft.WindowsMobile.DirectX.Direct3D.Device
+			// // The Device object to associate with the Texture.
 
-            //    //device
-            //    //    类型：Microsoft.WindowsMobile.DirectX.Direct3D.Device
-            //    //    要与 Texture 关联的 Device 对象。
+			// //width
+			// // Type: System.Int32
+			// // The width of the top level of the texture, in pixels. The pixel dimensions of subsequent levels are truncated to half the pixel dimensions of the previous level (calculated independently for each level). Each dimension is constrained to be at least one pixel in size. Therefore, if division by 2 and truncation results in 0, 1 is used instead.
 
-            //    //width
-            //    //    类型：System.Int32
-            //    //    纹理顶级的宽度（以像素为单位）。后续级别的像素尺寸是前一级别像素尺寸的一半的截整值（每个级别的计算都是独立进行的）。每个尺寸都限制在至少一个像素大小。因此，如果被 2 除后再进行截断所得到的结果为 0，则改为采用 1。
+			// //height
+			// // Type: System.Int32
+			// // The height of the top level of the texture in pixels. The pixel dimensions of subsequent levels are truncated to half the pixel dimensions of the previous level (the calculation is done independently for each level). Each dimension is limited to at least one pixel in size. Therefore, if division by 2 and truncation results in 0, 1 is used instead.
 
-            //    //height
-            //    //    类型：System.Int32
-            //    //    纹理顶级的高度（以像素为单位）。后续级别的像素尺寸是前一级别像素尺寸的一半的截整值（每个级别的计算都是独立进行的）。每个尺寸都限制在至少一个像素大小。因此，如果被 2 除后再进行截断所得到的结果为 0，则改为采用 1。
+			// //numLevels
+			// // Type: System.Int32
+			// // The number of levels in the texture. If this value is 0, for hardware that supports mipmapped textures, Direct3D generates all children of the texture down to a size of 1 x 1 pixel. Check the BaseTexture.LevelCount property to see how many levels were generated.
 
-            //    //numLevels
-            //    //    类型：System.Int32
-            //    //    纹理中的级别数。如果此值为 0，对于支持 mipmap 形式纹理的硬件，Direct3D 会向下生成纹理的所有子级，直至生成的纹理子级的大小为 1 x 1 像素。检查 BaseTexture.LevelCount 属性以查看生成的级别数。
+			// //usage
+			// // Type: Microsoft.WindowsMobile.DirectX.Direct3D.Usage
+			// // Usage can be 0, indicating no usage value. However, if usage is required, use one or more Usage constants. It is recommended that the usage parameter matches the CreateFlags in the Device's constructor.
 
-            //    //usage
-            //    //    类型：Microsoft.WindowsMobile.DirectX.Direct3D.Usage
-            //    //    Usage 可以是 0，表示没有用法值。但是，如果需要 usage，则请使用一个或多个 Usage 常数。建议使 usage 参数与 Device 的构造函数中的 CreateFlags 匹配。
+			// //format
+			// // Type: Microsoft.WindowsMobile.DirectX.Direct3D.Format
+			// // A Format value describing the format of all levels in the texture.
 
-            //    //format
-            //    //    类型：Microsoft.WindowsMobile.DirectX.Direct3D.Format
-            //    //    一个 Format 值，用于描述纹理中所有级别的格式。
+			// //pool
+			// // Type: Microsoft.WindowsMobile.DirectX.Direct3D.Pool
+			// // A Pool value describing the memory class that the texture should be placed in.
+			// RadarTexture = new Texture(Device, 2, 2, 1, Usage.None, Format.A8R8G8B8, Pool.Managed);
 
-            //    //pool
-            //    //    类型：Microsoft.WindowsMobile.DirectX.Direct3D.Pool
-            //    //    一个 Pool 值，用于描述纹理应被放入的内存类。
-            //    RadarTexture = new Texture(Device, 2, 2, 1, Usage.None, Format.A8R8G8B8, Pool.Managed);
+			// //GraphicsStream contains a stream of graphics data.
+			// //LockRectangle locks a rectangle in a texture resource.
+			// //Parameters
 
-            //    //GraphicsStream 包含图形数据流。   
-            //    //LockRectangle 锁定纹理资源中的矩形。
-            //    //参数
+			// //level
+			// // Type: System.Int32
+			// // The minmap level of the texture resource to lock.
 
-            //    //level
-            //    //    类型：System.Int32
-            //    //    要锁定的纹理资源的 minmap 级别。
+			// //flags
+			// // Type: Microsoft.WindowsMobile.DirectX.Direct3D.LockFlags
+			// // Zero or more LockFlags values ​​describing the type of locking to perform. Valid flags for this method are Discard, NoDirtyUpdate, and ReadOnly.
 
-            //    //flags
-            //    //    类型：Microsoft.WindowsMobile.DirectX.Direct3D.LockFlags
-            //    //    零个或多个 LockFlags 值，用于描述要执行的锁定的类型。对于此方法，有效的标志为 Discard、NoDirtyUpdate 和 ReadOnly。
+			// //Return Value
+			// // GraphicsStream describing the locked region.
 
-            //    //返回值
-            //    //   GraphicsStream，用于描述锁定的区域。 
+			// //-------------------LockFlags----------------------
+			// //None The application can both read from and write to the buffer.
+			// //ReadOnly The application does not write to the buffer. This flag can be used to save the recompression step when unlocking resources stored in non-native formats. NoDirtyUpdate By default, a lock on a resource adds a "dirty" region to the resource. This flag disables any changes to the dirty state of the resource. The application should use this flag when it changes additional information about a set of regions during a locked operation.
+			// //NoOverwrite ensures that the application does not overwrite any data in the vertex and index buffers. When using vertex buffers with this flag, the driver can return immediately and continue rendering. If this flag is not used, the driver must complete rendering before returning from the locked state.
+			// //Discard The application overwrites every location within the locked region using a write-only operation. This option is a valid option when using dynamic textures, dynamic vertex buffers, and dynamic index buffers.
+			// using (GraphicsStream stream = RadarTexture.LockRectangle(0, LockFlags.Discard))
 
-            //    //-------------------LockFlags----------------------
-            //    //None	应用程序既可以从缓冲区读取也可以向缓冲区写入。
-            //    //ReadOnly	应用程序不向缓冲区写入。利用此标志，可以使以非本机格式存储的资源在解锁时省去重新压缩的步骤。	NoDirtyUpdate	默认情况下，资源上的锁向该资源添加“脏”区域。此标志禁止对资源的脏状态进行任何更改。当应用程序在锁定操作期间更改了关于一组区域的附加信息时，该应用程序应使用此标志。
-            //    //NoOverwrite	确保应用程序不改写顶点和索引缓冲区中的任何数据。使用具有此标志的顶点缓冲区时，驱动程序可以立即返回并继续呈现。如果未使用此标志，则驱动程序必须先完成呈现，然后才能从锁定状态返回。
-            //    //Discard	应用程序使用只写操作改写锁定区域内的每个位置。当使用动态纹理、动态顶点缓冲区和动态索引缓冲区时，此选项为有效选项。 
-            //    using (GraphicsStream stream = RadarTexture.LockRectangle(0, LockFlags.Discard))
+			// //Bitmap encapsulates a GDI+ bitmap, which consists of the pixel data of a graphics image and its characteristics. A Bitmap is an object used to manipulate images defined by pixel data.
 
-            //    //Bitmap封装 GDI+ 位图，此位图由图形图像及其特性的像素数据组成。 Bitmap 是用于处理由像素数据定义的图像的对象。
+			// //Initializes a new instance of the Bitmap class with the specified size, pixel format, and pixel data
+			// //Parameters
 
-            //    //用指定的大小、像素格式和像素数据初始化 Bitmap 类的新实例
-            //    //参数
+			// //width
+			// // The width of the new Bitmap in pixels.
 
-            //    //width
-            //    //    新 Bitmap 的宽度（以像素为单位）。
+			// //height
+			// // The height of the new Bitmap in pixels.
 
-            //    //height
-            //    //    新 Bitmap 的高度（以像素为单位）。
+			// //stride
+			// // An integer specifying the byte offset between the start of adjacent scanlines. This is usually (but not necessarily) the number of bytes represented in the pixel format (for example, 2 for 16 bits per pixel) times the width of the bitmap. The value passed to this parameter must be a multiple of 4.
 
-            //    //stride
-            //    //    指定相邻扫描行开始处之间字节偏移量的整数。这通常（但不一定）是以像素格式表示的字节数（例如，2 表示每像素 16 位）乘以位图的宽度。传递给此参数的值必须为 4 的倍数。
+			// //format
+			// // The pixel format of the new Bitmap. This must specify a value beginning with Format.
 
-            //    //format
-            //    //    新 Bitmap 的像素格式。这必须指定以 Format 开头的值。
-
-            //    //scan0
-            //    //    指向包含像素数据的字节数组的指针。
-            //    using (Bitmap image = new Bitmap(2, 2, 8, PixelFormat.Format32bppArgb, (IntPtr)stream.InternalDataPointer))
-            //    //从指定的 Image 创建新的 Graphics。
-            //    using (Graphics graphics = Graphics.FromImage(image))
-            //        //清除整个绘图面并以指定背景色填充。
-            //        graphics.Clear(Color.White);
-            //}
-            //if (PoisonDotBackground == null || PoisonDotBackground.Disposed)
-            //{
-            //    PoisonDotBackground = new Texture(Device, 5, 5, 1, Usage.None, Format.A8R8G8B8, Pool.Managed);
-            //    //锁定纹理资源中的矩形。
-            //    using (GraphicsStream stream = PoisonDotBackground.LockRectangle(0, LockFlags.Discard))
-            //    //用指定的大小、像素格式和像素数据初始化 Bitmap 类的新实例
-            //    using (Bitmap image = new Bitmap(5, 5, 20, PixelFormat.Format32bppArgb, (IntPtr)stream.InternalDataPointer))
-            //    //从指定的 Image 创建新的 Graphics。
-            //    using (Graphics graphics = Graphics.FromImage(image))
-            //        //清除整个绘图面并以指定背景色填充
-            //        graphics.Clear(Color.White);
-            //}
-            //CreateLights();
+			// //scan0
+			// // Pointer to an array of bytes containing pixel data.
+			// using (Bitmap image = new Bitmap(2, 2, 8, PixelFormat.Format32bppArgb, (IntPtr)stream.InternalDataPointer))
+			// // Creates a new Graphics from the specified Image.
+			// using (Graphics graphics = Graphics.FromImage(image))
+			// // Clears the entire drawing surface and fills it with the specified background color.
+			// graphics.Clear(Color.White);
+			//}
+			//if (PoisonDotBackground == null || PoisonDotBackground.Disposed)
+			//{
+			// PoisonDotBackground = new Texture(Device, 5, 5, 1, Usage.None, Format.A8R8G8B8, Pool.Managed);
+			// //Lock the rectangle in the texture resource.
+			// using (GraphicsStream stream = PoisonDotBackground.LockRectangle(0, LockFlags.Discard))
+			// //Initialize a new instance of the Bitmap class with the specified size, pixel format, and pixel data
+			// using (Bitmap image = new Bitmap(5, 5, 20, PixelFormat.Format32bppArgb, (IntPtr)stream.InternalDataPointer))
+			// //Create a new Graphics from the specified Image.
+			// using (Graphics graphics = Graphics.FromImage(image))
+			// // Clear the entire drawing surface and fill it with the specified background color
+			// graphics.Clear(Color.White);
+			//}
+			//CreateLights();
         }
         /// <summary>
-        /// 创建光源
+        /// Creating a Light Source
         /// </summary>
         private unsafe static void CreateLights()
         {
@@ -359,158 +357,156 @@ namespace Map_Editor
                 int width = LightSizes[i].X;
                 int height = LightSizes[i].Y;
                 Texture light = new Texture(Device, width, height, 1, Usage.None, Format.A8R8G8B8, Pool.Managed);
-                ////LockRectangle 锁定纹理资源中的矩形
+                ////LockRectangle Locks the rectangle in the texture resource
                 using (GraphicsStream stream = light.LockRectangle(0, LockFlags.Discard))
-                //用指定的大小、像素格式和像素数据初始化 Bitmap 类的新实例
+                //Initializes a new instance of the Bitmap class with the specified size, pixel format, and pixel data.
                 using (Bitmap image = new Bitmap(width, height, width * 4, PixelFormat.Format32bppArgb, (IntPtr)stream.InternalDataPointer))
                 {
-                    //从指定的 Image 创建新的 Graphics。
+                    //Creates a new Graphics from the specified Image.
                     using (Graphics graphics = Graphics.FromImage(image))
                     {
-                        //GraphicsPath 表示一系列相互连接的直线和曲线
+                        //GraphicsPath represents a series of connected straight lines and curves
                         using (GraphicsPath path = new GraphicsPath())
                         {
-                            //AddEllipse 向当前路径添加一个椭圆。
-                            // 参数
+                            //AddEllipse Adds an ellipse to the current path.
+                            // Parameter
 
                             //x
                             //    Type: System.Int32
-                            //    定义椭圆的边框的左上角的 X 坐标。
+                            //    Defines the X coordinate of the upper-left corner of the ellipse's bounding box.
 
                             //y
                             //    Type: System.Int32
-                            //    定义椭圆的边框的左上角的 Y 坐标。
+                            //    Defines the Y coordinate of the upper-left corner of the ellipse's bounding box.
 
                             //width
-                            //    定义椭圆的边框的宽度。
+                            //    Defines the width of the border of the ellipse.
 
                             //height
-                            //    定义椭圆的边框的高度。
+                            //    Defines the height of the bounding box of the ellipse.
                             path.AddEllipse(new Rectangle(0, 0, width, height));
-                            //PathGradientBrush 类 封装 Brush 对象，它通过渐变填充 GraphicsPath 对象的内部
-                            //  使用指定的路径初始化 PathGradientBrush 类的新实例。
-                            //  参数
+                            // PathGradientBrush class Encapsulates a Brush object that fills the interior of a GraphicsPath object with a gradient.
+                            //  Initializes a new instance of the PathGradientBrush class using the specified path.
+                            //  parameter
                             //path
-                            //    GraphicsPath，定义此 PathGradientBrush 填充的区域。
+                            //    A GraphicsPath that defines the area filled by this PathGradientBrush.
                             using (PathGradientBrush brush = new PathGradientBrush(path))
                             {
                                 graphics.Clear(Color.FromArgb(0, 0, 0, 0));
-                                //获取或设置与此 PathGradientBrush 填充的路径中的点相对应的颜色的数组。
+                                //Gets or sets an array of colors corresponding to the points in the path filled by this PathGradientBrush.
                                 brush.SurroundColors = new[] { Color.FromArgb(0, 255, 255, 255) };
-                                //获取或设置路径渐变的中心处的颜色
+                                //Gets or sets the color at the center of the path gradient
                                 brush.CenterColor = Color.FromArgb(255, 255, 255, 255);
-                                //填充 GraphicsPath 的内部。
-                                //参数
+                                //Fills the interior of a GraphicsPath.
+                                //parameter
 
                                 //brush
-                                //    确定填充特性的 Brush。
+                                //    A Brush that determines the fill characteristics.
 
                                 //path
-                                //    GraphicsPath，它表示要填充的路径。
+                                //    A GraphicsPath that represents the path to be filled.
                                 graphics.FillPath(brush, path);
-                                //保存此 Graphics 的当前状态，并用 GraphicsState 标识保存的状态。
+                                //Saves the current state of this Graphics and identifies the saved state with GraphicsState.
                                 graphics.Save();
                             }
                         }
                     }
                 }
-                //添加light
+                //Adding lights
                 Lights.Add(light);
                 //为light添加 Disposing 事件 ，用来Lights.Remove(light);
                 light.Disposing += (o, e) => Lights.Remove(light);
             }
         }
         /// <summary>
-        /// 设置表面
+        /// Setting the Surface
         /// </summary>
         /// <param name="surface"></param>
         public static void SetSurface(Surface surface)
         {
             if (CurrentSurface == surface)
                 return;
-            //强制将所有批子画面都提交给设备。 
+            //Forces all batch sprites to be submitted to the device. 
             Sprite.Flush();
             CurrentSurface = surface;
-            //为设备设置新的颜色缓冲区。 
+            //Sets a new color buffer for the device. 
             Device.SetRenderTarget(0, surface);
         }
         /// <summary>
-        /// 尝试重置
+        /// Try resetting
         /// </summary>
         public static void AttemptReset()
         {
             try
             {
                 int result;
-                //CheckCooperativeLevel 为窗口应用程序或全屏应用程序报告 Direct3D 设备的当前协作级别状态。 
-                //参数
+                //CheckCooperativeLevel reports the current cooperative level state of the Direct3D device for a windowed or full-screen application.
+				//Parameters
 
-                //hResult
-                //    窗口应用程序或全屏应用程序的设备的当前协作级别状态，用 ResultCode 值进行报告。Success 结果指示设备可操作并且调用应用程序可继续。DeviceLost 结果指示设备已丢失，但是此时无法重置；因此无法进行呈现。DeviceNotReset 结果指示设备已丢失，但是此时可以重置。
+				//hResult
+				// The current cooperative level state of the device for a windowed or full-screen application, reported with a ResultCode value. A Success result indicates that the device is operational and the calling application can continue. A DeviceLost result indicates that the device is lost, but cannot be reset at this time; therefore, rendering is not possible. A DeviceNotReset result indicates that the device is lost, but can be reset at this time.
 
-                //返回值
-                //如果设备可操作并且调用应用程序可以继续，则为 true；如果设备已丢失或者需要重置，则为 false。 
+				//Return value
+				// True if the device is operational and the calling application can continue; false if the device is lost or needs to be reset.
                 Device.CheckCooperativeLevel(out result);
 
-                //    -------------ResultCode)result 返回值类型-------------
-                //    AlreadyLocked	设备已锁定。 
-                //    ConflictingRenderState	呈现状态不兼容。 
-                //    ConflictingTextureFilter	当前的纹理筛选器不能一起使用。 
-                //    ConflictingTexturePalette	当前的纹理调色板不能一起使用。 
-                //    DeviceLost	设备已丢失，但此时无法对其进行重置。因此，不可能进行呈现。 
-                //    DeviceNotReset	设备不支持所查询的技术。 
-                //    DriverInternalError	发生驱动程序内部错误。 
-                //	    DriverInvalidCall	驱动程序检测到无效的调用。 
-                // 	DriverUnsupported	驱动程序不受支持。 
-                // 	GenericFailure	常规失败。 
-                // 	InvalidCall	方法调用无效；例如，方法的参数可能不是有效的指针。 
-                // 	InvalidDevice	请求的设备类型无效。 
-                // 	MemoryPoolEmpty	指定的内存池是空的。 
-                // 	MoreData	传入例程的缓冲区所含元素数量不足，无法完成该操作。 
-                // 	NotAvailable	请求的格式不可用。 
-                // 	NotFound	搜索例程未能返回元素。 
-
-                // 	Success	操作成功。 
-
-                // 	TooManyOperations	应用程序请求的纹理筛选操作数量多于设备支持的纹理筛选操作数量。 
-                // 	UnsupportedAlphaArgument	设备不支持 alpha 通道的指定纹理混合参数。 
-                // 	UnsupportedAlphaOperation	设备不支持 alpha 通道的指定纹理混合操作。 
-                // 	UnsupportedColorArgument	设备不支持颜色值的指定纹理混合参数。 
-                //	    UnsupportedColorOperation	设备不支持颜色值的指定纹理混合操作。 
-                // 	UnsupportedFactorValue	设备不支持指定的纹理因子值。 
-                // 	UnsupportedTextureFilter	设备不支持指定的纹理筛选器。 
-                //    WrongTextureFormat	像素格式的纹理图面无效。 
+                //    -------------ResultCode)result return value type-------------
+                // AlreadyLocked The device is locked.
+                // ConflictingRenderState The rendering states are incompatible.
+                // ConflictingTextureFilter The current texture filters cannot be used together.
+                // ConflictingTexturePalette The current texture palettes cannot be used together.
+                // DeviceLost The device has been lost, but it cannot be reset at this time. Therefore, rendering is not possible.
+                // DeviceNotReset The device does not support the queried technology.
+                // DriverInternalError A driver internal error occurred.
+                // DriverInvalidCall The driver detected an invalid call.
+                // DriverUnsupported The driver is not supported.
+                // GenericFailure Generic failure.
+                // InvalidCall The method call is invalid; for example, the method's parameters might not be valid pointers.
+                // InvalidDevice The requested device type is invalid.
+                // MemoryPoolEmpty The specified memory pool is empty.
+                // MoreData The buffer passed into the routine does not contain enough elements to complete the operation.
+                // NotAvailable The requested format is not available.
+                // NotFound The search routine failed to return an element.
+                // Success The operation was successful.
+                // TooManyOperations The application requested more texture filter operations than the device supports.
+                // UnsupportedAlphaArgument The device does not support the specified texture blending parameters for the alpha channel.
+                // UnsupportedAlphaOperation The device does not support the specified texture blending operation for the alpha channel.
+                // UnsupportedColorArgument The device does not support the specified texture blending parameters for color values.
+                // UnsupportedColorOperation The device does not support the specified texture blending operation for color values.
+                // UnsupportedFactorValue The device does not support the specified texture factor value.
+                // UnsupportedTextureFilter The device does not support the specified texture filter.
+                // WrongTextureFormat The pixel format of the texture surface is invalid.
                 switch ((ResultCode)result)
                 {
-                    //设备不支持所查询的技术。 
+                    //The device does not support the technology being queried.
                     case ResultCode.DeviceNotReset:
-                        //Device.Reset(Parameters)重置当前设备的表示参数。 
-                        //参数
+                        //Device.Reset(Parameters) resets the presentation parameters of the current device. 
+                        //parameter
 
                         //presentationParameters
-                        //    一个 PresentParameters 结构，它描述新的表示参数。此参数不能为空。
+                        //    A PresentParameters structure that describes the new presentation parameters. This parameter cannot be null.
 
-                        //备注
-                        //切换到全屏模式时，Direct3D 会尝试找到一种与后台缓冲区格式匹配的桌面格式，以便后台缓冲区格式和前台缓冲区格式相同。这样就无需转换颜色了。
-                        //如果对 Reset 的调用失败，除非设备处于“未重置”状态（由从 CheckCooperativeLevel 方法的 hResult 参数返回的 DeviceNotReset 来指示），否则设备会被置于“丢失”状态（由从对 CheckCooperativeLevel 的调用返回的值 false 指示）。
-                        //调用 Reset 将导致所有纹理内存图面和状态信息丢失，并且还会导致托管纹理在视频内存中被刷新。在对设备调用 Reset 前，应用程序应释放任何与该设备相关联的显式呈现目标、深度模具图面、附加交换链、状态块以及默认资源。
-                        //交换链可以是全屏的，也可以是窗口式的。如果新的交换链是全屏的，则会将适配器置于与新大小匹配的显示模式中。
-                        //如果调用 Reset 的线程不是用来创建所要重置的设备的线程，则该调用将失败。
-                        //调用 Device、Reset 和 SwapChain 时，可以将窗口模式后台缓冲区的格式指定为“未知”。这意味着应用程序在窗口模式下调用 Device 前不必查询当前的桌面格式。对于全屏模式，必须指定后台缓冲区格式。将 BackBufferCount 设置为 0 会创建一个后台缓冲区。
-                        //尝试成组重置多个显示适配器时，可传入 PresentParameters 对象数组，该数组中的每个对象都对应于该适配器组中的一个显示适配器。
+                        //Remarks
+                        //When switching to full-screen mode, Direct3D attempts to find a desktop format that matches the back buffer format so that the back buffer format and the front buffer format are the same. This eliminates the need to convert colors.
+                        //If the call to Reset fails, the device is placed in the "lost" state (indicated by a value of false returned from a call to CheckCooperativeLevel) unless the device is in the "not reset" state (indicated by DeviceNotReset returned from the hResult parameter of the CheckCooperativeLevel method).
+                        //Calling Reset causes all texture memory surfaces and state information to be lost, and also causes managed textures to be flushed in video memory. Before calling Reset on a device, the application should release any explicit render targets, depth stencil surfaces, attached swap chains, state blocks, and default resources associated with the device.
+                        //Swap chains can be full-screen or windowed. If the new swap chain is full-screen, the adapter is placed in a display mode that matches the new size.
+                        //If the thread calling Reset is not the thread that created the device being reset, the call will fail.
+                        //When calling Device, Reset, and SwapChain, you can specify the format of the window mode back buffer as "unknown". This means that the application does not have to query the current desktop format before calling Device in window mode. For full-screen mode, the back buffer format must be specified. Setting BackBufferCount to 0 creates a back buffer.
+                        //When trying to reset multiple display adapters in a group, you can pass in an array of PresentParameters objects, each of which corresponds to a display adapter in the adapter group.
                         Device.Reset(Parameters);
                         break;
-                    //设备已丢失，但此时无法对其进行重置。因此，不可能进行呈现。
+                    //The device has been lost, but it cannot be reset at this time. Therefore, rendering is not possible.
                     case ResultCode.DeviceLost:
                         break;
-                    //操作成功
+                    //Successful operation
                     case ResultCode.Success:
                         DeviceLost = false;
-                        //获取指定的后台缓冲区。 
+                        //Gets the specified back buffer.
                         MainSurface = Device.GetBackBuffer(0, 0, BackBufferType.Mono);
-                        //获取指定的后台缓冲区
+                        //Get the specified back buffer
                         CurrentSurface = Device.GetBackBuffer(0, 0, BackBufferType.Mono);
-                        //为设备设置新的颜色缓冲区。
+                        //Sets a new color buffer for the device.
                         Device.SetRenderTarget(0, CurrentSurface);
                         break;
                 }
@@ -520,15 +516,15 @@ namespace Map_Editor
             }
         }
         /// <summary>
-        /// 尝试恢复
+        /// Attempt to recover
         /// </summary>
         public static void AttemptRecovery()
         {
             try
             {
-                //将设备还原为调用 Begin 前的状态。
-                //备注
-                //此方法不能用于替代 Device 的 EndScene。
+                //Restores the device to the state it was in before Begin was called.
+                //Remark
+                //This method cannot be used to override the Device's EndScene.
 
                 Sprite.End();
                 TextSprite.End();
@@ -539,10 +535,10 @@ namespace Map_Editor
 
             try
             {
-                //结束通过调用 BeginScene 方法开始的场景。 
-                //备注
-                //每个对 BeginScene 的调用后面最终都应有一个对 EndScene 的调用，然后才能用 Present 更新显示。
-                //当 EndScene 成功时，该场景将进入由驱动程序进行呈现的队列中。该方法不是同步的，因此不能保证该方法返回时，场景已完成呈现。
+                //Ends a scene that was started by calling the BeginScene method.
+                //Remark
+                //Each call to BeginScene should ultimately be followed by a call to EndScene before updating the display with Present.
+                //When EndScene succeeds, the scene is queued for rendering by the driver. This method is not synchronous, so there is no guarantee that the scene has finished rendering when this method returns.
 
                 Device.EndScene();
             }
@@ -552,10 +548,10 @@ namespace Map_Editor
 
             try
             {
-                ////获取指定的后台缓冲区
+                ////Get the specified back buffer
                 MainSurface = Device.GetBackBuffer(0, 0, BackBufferType.Mono);
                 CurrentSurface = MainSurface;
-                ////为设备设置新的颜色缓冲区。
+                ////Sets a new color buffer for the device.
                 Device.SetRenderTarget(0, MainSurface);
             }
             catch
@@ -563,40 +559,40 @@ namespace Map_Editor
             }
         }
         /// <summary>
-        /// 设置不透明度
+        /// Set opacity
         /// </summary>
-        /// <param name="opacity"> 不透明度</param>
+        /// <param name="opacity"> Opacity</param>
         public static void SetOpacity(float opacity)
         {
             if (Opacity == opacity)
                 return;
-            //强制将所有批子画面都提交给设备。 
+            //Forces all batch sprites to be submitted to the device. 
             Sprite.Flush();
             //获取设备的呈现状态值。AlphaBlendEnable= true;
             Device.RenderState.AlphaBlendEnable = true;
             if (opacity >= 1 || opacity < 0)
             {
 
-                //----------Blend  枚举 ------------
-                //DestinationAlpha	混合因子为 (Ad, Ad, Ad, Ad)。 
-                //	DestinationColor	混合因子为 (Rd, Gd, Bd, Ad)。 
-                //	InvDestinationAlpha	混合因子为 (1 - Ad, 1 - Ad, 1 - Ad, 1 - Ad)。 
-                //	InvDestinationColor	混合因子为 (1 - Rd, 1 - Gd, 1 - Bd, 1 - Ad)。 
-                //	InvSourceAlpha	混合因子为 ( 1 - As, 1 - As, 1 - As, 1 - As)。 
-                //	InvSourceColor	混合因子为 (Rs, Gs, Bs, As)。 
-                //	One	混合因子为 (1,1,1,1)。 
-                //	SourceAlpha	混合因子为 (As, As, As, As)。 
-                //	SourceAlphaSat	混合因子为 (f, f, f, 1)；f = min(A, 1 - Ad)。 
-                //	SourceColor	混合因子为 (Rs, Gs, Bs, As)。 
-                //	Zero	混合因子为 (0, 0, 0, 0)。 
+                //----------Blend Enumeration ------------
+                //DestinationAlpha	The mixing factor is (Ad, Ad, Ad, Ad)。 
+                //	DestinationColor	The mixing factor is (Rd, Gd, Bd, Ad)。 
+                //	InvDestinationAlpha	The mixing factor is (1 - Ad, 1 - Ad, 1 - Ad, 1 - Ad)。 
+                //	InvDestinationColor	The mixing factor is (1 - Rd, 1 - Gd, 1 - Bd, 1 - Ad)。 
+                //	InvSourceAlpha	The mixing factor is ( 1 - As, 1 - As, 1 - As, 1 - As)。 
+                //	InvSourceColor	The mixing factor is (Rs, Gs, Bs, As)。 
+                //	One	The mixing factor is (1,1,1,1)。 
+                //	SourceAlpha	The mixing factor is (As, As, As, As)。 
+                //	SourceAlphaSat	The mixing factor is (f, f, f, 1)；f = min(A, 1 - Ad)。 
+                //	SourceColor	The mixing factor is (Rs, Gs, Bs, As)。 
+                //	Zero	The mixing factor is (0, 0, 0, 0)。 
 
-                //获取或设置颜色混合模式。 
+                //Gets or sets the color blending mode. 
                 Device.RenderState.SourceBlend = Blend.SourceAlpha;
-                //表示当前的混合模式或要设置的混合模式
+                //Indicates the current blending mode or the blending mode to be set
                 Device.RenderState.DestinationBlend = Blend.InvSourceAlpha;
-                //获取或者设置Alpha混合模式
+                //Get or set the alpha blending mode
                 Device.RenderState.AlphaSourceBlend = Blend.One;
-                //使用现有颜色混合绘制操作
+                //Blend a drawing operation using an existing color
                 Device.RenderState.BlendFactor = Color.FromArgb(255, 255, 255, 255);
             }
             else
@@ -608,42 +604,41 @@ namespace Map_Editor
                                                                 (byte)(255 * opacity), (byte)(255 * opacity));
             }
             Opacity = opacity;
-            //强制将所有批子画面都提交给设备。
+            //Forces all batch sprites to be submitted to the device.
             Sprite.Flush();
         }
         /// <summary>
-        /// 设置混合
+        /// Setting up the mix
         /// </summary>
-        /// <param name="value"> 是否</param>
-        /// <param name="rate">率</param>
+        /// <param name="value"> Whether</param>
+        /// <param name="rate">Rate</param>
         public static void SetBlend(bool value, float rate = 1F)
         {
             if (value == Blending) return;
             Blending = value;
-            //强制将所有批子画面都提交给设备。
+            //Forces all batch sprites to be submitted to the device.
             Sprite.Flush();
-            // //将设备还原为调用 Begin 前的状态。
+            // //Restores the device to the state it was in before Begin was called.
             Sprite.End();
 
             if (Blending)
             {
-                //Sprite.Begin准备子画面的绘制 
-                //参数
+                //Sprite.Begin prepares the sprite for drawing
+				//Parameters
+				//flags
+				//A combination of zero or more values ​​from SpriteFlags that describe the sprite rendering options.
 
-                //flags
-                //来自 SpriteFlags 的零个或多个值的组合，这些值描述子画面呈现选项。
+				// AlphaBlend enables alpha blending with AlphaTestEnable set to true (for non-zero alpha). SourceAlpha is the source blend state and InvSourceAlpha is the destination blend state in a RenderStateManager call. The Font class requires this flag to be set when drawing text.
+				// Billboard rotates each sprite around its center so that it faces the viewer. Must call SetWorldViewLH or SetWorldViewRH first.
+				// DoNotModifyRenderState specifies that the device rendering state should not be changed when Begin is called.
+				// DoNotSaveState disables saving or restoring the device state when Begin and End are called.
+				// None interprets the value as 0.
+				// ObjectSpace specifies that the world, view, and projection transforms should not be modified. The transformation currently set for the device is used to transform sprites when they are drawn in batches (that is, when Begin or End is called). If this option is not specified, the world, view, and projection transformations are modified so that sprites are drawn in screen space coordinates.
+				// SortDepthBackToFront Sort sprites by depth, back to front, before drawing. This option is recommended when drawing transparent sprites of varying depths.
+				// SortDepthFrontToBack Sort sprites by depth, front to back, before drawing. This option is recommended when drawing opaque sprites of varying depths.
+				// SortTexture Sort sprites by texture, before drawing. This option is recommended when drawing non-overlapping sprites of uniform depth; for example, when drawing screen-aligned text with a Font. 
 
-                // AlphaBlend	启用 AlphaTestEnable 设为 true（对于非零 alpha）的 alpha 混合。SourceAlpha 是源混合状态，InvSourceAlpha 是 RenderStateManager 调用中的目标混合状态。绘制文本时，Font 类要求设置此标志。 
-                // Billboard	围绕每个子画面的中心旋转该子画面，以便使其面向查看者。必须首先调用 SetWorldViewLH 或 SetWorldViewRH。 
-                // DoNotModifyRenderState	指定调用 Begin 时不更改设备呈现状态。  
-                // DoNotSaveState	禁止在调用 Begin 和 End 时保存或还原设备状态。 
-                // None	将值解析为 0。 
-                // ObjectSpace	指定不修改世界、视图和投影转换。当前为设备设置的转换用于在成批绘制子画面时（即，调用 Begin 或 End 时）转换这些子画面。如果未指定此选项，则修改世界、视图和投影转换，以便以屏幕空间坐标绘制子画面。 
-                // SortDepthBackToFront	绘制前，按深度从后到前的顺序对子画面进行排序。在绘制不同深度的透明子画面时，建议使用此选项。 
-                // SortDepthFrontToBack	绘制前，按深度从前到后的顺序对子画面进行排序。在绘制不同深度的不透明子画面时，建议使用此选项。 
-                // SortTexture	绘制前，按纹理子画面进行排序。在绘制统一深度的不重叠子画面时，建议使用此选项；例如，用 Font 绘制屏幕对齐的文本时。 
-
-                Sprite.Begin(SpriteFlags.DoNotSaveState);//禁止在调用 Begin 和 End 时保存或还原设备状态。 
+                Sprite.Begin(SpriteFlags.DoNotSaveState);//Disables saving or restoring device state between calls to Begin and End. 
                 Device.RenderState.AlphaBlendEnable = true;
                 Device.RenderState.SourceBlend = Blend.BlendFactor;
                 Device.RenderState.DestinationBlend = Blend.One;
@@ -651,13 +646,13 @@ namespace Map_Editor
                                                                 (byte)(255 * rate), (byte)(255 * rate));
             }
             else
-                //Sprite.Begin准备子画面的绘制
-                Sprite.Begin(SpriteFlags.AlphaBlend);//启用 AlphaTestEnable 设为 true（对于非零 alpha）的 alpha 混合。SourceAlpha 是源混合状态，InvSourceAlpha 是 RenderStateManager 调用中的目标混合状态。绘制文本时，Font 类要求设置此标志。 
-            //SetRenderTarget 为设备设置新的颜色缓冲区。
+                //Sprite.Begin prepares the drawing of the sub-screen
+                Sprite.Begin(SpriteFlags.AlphaBlend);//Enables alpha blending with AlphaTestEnable set to true (for non-zero alpha). SourceAlpha is the source blend state and InvSourceAlpha is the destination blend state in a RenderStateManager call. The Font class requires this flag to be set when drawing text.
+            //SetRenderTarget sets a new color buffer for the device.
             Device.SetRenderTarget(0, CurrentSurface);
         }
         /// <summary>
-        /// 清除
+        /// Clear
         /// </summary>
         public static void Clean()
         {

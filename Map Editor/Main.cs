@@ -210,32 +210,32 @@ namespace Map_Editor
                     DrawSelectTextureImage();
                     //Draw Limit
                     DrawLimit();
-                    //门标记
+                    //Door marking
                     DrawDoorTag(chkDoorSign.Checked);
-                    //前景动画标记  
+                    //Foreground animation marker  
                     DrawFrontAnimationTag(chkFrontAnimationTag.Checked);
-                    //背景动画标记
+                    //Background animation tag
                     DrawMiddleAnimationTag(chkMiddleAnimationTag.Checked);
-                    //亮光标记
+                    //Bright Mark
                     DrawLightTag(chkLightTag.Checked);
-                    //背景移动限制
+                    //Background movement restriction
                     DrawBackLimit(chkBackMask.Checked);
-                    //前景移动限制
+                    //Foreground movement restrictions
                     DrawFrontMask(chkFrontMask.Checked);
-                    //前景标记
+                    //Foreground Mark
                     DrawFrontTag(chkFrontTag.Checked);
-                    //中间层标记
+                    //Middle layer mark
                     DrawMiddleTag(chkMiddleTag.Checked);
 
                     DXManager.Sprite.End();
                     DXManager.TextSprite.End();
 
-                    //网格
-                    //4800 条短线版本 画格子
+                    //Grid
+                    //4800 short line version Draw grid
                     DrawGrids(chkDrawGrids.Checked);
-                    //1200 条长线版本 画长线，交叉，变成格子
+                    //1200 long lines version Draw long lines, cross them, and turn them into a grid
                     //DrawGrids2(chkDrawGrids.Checked);
-                    //画选择的矩形
+                    //Draw the selection rectangle
                     GraspingRectangle();
 
                     //DXManager.Sprite.End();
@@ -569,43 +569,43 @@ namespace Map_Editor
                     index += AnimationCount%(animation + animation*animationTick)/(1 + animationTick);
                 }
 
-                //不是 48*32 或96*64 的地砖 是大物体
+                //It is not a 48*32 or 96*64 floor tile. It is a large object.
                 if ((s.Width != CellWidth || s.Height != CellHeight) &&
                     (s.Width != CellWidth*2 || s.Height != CellHeight*2))
                 {
                     drawY = (datas[i].Y + cellY - mapPoint.Y + 1)*(CellHeight*zoomMIN/zoomMAX);
-                    //如果有动画
+                    //If there is animation
                     if (animation > 0)
                     {
-                        //如果需要混合
+                        //If you need to mix
                         if (blend)
                         {
-                            //新盛大地图
+                            //New Shanda Map
                             if ((libIndex > 99) & (libIndex < 199))
                             {
                                 DrawBlend(libIndex, index, new Point(drawX, drawY - 3*CellHeight*zoomMIN/zoomMAX),
                                     Color.White, true);
                             }
-                            //老地图灯柱 index >= 2723 && index <= 2732
+                            //Old map lamp post index >= 2723 && index <= 2732
                             else
                             {
                                 DrawBlend(libIndex, index, new Point(drawX, drawY - s.Height*zoomMIN/zoomMAX),
                                     Color.White, index >= 2723 && index <= 2732);
                             }
                         }
-                        //不需要混合
+                        //No mixing required
                         else
                         {
                             Draw(libIndex, index, drawX, drawY - s.Height*zoomMIN/zoomMAX);
                         }
                     }
-                    //如果没动画 
+                    //If there is no animation
                     else
                     {
                         Draw(libIndex, index, drawX, drawY - s.Height*zoomMIN/zoomMAX);
                     }
                 }
-                //是 48*32 或96*64 的地砖
+                //It is 48*32 or 96*64 floor tiles
                 else
                 {
                     drawY = (datas[i].Y + cellY - mapPoint.Y)*(CellHeight*zoomMIN/zoomMAX);
@@ -690,7 +690,7 @@ namespace Map_Editor
 
         private void DrawCube(Point p1, Point p2)
         {
-            //缩放时需要优先计算缩放系数加上括号
+            //When scaling, you need to first calculate the scaling factor and add brackets
             var vector2S = new Vector2[5];
             vector2S[0] = new Vector2((p1.X - mapPoint.X)*(CellWidth*zoomMIN/zoomMAX),
                 (p1.Y - mapPoint.Y)*(CellHeight*zoomMIN/zoomMAX));
@@ -796,49 +796,49 @@ namespace Map_Editor
 
                         var doorOffset = M2CellInfo[x, y].DoorOffset;
                         var s = Libraries.MapLibs[libIndex].GetSize(index);
-                        //不是 48*32 或96*64 的地砖 是大物体
+                        //It is not a 48*32 or 96*64 floor tile. It is a large object.
                         if ((s.Width != CellWidth || s.Height != CellHeight) &&
                             (s.Width != CellWidth*2 || s.Height != CellHeight*2))
                         {
                             drawY = (y - mapPoint.Y + 1)*(CellHeight*zoomMIN/zoomMAX);
-                            //如果有动画
+                            //If there is animation
                             if (animation > 0)
                             {
-                                //如果需要混合
+                                //If you need to mix
                                 if (blend)
                                 {
-                                    //新盛大地图
+                                    //New Shanda Map
                                     if ((libIndex > 99) & (libIndex < 199))
                                     {
                                         DrawBlend(libIndex, index,
                                             new Point(drawX, drawY - 3*CellHeight*zoomMIN/zoomMAX), Color.White, true);
                                     }
-                                    //老地图灯柱 index >= 2723 && index <= 2732
+                                    //Old map lamp post index >= 2723 && index <= 2732
                                     else
                                     {
                                         DrawBlend(libIndex, index, new Point(drawX, drawY - s.Height*zoomMIN/zoomMAX),
                                             Color.White, index >= 2723 && index <= 2732);
                                     }
                                 }
-                                //不需要混合
+                                //No mixing required
                                 else
                                 {
                                     Draw(libIndex, index, drawX, drawY - s.Height*zoomMIN/zoomMAX);
                                 }
                             }
-                            //如果没动画 
+                            //If there is no animation 
                             else
                             {
                                 Draw(libIndex, index, drawX, drawY - s.Height*zoomMIN/zoomMAX);
                             }
                         }
-                        //是 48*32 或96*64 的地砖
+                        //It is 48*32 or 96*64 floor tiles
                         else
                         {
                             drawY = (y - mapPoint.Y)*(CellHeight*zoomMIN/zoomMAX);
                             Draw(libIndex, index, drawX, drawY);
                         }
-                        //显示门打开
+                        //Show door open
                         if (chkDoor.Checked && (doorOffset > 0))
                         {
                             drawY = (y - mapPoint.Y + 1)*(CellHeight*zoomMIN/zoomMAX);
@@ -1089,12 +1089,12 @@ namespace Map_Editor
         private void btnToImage_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("Too lazy to write the .........");
-            //var bit = new Bitmap(Width, Height); //实例化一个和窗体一样大的bitmap
+            //var bit = new Bitmap(Width, Height); //Instantiate a bitmap as large as the form
             //var g = Graphics.FromImage(bit);
-            //g.CompositingQuality = CompositingQuality.HighQuality; //质量设为最高
-            //g.CopyFromScreen(Left, Top, 0, 0, new Size(Width, Height)); //保存整个窗体为图片
-            ////g.CopyFromScreen(panel游戏区 .PointToScreen(Point.Empty), Point.Empty, panel游戏区.Size);//只保存某个控件（这里是panel游戏区）
-            //bit.Save("weiboTemp.png"); //默认保存格式为PNG，保存成jpg格式质量不是很好
+            //g.CompositingQuality = CompositingQuality.HighQuality; //Set quality to highest
+            //g.CopyFromScreen(Left, Top, 0, 0, new Size(Width, Height)); //Save the entire form as a picture
+            ////g.CopyFromScreen(panel游戏区 .PointToScreen(Point.Empty), Point.Empty, panel游戏区.Size);//Only save a certain control (here is the panel game area)
+            //bit.Save("weiboTemp.png"); //The default save format is PNG, and the quality of saving in jpg format is not very good
         }
 
         private void chkDoor_Click(object sender, EventArgs e)
@@ -1645,9 +1645,9 @@ namespace Map_Editor
         private void WemadeMir2LibListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectListItem = wemadeMir2ListItem;
-            //在此处设断点，发现点击不同的Item后，此事件居然执行了2次 //第一次是取消当前Item选中状态，导致整个ListView的SelectedIndices变为0
-            //第二次才将新选中的Item设置为选中状态，SelectedIndices变为1
-            //如果不加listview.SelectedIndices.Count>0判断，将导致获取listview.Items[]索引超界的异常
+            //Set a breakpoint here and find that this event is executed twice after clicking different items. //The first time is to cancel the current item selection, causing the SelectedIndices of the entire ListView to become 0.
+			//The second time is to set the newly selected item to the selected state, and SelectedIndices becomes 1.
+			//If listview.SelectedIndices.Count>0 is not added, it will cause an exception when getting the listview.Items[] index out of bounds.
             if (WemadeMir2LibListView.SelectedIndices.Count > 0)
             {
                 selectLibMImage =
@@ -2933,9 +2933,9 @@ namespace Map_Editor
         private void WemadeMir2LibListView_Click(object sender, EventArgs e)
         {
             selectListItem = wemadeMir2ListItem;
-            //在此处设断点，发现点击不同的Item后，此事件居然执行了2次 //第一次是取消当前Item选中状态，导致整个ListView的SelectedIndices变为0
-            //第二次才将新选中的Item设置为选中状态，SelectedIndices变为1
-            //如果不加listview.SelectedIndices.Count>0判断，将导致获取listview.Items[]索引超界的异常
+            //Set a breakpoint here and find that this event is executed twice after clicking different items. //The first time is to cancel the current item selection, causing the SelectedIndices of the entire ListView to become 0.
+			//The second time is to set the newly selected item to the selected state, and SelectedIndices becomes 1.
+			//If listview.SelectedIndices.Count>0 is not added, it will cause an exception when getting the listview.Items[] index out of bounds.
             if (WemadeMir2LibListView.SelectedIndices.Count > 0)
             {
                 selectLibMImage =
@@ -3244,14 +3244,14 @@ namespace Map_Editor
 
         private TileType GetAutoSmTileType(int iX, int iY)
         {
-            //获取格子iX, iY中小地砖所属的地砖类型, 上中下等等。。。
+            //Get the type of floor tiles to which the small floor tiles in grid iX, iY belong, top, middle, bottom, etc. . .
             int iImageIndex;
 
-            iImageIndex = GetSmTile(iX, iY); //获取小地砖的图片索引
-            //然后判断这个索引是否是当前选择的样式
+            iImageIndex = GetSmTile(iX, iY); //Get the image index of the small floor tile
+            //Then determine whether this index is the currently selected style
             if (iImageIndex >= selectTilesIndex*smTileBlock && iImageIndex < (selectTilesIndex + 1)*smTileBlock)
             {
-                //如果是则可以根据小地砖样式中各种类型地砖的布局来计算出是属于哪种类型的地砖了
+                //If so, you can calculate which type of floor tile it is based on the layout of various types of floor tiles in the small floor tile style.
                 iImageIndex -= selectTilesIndex*smTileBlock;
                 if (iImageIndex < 8)
                 {
@@ -3260,7 +3260,7 @@ namespace Map_Editor
                 return (TileType) ((iImageIndex - 8)/4 + 1);
             }
 
-            //return -1;	//如果不是属于当前的样式的则返回-1
+            //return -1;	//If it does not belong to the current style, it returns -1
             return TileType.None;
         }
 
@@ -3305,35 +3305,35 @@ namespace Map_Editor
 
         private void DrawAutoMir2TileSide(int iX, int iY)
         {
-            if (GetAutoMir2TileType(iX, iY - 2) < 0) //上
+            if (GetAutoMir2TileType(iX, iY - 2) < 0) //superior
             {
                 PutAutoTile(iX, iY - 2, RandomAutoMir2Tile(TileType.Up));
             }
-            if (GetAutoMir2TileType(iX + 2, iY - 2) < 0) //右上
+            if (GetAutoMir2TileType(iX + 2, iY - 2) < 0) //Top right
             {
                 PutAutoTile(iX + 2, iY - 2, RandomAutoMir2Tile(TileType.UpRight));
             }
-            if (GetAutoMir2TileType(iX + 2, iY) < 0) //右
+            if (GetAutoMir2TileType(iX + 2, iY) < 0) //right
             {
                 PutAutoTile(iX + 2, iY, RandomAutoMir2Tile(TileType.Right));
             }
-            if (GetAutoMir2TileType(iX + 2, iY + 2) < 0) //右下
+            if (GetAutoMir2TileType(iX + 2, iY + 2) < 0) //Bottom right
             {
                 PutAutoTile(iX + 2, iY + 2, RandomAutoMir2Tile(TileType.DownRight));
             }
-            if (GetAutoMir2TileType(iX, iY + 2) < 0) //下
+            if (GetAutoMir2TileType(iX, iY + 2) < 0) //Down
             {
                 PutAutoTile(iX, iY + 2, RandomAutoMir2Tile(TileType.Down));
             }
-            if (GetAutoMir2TileType(iX - 2, iY + 2) < 0) //左下
+            if (GetAutoMir2TileType(iX - 2, iY + 2) < 0) //Lower left
             {
                 PutAutoTile(iX - 2, iY + 2, RandomAutoMir2Tile(TileType.DownLeft));
             }
-            if (GetAutoMir2TileType(iX - 2, iY) < 0) //左
+            if (GetAutoMir2TileType(iX - 2, iY) < 0) //left
             {
                 PutAutoTile(iX - 2, iY, RandomAutoMir2Tile(TileType.Left));
             }
-            if (GetAutoMir2TileType(iX - 2, iY - 2) < 0) //左上
+            if (GetAutoMir2TileType(iX - 2, iY - 2) < 0) //Top left
             {
                 PutAutoTile(iX - 2, iY - 2, RandomAutoMir2Tile(TileType.UpLeft));
             }
@@ -3341,35 +3341,35 @@ namespace Map_Editor
 
         private void DrawAutoMir3TileSide(int iX, int iY)
         {
-            if (GetAutoMir3TileType(iX, iY - 2) < 0) //上
+            if (GetAutoMir3TileType(iX, iY - 2) < 0) //superior
             {
                 PutAutoTile(iX, iY - 2, RandomAutoMir3Tile(TileType.Up));
             }
-            if (GetAutoMir3TileType(iX + 2, iY - 2) < 0) //右上
+            if (GetAutoMir3TileType(iX + 2, iY - 2) < 0) //Top right
             {
                 PutAutoTile(iX + 2, iY - 2, RandomAutoMir3Tile(TileType.UpRight));
             }
-            if (GetAutoMir3TileType(iX + 2, iY) < 0) //右
+            if (GetAutoMir3TileType(iX + 2, iY) < 0) //right
             {
                 PutAutoTile(iX + 2, iY, RandomAutoMir3Tile(TileType.Right));
             }
-            if (GetAutoMir3TileType(iX + 2, iY + 2) < 0) //右下
+            if (GetAutoMir3TileType(iX + 2, iY + 2) < 0) //Bottom right
             {
                 PutAutoTile(iX + 2, iY + 2, RandomAutoMir3Tile(TileType.DownRight));
             }
-            if (GetAutoMir3TileType(iX, iY + 2) < 0) //下
+            if (GetAutoMir3TileType(iX, iY + 2) < 0) //Down
             {
                 PutAutoTile(iX, iY + 2, RandomAutoMir3Tile(TileType.Down));
             }
-            if (GetAutoMir3TileType(iX - 2, iY + 2) < 0) //左下
+            if (GetAutoMir3TileType(iX - 2, iY + 2) < 0) //Lower left
             {
                 PutAutoTile(iX - 2, iY + 2, RandomAutoMir3Tile(TileType.DownLeft));
             }
-            if (GetAutoMir3TileType(iX - 2, iY) < 0) //左
+            if (GetAutoMir3TileType(iX - 2, iY) < 0) //left
             {
                 PutAutoTile(iX - 2, iY, RandomAutoMir3Tile(TileType.Left));
             }
-            if (GetAutoMir3TileType(iX - 2, iY - 2) < 0) //左上
+            if (GetAutoMir3TileType(iX - 2, iY - 2) < 0) //Top left
             {
                 PutAutoTile(iX - 2, iY - 2, RandomAutoMir3Tile(TileType.UpLeft));
             }
@@ -3377,36 +3377,36 @@ namespace Map_Editor
 
         private void DrawAutoSmTileSide(int iX, int iY)
         {
-            //这个就是绘制一个边
-            if (GetAutoSmTileType(iX, iY - 1) < 0) //上 上下左右这样逐个绘制, 不过绘制之前先要检查这个格子是否已经有当前样式的地砖, 如果有则不绘制
+            //This is to draw an edge
+            if (GetAutoSmTileType(iX, iY - 1) < 0) //Draw one by one in this way, but before drawing, check whether there is a floor tile of the current style in this grid. If there is, do not draw it.
             {
-                PutAutoSmTile(iX, iY - 1, RandomAutoSmTile(TileType.Up)); //随机返回上的一个地砖然后绘制
+                PutAutoSmTile(iX, iY - 1, RandomAutoSmTile(TileType.Up)); //Return a random tile and draw it
             }
-            if (GetAutoSmTileType(iX + 1, iY - 1) < 0) //右上
+            if (GetAutoSmTileType(iX + 1, iY - 1) < 0) //Top right
             {
                 PutAutoSmTile(iX + 1, iY - 1, RandomAutoSmTile(TileType.UpRight));
             }
-            if (GetAutoSmTileType(iX + 1, iY) < 0) //右
+            if (GetAutoSmTileType(iX + 1, iY) < 0) //right
             {
                 PutAutoSmTile(iX + 1, iY, RandomAutoSmTile(TileType.Right));
             }
-            if (GetAutoSmTileType(iX + 1, iY + 1) < 0) //右下
+            if (GetAutoSmTileType(iX + 1, iY + 1) < 0) //Bottom right
             {
                 PutAutoSmTile(iX + 1, iY + 1, RandomAutoSmTile(TileType.DownRight));
             }
-            if (GetAutoSmTileType(iX, iY + 1) < 0) //下
+            if (GetAutoSmTileType(iX, iY + 1) < 0) //Down
             {
                 PutAutoSmTile(iX, iY + 1, RandomAutoSmTile(TileType.Down));
             }
-            if (GetAutoSmTileType(iX - 1, iY + 1) < 0) //左下
+            if (GetAutoSmTileType(iX - 1, iY + 1) < 0) //Lower left
             {
                 PutAutoSmTile(iX - 1, iY + 1, RandomAutoSmTile(TileType.DownLeft));
             }
-            if (GetAutoSmTileType(iX - 1, iY) < 0) //左
+            if (GetAutoSmTileType(iX - 1, iY) < 0) //left
             {
                 PutAutoSmTile(iX - 1, iY, RandomAutoSmTile(TileType.Left));
             }
-            if (GetAutoSmTileType(iX - 1, iY - 1) < 0) //左上
+            if (GetAutoSmTileType(iX - 1, iY - 1) < 0) //Top left
             {
                 PutAutoSmTile(iX - 1, iY - 1, RandomAutoSmTile(TileType.UpLeft));
             }
@@ -3417,9 +3417,9 @@ namespace Map_Editor
             int i, j, c;
             TileType n1, n2;
 
-            for (j = iY - AutoTileRange; j <= iY + AutoTileRange; j += 2) //间隔为2
+            for (j = iY - AutoTileRange; j <= iY + AutoTileRange; j += 2) //Interval is 2
             {
-                for (i = iX - AutoTileRange; i <= iX + AutoTileRange; i += 2) //间隔为2, 其他算法跟小地砖一样
+                for (i = iX - AutoTileRange; i <= iX + AutoTileRange; i += 2) //The interval is 2, and the other algorithms are the same as small tiles.
                 {
                     if (i > 1 && j > 1)
                     {
@@ -3659,9 +3659,9 @@ namespace Map_Editor
             int i, j, c;
             TileType n1, n2;
 
-            for (j = iY - AutoTileRange; j <= iY + AutoTileRange; j += 2) //间隔为2
+            for (j = iY - AutoTileRange; j <= iY + AutoTileRange; j += 2) //Interval is 2
             {
-                for (i = iX - AutoTileRange; i <= iX + AutoTileRange; i += 2) //间隔为2, 其他算法跟小地砖一样
+                for (i = iX - AutoTileRange; i <= iX + AutoTileRange; i += 2) //The interval is 2, and the other algorithms are the same as small tiles.
                 {
                     if (i > 1 && j > 1)
                     {
@@ -3898,20 +3898,22 @@ namespace Map_Editor
 
         private void DrawAutoSmTilePattern(int iX, int iY)
         {
-            //这个算法就比较复杂了。。他是通过检查周边的地砖的类型来自动化绘制的, 根据已经绘制的地砖来动态调整和增加需要绘制的地砖, 从而达到自动绘制的目的
+            //This algorithm is more complicated. It automatically draws by checking the types of surrounding tiles, 
+			//and dynamically adjusts and increases the tiles that need to be drawn according to the tiles that have been drawn, 
+			//so as to achieve the purpose of automatic drawing.
             int i, j, c;
             TileType n1, n2;
             for (j = iY - AutoTileRange; j <= iY + AutoTileRange; ++j)
             {
                 for (i = iX - AutoTileRange; i <= iX + AutoTileRange; ++i)
-                    //根据当前鼠标所指格子的周边m_iAutoTileRange范围的格子开始检查调整
+                    //Start checking and adjusting the grids in the m_iAutoTileRange range around the grid currently pointed by the mouse
                 {
-                    if (i > 0 && j > 0) //首先去确保检查的格子的合法性
+                    if (i > 0 && j > 0) //First, ensure the legitimacy of the grid being checked.
                     {
-                        if (GetAutoSmTileType(i, j) > 0) //然后获取格子的小地砖类型, 是否是当前样式的格子, 如果是则需要检查调整
+                        if (GetAutoSmTileType(i, j) > 0) //Then get the small floor tile type of the grid, whether it is the current style of grid, if so, you need to check and adjust
                         {
                             //Check CENTER
-                            if (GetAutoSmTileType(i, j) != TileType.Center) //首先检查是否需要调整为中间类型的格子
+                            if (GetAutoSmTileType(i, j) != TileType.Center) //First check whether it needs to be adjusted to an intermediate type of grid
                             {
                                 c = 0;
                                 if (GetAutoSmTileType(i, j - 1) >= 0)
@@ -3946,16 +3948,16 @@ namespace Map_Editor
                                 {
                                     ++c;
                                 }
-                                if (c >= 8) //只要是被8个格子包围的格子就要被调整为中间类型的格子
+                                if (c >= 8) //Any grid surrounded by 8 grids will be adjusted to the middle type grid
                                 {
                                     PutAutoSmTile(i, j, RandomAutoSmTile(TileType.Center));
                                 }
                             }
 
                             //Check UP
-                            if (GetAutoSmTileType(i, j) != TileType.Up) //然后检查是否需要调整为上类型的格子。。
+                            if (GetAutoSmTileType(i, j) != TileType.Up) //Then check if it needs to be adjusted to the above type of grid.
                             {
-                                //下面的算法有3种情况需要调整为上的格子。。。大家可以自己看看。。
+                                //The following algorithm has 3 situations that need to be adjusted to the above grid. . . You can check it out for yourself. .
                                 n1 = GetAutoSmTileType(i - 1, j);
                                 n2 = GetAutoSmTileType(i + 1, j);
                                 if ((n1 == TileType.Up || n1 == TileType.UpLeft || n1 == TileType.InDownLeft) &&
@@ -3982,7 +3984,7 @@ namespace Map_Editor
                                 }
                             }
 
-                            //Check RIGHT  //然后检查是否需要调整为右类型的格子。。
+                            //Check RIGHT  //Then check if it needs to be adjusted to the right type of grid.
                             if (GetAutoSmTileType(i, j) != TileType.Right)
                             {
                                 n1 = GetAutoSmTileType(i, j - 1);
@@ -4011,7 +4013,7 @@ namespace Map_Editor
                                 }
                             }
 
-                            //Check DOWN //然后检查是否需要调整为下类型的格子。。
+                            //Check DOWN //Then check if it needs to be adjusted to the following type of grid.
                             if (GetAutoSmTileType(i, j) != TileType.Down)
                             {
                                 n1 = GetAutoSmTileType(i - 1, j);
@@ -4069,7 +4071,7 @@ namespace Map_Editor
                                 }
                             }
 
-                            //Check INUPRIGHT  //然后检查是否需要调整为内右上类型的格子。。
+                            //Check INUPRIGHT  //Then check whether it needs to be adjusted to the inner upper right type grid.
                             if (GetAutoSmTileType(i, j) != TileType.InUpRight)
                             {
                                 n1 = GetAutoSmTileType(i - 1, j);
@@ -4081,7 +4083,7 @@ namespace Map_Editor
                                 }
                             }
 
-                            //Check INDOWNRIGHT //然后检查是否需要调整为内右下类型的格子。。
+                            //Check INDOWNRIGHT //Then check whether it needs to be adjusted to the inner lower right type grid.
                             if (GetAutoSmTileType(i, j) != TileType.InDownRight)
                             {
                                 n1 = GetAutoSmTileType(i, j - 1);
@@ -4093,7 +4095,7 @@ namespace Map_Editor
                                 }
                             }
 
-                            //Check INDOWNLEFT  //然后检查是否需要调整为内左下类型的格子。。
+                            //Check INDOWNLEFT  //Then check if it needs to be adjusted to the inner lower left type grid.
                             if (GetAutoSmTileType(i, j) != TileType.InDownLeft)
                             {
                                 n1 = GetAutoSmTileType(i, j - 1);
@@ -4105,7 +4107,7 @@ namespace Map_Editor
                                 }
                             }
 
-                            //Check INUPLEFT //然后检查是否需要调整为内左上类型的格子。。
+                            //Check INUPLEFT //Then check whether it needs to be adjusted to the inner upper left type grid.
                             if (GetAutoSmTileType(i, j) != TileType.InUpLeft)
                             {
                                 n1 = GetAutoSmTileType(i + 1, j);
@@ -4117,9 +4119,10 @@ namespace Map_Editor
                                 }
                             }
 
-                            //四个外角是不用检查的哦。。。
+                            //There is no need to check the four outer corners...
 
-                            //Check Paradox //最后检查完后看看是否出现了矛盾的地方, 假如出现了, 可能就需要增加地砖来调和这种矛盾, 所以在这个矛盾的地方的周边绘制一个样式
+                            //Check Paradox //Finally, check to see if there are any inconsistencies. 
+							//If so, you may need to add floor tiles to reconcile the contradiction, so draw a style around the contradictory place.
                             if ((GetAutoSmTileType(i - 1, j) == TileType.Down &&
                                  GetAutoSmTileType(i, j - 1) == TileType.Right &&
                                  GetAutoSmTileType(i + 1, j) == TileType.Up &&
@@ -4135,7 +4138,9 @@ namespace Map_Editor
                         }
                     }
                 }
-            } //最后检查完一趟, 假如发现没有地砖需要变化调整, 则说明调整完毕了。。算法比较复杂, 大家可以慢慢看代码搞清楚, 调整地砖也不止这一种算法, 大家有兴趣的可以想想自己的一些算法来绘制自动化的样式
+            } //After the final check, if no floor tiles need to be changed or adjusted, the adjustment is complete. 
+			//The algorithm is quite complicated, you can slowly read the code to understand it. 
+			//There is more than one algorithm for adjusting floor tiles. If you are interested, you can think of some of your own algorithms to draw automatic styles.
         }
         
         private Bitmap GetTilesPreview(ListItem selectListView, int index)
@@ -4651,35 +4656,35 @@ namespace Map_Editor
 
         private int RandomAutoMir3Tile(TileType tileType)
         {
-            //传奇3 bigTile 30块 2 中组合
+            //Legend 3 bigTile 30 pieces 2 middle combination
 
-            //中  	0-4
-            //左上	10
-            //右上	11
-            //左下	12	
-            //右下	13
-            //上	20，21
-            //下	22，23
-            //左	25，27
-            //右	26，28
-            //内左上 	15
-            //内右上	16
-            //内左下	17	
-            //内右下	18
+			//Middle 0-4
+			//Top left 10
+			//Top right 11
+			//Bottom left 12
+			//Bottom right 13
+			//Top 20, 21
+			//Bottom 22, 23
+			//Left 25, 27
+			//Right 26, 28
+			//Inside top left 15
+			//Inside top right 16
+			//Inside bottom left 17
+			//Inside bottom right 18
 
-            //中	5-9
-            //左上	18
-            //右上	17
-            //左下	16
-            //右下	15
-            //上	22，23
-            //下	20，21	
-            //左	26，28
-            //右	25 ，27	
-            //内左上 	13
-            //内右上	12
-            //内左下	11	
-            //内右下	10
+			//Middle 5-9
+			//Top left 18
+			//Top right 17
+			//Bottom left 16
+			//Bottom right 15
+			//Top 22, 23
+			//Bottom 20, 21
+			//Left 26, 28
+			//Right 25, 27
+			//Inside top left 13
+			//Inside top right 12
+			//Inside bottom left 11
+			//Inside bottom right 10
             if (selectTilesIndex < 0) return -1;
             int flag;
             if (Libraries.MapLibs[selectListItem.Value].Images.Count%10 != 0)
@@ -5167,12 +5172,12 @@ namespace Map_Editor
 
         private int RandomAutoSmTile(TileType iTileType)
         {
-            //然后我们根据这个规律就可以返回某种地砖类型的某一块了。。
-            if ((int) iTileType >= 1) //这除了中这种地砖类型
+            //Then we can return a certain tile type based on this rule.
+            if ((int) iTileType >= 1) //Except for this type of floor tile
             {
                 return selectTilesIndex*smTileBlock + 8 + ((int) iTileType - 1)*4 + random.Next(4);
             }
-            //中间地砖
+            //Middle floor tiles
             return selectTilesIndex*smTileBlock + random.Next(8);
         }
 
