@@ -28,7 +28,7 @@ namespace Map_Editor
 
         public delegate void DelSetMapSize(int w, int h);
 
-        
+        public string openFileName = "";
 
         private const int CellWidth = 48;
         private const int CellHeight = 32;
@@ -5168,6 +5168,102 @@ namespace Map_Editor
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void OpenMapDirectory_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog()
+            {
+                Description = "Select your Client's Map Folder."
+            })
+            {
+                this.TreeBrowser.Nodes.Clear();
+                folderBrowserDialog.SelectedPath = this.PathTextBox.Text;
+                if (folderBrowserDialog.ShowDialog() != DialogResult.OK)
+                    return;
+                this.PathTextBox.Text = folderBrowserDialog.SelectedPath;
+                if (this.PathTextBox.Text.Substring(this.PathTextBox.Text.Length - 4).Contains("Map"))
+                {
+                    if (Directory.Exists(this.PathTextBox.Text))
+                    {
+                        this.LoadDirectory(this.PathTextBox.Text);
+                    }
+                    else
+                    {
+                        int num1 = (int)MessageBox.Show("Directory doesn't exist");
+                    }
+                }
+                else
+                {
+                    int num2 = (int)MessageBox.Show("Path must be Map folder.");
+                }
+            }
+        }
+        public void LoadDirectory(string Dir)
+        {
+            DirectoryInfo directoryInfo = new DirectoryInfo(Dir);
+            TreeNode td = this.TreeBrowser.Nodes.Add(directoryInfo.Name);
+            td.Tag = (object)directoryInfo.FullName;
+            td.StateImageIndex = 0;
+            this.LoadFiles(Dir, td);
+            this.LoadSubDirectories(Dir, td);
+        }
+
+        private void LoadSubDirectories(string dir, TreeNode td)
+        {
+            foreach (string directory in Directory.GetDirectories(dir))
+            {
+                DirectoryInfo directoryInfo = new DirectoryInfo(directory);
+                TreeNode td1 = td.Nodes.Add(directoryInfo.Name);
+                td1.StateImageIndex = 0;
+                td1.Tag = (object)directoryInfo.FullName;
+                this.LoadFiles(directory, td1);
+                this.LoadSubDirectories(directory, td1);
+            }
+        }
+
+        private void LoadFiles(string dir, TreeNode td)
+        {
+            foreach (string file in Directory.GetFiles(dir, "*.*"))
+            {
+                FileInfo fileInfo = new FileInfo(file);
+                TreeNode treeNode = td.Nodes.Add(fileInfo.Name);
+                treeNode.Tag = (object)fileInfo.FullName;
+                treeNode.StateImageIndex = 1;
+            }
+        }
+
+        private void TreeBrowser_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (this.TreeBrowser.SelectedNode == null)
+                return;
+            if (this.TreeBrowser.SelectedNode.FullPath.ToString().Contains(".map") || this.TreeBrowser.SelectedNode.FullPath.ToString().Contains(".Map") || this.TreeBrowser.SelectedNode.FullPath.ToString().Contains(".MAP"))
+            {
+                string str = this.TreeBrowser.SelectedNode.FullPath.ToString().Substring(4);
+                this.openFileName = str;
+                this.mapFileName = (string)null;
+                this.OpenMapFromTree(this.PathTextBox.Text + "\\" + str);
+            }
+            else
+            {
+                int num = (int)MessageBox.Show("File must be in '.Map' format.");
+            }
+        }
+        private void OpenMapFromTree(string path)
+        {
+            this.ClearImage();
+            this.map = new MapReader(path);
+            this.M2CellInfo = this.map.MapCells;
+            this.mapPoint = new Point(0, 0);
+            this.SetMapSize(this.map.Width, this.map.Height);
+            this.mapFileName = path;
+        }
+
+        private void TreeBrowser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsLetter(e.KeyChar))
+                return;
+            e.Handled = true;
         }
 
         private int RandomAutoSmTile(TileType iTileType)

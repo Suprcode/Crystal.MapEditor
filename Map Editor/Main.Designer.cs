@@ -176,6 +176,10 @@
             this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.loadImageDialog = new System.Windows.Forms.OpenFileDialog();
             this.SaveLibraryDialog = new System.Windows.Forms.SaveFileDialog();
+            this.TreeBrowser = new System.Windows.Forms.TreeView();
+            this.PathTextBox = new System.Windows.Forms.TextBox();
+            this.OpenMapDirectory = new System.Windows.Forms.Button();
+            this.TreeViewBox = new System.Windows.Forms.GroupBox();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabMap.SuspendLayout();
@@ -211,6 +215,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Image)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.TreeViewBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -698,7 +703,7 @@
             this.tabControl1.Controls.Add(this.tabTiles);
             this.tabControl1.Controls.Add(this.tabTileCutter);
             this.tabControl1.Controls.Add(this.tabHelp);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabControl1.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 54);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -706,7 +711,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.ShowToolTips = true;
-            this.tabControl1.Size = new System.Drawing.Size(1982, 1101);
+            this.tabControl1.Size = new System.Drawing.Size(1729, 1007);
             this.tabControl1.TabIndex = 4;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -717,7 +722,7 @@
             this.tabMap.Location = new System.Drawing.Point(4, 29);
             this.tabMap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabMap.Name = "tabMap";
-            this.tabMap.Size = new System.Drawing.Size(1974, 1068);
+            this.tabMap.Size = new System.Drawing.Size(1721, 974);
             this.tabMap.TabIndex = 2;
             this.tabMap.Text = "Map";
             this.tabMap.ToolTipText = "(F5)";
@@ -730,22 +735,22 @@
             this.tableLayoutPanel1.Controls.Add(this.vScrollBar, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.MapPanel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.hScrollBar, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1974, 1068);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1722, 974);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
             // vScrollBar
             // 
             this.vScrollBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.vScrollBar.LargeChange = 1;
-            this.vScrollBar.Location = new System.Drawing.Point(1954, 0);
+            this.vScrollBar.Location = new System.Drawing.Point(1702, 0);
             this.vScrollBar.Name = "vScrollBar";
-            this.vScrollBar.Size = new System.Drawing.Size(20, 1048);
+            this.vScrollBar.Size = new System.Drawing.Size(20, 954);
             this.vScrollBar.TabIndex = 1;
             this.vScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar_Scroll);
             // 
@@ -754,11 +759,11 @@
             this.MapPanel.AutoScroll = true;
             this.MapPanel.BackColor = System.Drawing.Color.Transparent;
             this.MapPanel.ContextMenuStrip = this.contextMenuStrip1;
-            this.MapPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MapPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MapPanel.Location = new System.Drawing.Point(4, 5);
             this.MapPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MapPanel.Name = "MapPanel";
-            this.MapPanel.Size = new System.Drawing.Size(1946, 1038);
+            this.MapPanel.Size = new System.Drawing.Size(1694, 944);
             this.MapPanel.TabIndex = 9;
             this.MapPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MapPanel_MouseClick);
             this.MapPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MapPanel_MouseDown);
@@ -839,9 +844,9 @@
             // 
             this.hScrollBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hScrollBar.LargeChange = 1;
-            this.hScrollBar.Location = new System.Drawing.Point(0, 1048);
+            this.hScrollBar.Location = new System.Drawing.Point(0, 954);
             this.hScrollBar.Name = "hScrollBar";
-            this.hScrollBar.Size = new System.Drawing.Size(1954, 20);
+            this.hScrollBar.Size = new System.Drawing.Size(1702, 20);
             this.hScrollBar.TabIndex = 0;
             this.hScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar_Scroll);
             // 
@@ -1754,7 +1759,7 @@
             this.menuJump,
             this.menuInvertMir3Layer});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // menuFreeMemory
@@ -1822,11 +1827,50 @@
             // 
             this.SaveLibraryDialog.Filter = "Lib|*.lib";
             // 
+            // TreeBrowser
+            // 
+            this.TreeBrowser.Location = new System.Drawing.Point(0, 51);
+            this.TreeBrowser.Name = "TreeBrowser";
+            this.TreeBrowser.Size = new System.Drawing.Size(253, 892);
+            this.TreeBrowser.TabIndex = 6;
+            this.TreeBrowser.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeBrowser_AfterSelect);
+            this.TreeBrowser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TreeBrowser_KeyPress);
+            // 
+            // PathTextBox
+            // 
+            this.PathTextBox.Location = new System.Drawing.Point(6, 18);
+            this.PathTextBox.Name = "PathTextBox";
+            this.PathTextBox.Size = new System.Drawing.Size(196, 27);
+            this.PathTextBox.TabIndex = 7;
+            // 
+            // OpenMapDirectory
+            // 
+            this.OpenMapDirectory.Location = new System.Drawing.Point(208, 18);
+            this.OpenMapDirectory.Name = "OpenMapDirectory";
+            this.OpenMapDirectory.Size = new System.Drawing.Size(39, 23);
+            this.OpenMapDirectory.TabIndex = 8;
+            this.OpenMapDirectory.Text = "GO";
+            this.OpenMapDirectory.UseVisualStyleBackColor = true;
+            this.OpenMapDirectory.Click += new System.EventHandler(this.OpenMapDirectory_Click);
+            // 
+            // TreeViewBox
+            // 
+            this.TreeViewBox.Controls.Add(this.TreeBrowser);
+            this.TreeViewBox.Controls.Add(this.PathTextBox);
+            this.TreeViewBox.Controls.Add(this.OpenMapDirectory);
+            this.TreeViewBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.TreeViewBox.Location = new System.Drawing.Point(1729, 54);
+            this.TreeViewBox.Name = "TreeViewBox";
+            this.TreeViewBox.Size = new System.Drawing.Size(253, 1007);
+            this.TreeViewBox.TabIndex = 9;
+            this.TreeViewBox.TabStop = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1982, 1155);
+            this.ClientSize = new System.Drawing.Size(1982, 1061);
+            this.Controls.Add(this.TreeViewBox);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -1887,6 +1931,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Image)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.TreeViewBox.ResumeLayout(false);
+            this.TreeViewBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2040,6 +2086,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.TabPage tabHelp;
+        private System.Windows.Forms.TreeView TreeBrowser;
+        private System.Windows.Forms.TextBox PathTextBox;
+        private System.Windows.Forms.Button OpenMapDirectory;
+        private System.Windows.Forms.GroupBox TreeViewBox;
     }
 }
 
