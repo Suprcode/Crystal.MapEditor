@@ -313,7 +313,7 @@ namespace Map_Editor
             if (mi.Image == null || mi.ImageTexture == null) return;
             int w = mi.Width;
             int h = mi.Height;
-            float zoom = zoomMIN / zoomMAX;
+            float zoom = (float)zoomMIN / (float)zoomMAX;
             float scaleX = zoom;
             float scaleY = zoom;
 
@@ -332,7 +332,7 @@ namespace Map_Editor
             if (mi.Image == null || mi.ImageTexture == null) return;
             int w = mi.Width;
             int h = mi.Height;
-            float zoom = zoomMIN / zoomMAX;
+            float zoom = (float)zoomMIN / (float)zoomMAX;
             float scaleX = zoom;
             float scaleY = zoom;
 
