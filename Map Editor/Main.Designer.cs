@@ -28,1914 +28,1805 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnNew = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnOpen = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnSave = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnJump = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnFreeMemory = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.chkBack = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkMidd = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkFront = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkShowCellInfo = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkDoor = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkDoorSign = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkFrontAnimationTag = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkMiddleAnimationTag = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkLightTag = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkBackMask = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkFrontMask = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkDrawGrids = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkFrontTag = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkMiddleTag = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.cmbEditorLayer = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.BtnUnDo = new System.Windows.Forms.ToolStripButton();
-            this.BtnReDo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.BtnZoomOut = new System.Windows.Forms.ToolStripButton();
-            this.BtnZoomIn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnMiniMap = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.BtnAbout = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.Mir3toMir2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabMap = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.vScrollBar = new System.Windows.Forms.VScrollBar();
-            this.MapPanel = new System.Windows.Forms.Panel();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.撤销ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.返回ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.menu_SaveObject = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSetDoor = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSetAnimation = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSetLight = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu_DeleteSelectedCellData = new System.Windows.Forms.ToolStripMenuItem();
-            this.hScrollBar = new System.Windows.Forms.HScrollBar();
-            this.tabWemadeMir2 = new System.Windows.Forms.TabPage();
-            this.labWemadeMir2OffSetY = new System.Windows.Forms.Label();
-            this.labeWemadeMir2OffSetX = new System.Windows.Forms.Label();
-            this.LabWemadeMir2Height = new System.Windows.Forms.Label();
-            this.LabWemadeMir2Width = new System.Windows.Forms.Label();
-            this.picWemdeMir2 = new System.Windows.Forms.PictureBox();
-            this.WemadeMir2LibListBox = new System.Windows.Forms.ListBox();
-            this.WemadeMir2LibListView = new System.Windows.Forms.ListView();
-            this.WemadeMir2ImageList = new System.Windows.Forms.ImageList(this.components);
-            this.tabShandaMir2 = new System.Windows.Forms.TabPage();
-            this.labshandaMir2OffSetY = new System.Windows.Forms.Label();
-            this.labShandaMir2OffSetX = new System.Windows.Forms.Label();
-            this.labShandaMir2Height = new System.Windows.Forms.Label();
-            this.labShandaMir2Width = new System.Windows.Forms.Label();
-            this.picShandaMir2 = new System.Windows.Forms.PictureBox();
-            this.ShandaMir2LibListBox = new System.Windows.Forms.ListBox();
-            this.ShandaMir2LibListView = new System.Windows.Forms.ListView();
-            this.ShandaMir2ImageList = new System.Windows.Forms.ImageList(this.components);
-            this.tabWemadeMir3 = new System.Windows.Forms.TabPage();
-            this.labWemadeMir3OffSetY = new System.Windows.Forms.Label();
-            this.labeWemadeMir3OffSetX = new System.Windows.Forms.Label();
-            this.LabWemadeMir3Height = new System.Windows.Forms.Label();
-            this.LabWemadeMir3Width = new System.Windows.Forms.Label();
-            this.picWemdeMir3 = new System.Windows.Forms.PictureBox();
-            this.WemadeMir3LibListBox = new System.Windows.Forms.ListBox();
-            this.WemadeMir3LibListView = new System.Windows.Forms.ListView();
-            this.WemadeMir3ImageList = new System.Windows.Forms.ImageList(this.components);
-            this.tabShandaMir3 = new System.Windows.Forms.TabPage();
-            this.labshandaMir3OffSetY = new System.Windows.Forms.Label();
-            this.labShandaMir3OffSetX = new System.Windows.Forms.Label();
-            this.labShandaMir3Height = new System.Windows.Forms.Label();
-            this.labShandaMir3Width = new System.Windows.Forms.Label();
-            this.picShandaMir3 = new System.Windows.Forms.PictureBox();
-            this.ShandaMir3LibListBox = new System.Windows.Forms.ListBox();
-            this.ShandaMir3LibListView = new System.Windows.Forms.ListView();
-            this.ShandaMir3ImageList = new System.Windows.Forms.ImageList(this.components);
-            this.tabObjects = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.ObjectslistBox = new System.Windows.Forms.ListBox();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.btnRefreshList = new System.Windows.Forms.Button();
-            this.btnDeleteObjects = new System.Windows.Forms.Button();
-            this.picObjects = new System.Windows.Forms.PictureBox();
-            this.tabTiles = new System.Windows.Forms.TabPage();
-            this.picTile = new System.Windows.Forms.PictureBox();
-            this.TileslistView = new System.Windows.Forms.ListView();
-            this.TilesImageList = new System.Windows.Forms.ImageList(this.components);
-            this.tabTileCutter = new System.Windows.Forms.TabPage();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.btn_grid = new System.Windows.Forms.Button();
-            this.btn_vCut = new System.Windows.Forms.Button();
-            this.btn_load = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btn_up = new System.Windows.Forms.Button();
-            this.comboBox_cellSize = new System.Windows.Forms.ComboBox();
-            this.btn_left = new System.Windows.Forms.Button();
-            this.btn_down = new System.Windows.Forms.Button();
-            this.btn_right = new System.Windows.Forms.Button();
-            this.pictureBox_Highlight = new System.Windows.Forms.PictureBox();
-            this.contextMenuTileCutter = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuSelectAllCells = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDeselectAllCells = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox_Grid = new System.Windows.Forms.PictureBox();
-            this.pictureBox_Image = new System.Windows.Forms.PictureBox();
-            this.tabHelp = new System.Windows.Forms.TabPage();
-            this.ObjectsimageList = new System.Windows.Forms.ImageList(this.components);
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuNew = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuUndo = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuRedo = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuClearMap = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuFreeMemory = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuJump = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuInvertMir3Layer = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuZoomIn = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuZoomOut = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadImageDialog = new System.Windows.Forms.OpenFileDialog();
-            this.SaveLibraryDialog = new System.Windows.Forms.SaveFileDialog();
-            this.TreeBrowser = new System.Windows.Forms.TreeView();
-            this.PathTextBox = new System.Windows.Forms.TextBox();
-            this.OpenMapDirectory = new System.Windows.Forms.Button();
-            this.TreeViewBox = new System.Windows.Forms.GroupBox();
-            this.toolStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabMap.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
-            this.tabWemadeMir2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picWemdeMir2)).BeginInit();
-            this.tabShandaMir2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picShandaMir2)).BeginInit();
-            this.tabWemadeMir3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picWemdeMir3)).BeginInit();
-            this.tabShandaMir3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picShandaMir3)).BeginInit();
-            this.tabObjects.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picObjects)).BeginInit();
-            this.tabTiles.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picTile)).BeginInit();
-            this.tabTileCutter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.Panel1.SuspendLayout();
-            this.splitContainer3.Panel2.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Highlight)).BeginInit();
-            this.contextMenuTileCutter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Grid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Image)).BeginInit();
-            this.menuStrip1.SuspendLayout();
-            this.TreeViewBox.SuspendLayout();
-            this.SuspendLayout();
+            toolStrip1 = new System.Windows.Forms.ToolStrip();
+            toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            btnNew = new System.Windows.Forms.ToolStripButton();
+            toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            btnOpen = new System.Windows.Forms.ToolStripButton();
+            toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            btnSave = new System.Windows.Forms.ToolStripButton();
+            toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            btnJump = new System.Windows.Forms.ToolStripButton();
+            toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            btnFreeMemory = new System.Windows.Forms.ToolStripButton();
+            toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            chkBack = new System.Windows.Forms.ToolStripMenuItem();
+            chkMidd = new System.Windows.Forms.ToolStripMenuItem();
+            chkFront = new System.Windows.Forms.ToolStripMenuItem();
+            chkShowCellInfo = new System.Windows.Forms.ToolStripMenuItem();
+            chkDoor = new System.Windows.Forms.ToolStripMenuItem();
+            chkDoorSign = new System.Windows.Forms.ToolStripMenuItem();
+            chkFrontAnimationTag = new System.Windows.Forms.ToolStripMenuItem();
+            chkMiddleAnimationTag = new System.Windows.Forms.ToolStripMenuItem();
+            chkLightTag = new System.Windows.Forms.ToolStripMenuItem();
+            chkBackMask = new System.Windows.Forms.ToolStripMenuItem();
+            chkFrontMask = new System.Windows.Forms.ToolStripMenuItem();
+            chkDrawGrids = new System.Windows.Forms.ToolStripMenuItem();
+            chkFrontTag = new System.Windows.Forms.ToolStripMenuItem();
+            chkMiddleTag = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            cmbEditorLayer = new System.Windows.Forms.ToolStripComboBox();
+            toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            BtnUnDo = new System.Windows.Forms.ToolStripButton();
+            BtnReDo = new System.Windows.Forms.ToolStripButton();
+            toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            BtnZoomOut = new System.Windows.Forms.ToolStripButton();
+            BtnZoomIn = new System.Windows.Forms.ToolStripButton();
+            toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            btnMiniMap = new System.Windows.Forms.ToolStripButton();
+            toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            BtnAbout = new System.Windows.Forms.ToolStripButton();
+            toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            Mir3toMir2 = new System.Windows.Forms.ToolStripButton();
+            toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            tabControl1 = new System.Windows.Forms.TabControl();
+            tabMap = new System.Windows.Forms.TabPage();
+            tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            vScrollBar = new System.Windows.Forms.VScrollBar();
+            MapPanel = new System.Windows.Forms.Panel();
+            contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
+            撤销ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            返回ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            menu_SaveObject = new System.Windows.Forms.ToolStripMenuItem();
+            btnSetDoor = new System.Windows.Forms.ToolStripMenuItem();
+            btnSetAnimation = new System.Windows.Forms.ToolStripMenuItem();
+            btnSetLight = new System.Windows.Forms.ToolStripMenuItem();
+            menu_DeleteSelectedCellData = new System.Windows.Forms.ToolStripMenuItem();
+            hScrollBar = new System.Windows.Forms.HScrollBar();
+            tabWemadeMir2 = new System.Windows.Forms.TabPage();
+            labWemadeMir2OffSetY = new System.Windows.Forms.Label();
+            labeWemadeMir2OffSetX = new System.Windows.Forms.Label();
+            LabWemadeMir2Height = new System.Windows.Forms.Label();
+            LabWemadeMir2Width = new System.Windows.Forms.Label();
+            picWemdeMir2 = new System.Windows.Forms.PictureBox();
+            WemadeMir2LibListBox = new System.Windows.Forms.ListBox();
+            WemadeMir2LibListView = new System.Windows.Forms.ListView();
+            WemadeMir2ImageList = new System.Windows.Forms.ImageList(components);
+            tabShandaMir2 = new System.Windows.Forms.TabPage();
+            labshandaMir2OffSetY = new System.Windows.Forms.Label();
+            labShandaMir2OffSetX = new System.Windows.Forms.Label();
+            labShandaMir2Height = new System.Windows.Forms.Label();
+            labShandaMir2Width = new System.Windows.Forms.Label();
+            picShandaMir2 = new System.Windows.Forms.PictureBox();
+            ShandaMir2LibListBox = new System.Windows.Forms.ListBox();
+            ShandaMir2LibListView = new System.Windows.Forms.ListView();
+            ShandaMir2ImageList = new System.Windows.Forms.ImageList(components);
+            tabWemadeMir3 = new System.Windows.Forms.TabPage();
+            labWemadeMir3OffSetY = new System.Windows.Forms.Label();
+            labeWemadeMir3OffSetX = new System.Windows.Forms.Label();
+            LabWemadeMir3Height = new System.Windows.Forms.Label();
+            LabWemadeMir3Width = new System.Windows.Forms.Label();
+            picWemdeMir3 = new System.Windows.Forms.PictureBox();
+            WemadeMir3LibListBox = new System.Windows.Forms.ListBox();
+            WemadeMir3LibListView = new System.Windows.Forms.ListView();
+            WemadeMir3ImageList = new System.Windows.Forms.ImageList(components);
+            tabShandaMir3 = new System.Windows.Forms.TabPage();
+            labshandaMir3OffSetY = new System.Windows.Forms.Label();
+            labShandaMir3OffSetX = new System.Windows.Forms.Label();
+            labShandaMir3Height = new System.Windows.Forms.Label();
+            labShandaMir3Width = new System.Windows.Forms.Label();
+            picShandaMir3 = new System.Windows.Forms.PictureBox();
+            ShandaMir3LibListBox = new System.Windows.Forms.ListBox();
+            ShandaMir3LibListView = new System.Windows.Forms.ListView();
+            ShandaMir3ImageList = new System.Windows.Forms.ImageList(components);
+            tabObjects = new System.Windows.Forms.TabPage();
+            splitContainer1 = new System.Windows.Forms.SplitContainer();
+            ObjectslistBox = new System.Windows.Forms.ListBox();
+            splitContainer2 = new System.Windows.Forms.SplitContainer();
+            btnRefreshList = new System.Windows.Forms.Button();
+            btnDeleteObjects = new System.Windows.Forms.Button();
+            picObjects = new System.Windows.Forms.PictureBox();
+            tabTiles = new System.Windows.Forms.TabPage();
+            picTile = new System.Windows.Forms.PictureBox();
+            TileslistView = new System.Windows.Forms.ListView();
+            TilesImageList = new System.Windows.Forms.ImageList(components);
+            tabTileCutter = new System.Windows.Forms.TabPage();
+            splitContainer3 = new System.Windows.Forms.SplitContainer();
+            btn_grid = new System.Windows.Forms.Button();
+            btn_vCut = new System.Windows.Forms.Button();
+            btn_load = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
+            btn_up = new System.Windows.Forms.Button();
+            comboBox_cellSize = new System.Windows.Forms.ComboBox();
+            btn_left = new System.Windows.Forms.Button();
+            btn_down = new System.Windows.Forms.Button();
+            btn_right = new System.Windows.Forms.Button();
+            pictureBox_Highlight = new System.Windows.Forms.PictureBox();
+            contextMenuTileCutter = new System.Windows.Forms.ContextMenuStrip(components);
+            menuSelectAllCells = new System.Windows.Forms.ToolStripMenuItem();
+            menuDeselectAllCells = new System.Windows.Forms.ToolStripMenuItem();
+            pictureBox_Grid = new System.Windows.Forms.PictureBox();
+            pictureBox_Image = new System.Windows.Forms.PictureBox();
+            tabHelp = new System.Windows.Forms.TabPage();
+            ObjectsimageList = new System.Windows.Forms.ImageList(components);
+            menuStrip1 = new System.Windows.Forms.MenuStrip();
+            toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            menuNew = new System.Windows.Forms.ToolStripMenuItem();
+            menuOpen = new System.Windows.Forms.ToolStripMenuItem();
+            menuSave = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            menuUndo = new System.Windows.Forms.ToolStripMenuItem();
+            menuRedo = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            menuClearMap = new System.Windows.Forms.ToolStripMenuItem();
+            toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            menuFreeMemory = new System.Windows.Forms.ToolStripMenuItem();
+            menuJump = new System.Windows.Forms.ToolStripMenuItem();
+            menuInvertMir3Layer = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            menuZoomIn = new System.Windows.Forms.ToolStripMenuItem();
+            menuZoomOut = new System.Windows.Forms.ToolStripMenuItem();
+            helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            menuAbout = new System.Windows.Forms.ToolStripMenuItem();
+            loadImageDialog = new System.Windows.Forms.OpenFileDialog();
+            SaveLibraryDialog = new System.Windows.Forms.SaveFileDialog();
+            TreeBrowser = new System.Windows.Forms.TreeView();
+            PathTextBox = new System.Windows.Forms.TextBox();
+            OpenMapDirectory = new System.Windows.Forms.Button();
+            TreeViewBox = new System.Windows.Forms.GroupBox();
+            toolStrip1.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabMap.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            contextMenuStrip1.SuspendLayout();
+            tabWemadeMir2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picWemdeMir2).BeginInit();
+            tabShandaMir2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picShandaMir2).BeginInit();
+            tabWemadeMir3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picWemdeMir3).BeginInit();
+            tabShandaMir3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picShandaMir3).BeginInit();
+            tabObjects.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
+            splitContainer2.Panel1.SuspendLayout();
+            splitContainer2.Panel2.SuspendLayout();
+            splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picObjects).BeginInit();
+            tabTiles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picTile).BeginInit();
+            tabTileCutter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer3).BeginInit();
+            splitContainer3.Panel1.SuspendLayout();
+            splitContainer3.Panel2.SuspendLayout();
+            splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_Highlight).BeginInit();
+            contextMenuTileCutter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_Grid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_Image).BeginInit();
+            menuStrip1.SuspendLayout();
+            TreeViewBox.SuspendLayout();
+            SuspendLayout();
             // 
             // toolStrip1
             // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator12,
-            this.btnNew,
-            this.toolStripSeparator13,
-            this.btnOpen,
-            this.toolStripSeparator7,
-            this.btnSave,
-            this.toolStripSeparator8,
-            this.btnJump,
-            this.toolStripSeparator14,
-            this.btnFreeMemory,
-            this.toolStripSeparator15,
-            this.toolStripDropDownButton2,
-            this.toolStripSeparator5,
-            this.toolStripLabel1,
-            this.cmbEditorLayer,
-            this.toolStripSeparator6,
-            this.BtnUnDo,
-            this.BtnReDo,
-            this.toolStripSeparator3,
-            this.BtnZoomOut,
-            this.BtnZoomIn,
-            this.toolStripSeparator4,
-            this.btnMiniMap,
-            this.toolStripSeparator9,
-            this.BtnAbout,
-            this.toolStripSeparator10,
-            this.Mir3toMir2,
-            this.toolStripSeparator11,
-            this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1982, 54);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
+            toolStrip1.AutoSize = false;
+            toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripSeparator12, btnNew, toolStripSeparator13, btnOpen, toolStripSeparator7, btnSave, toolStripSeparator8, btnJump, toolStripSeparator14, btnFreeMemory, toolStripSeparator15, toolStripDropDownButton2, toolStripSeparator5, toolStripLabel1, cmbEditorLayer, toolStripSeparator6, BtnUnDo, BtnReDo, toolStripSeparator3, BtnZoomOut, BtnZoomIn, toolStripSeparator4, btnMiniMap, toolStripSeparator9, BtnAbout, toolStripSeparator10, Mir3toMir2, toolStripSeparator11, toolStripButton1 });
+            toolStrip1.Location = new System.Drawing.Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new System.Drawing.Size(1982, 54);
+            toolStrip1.TabIndex = 3;
+            toolStrip1.Text = "toolStrip1";
             // 
             // toolStripSeparator12
             // 
-            this.toolStripSeparator12.AutoSize = false;
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(48, 54);
+            toolStripSeparator12.AutoSize = false;
+            toolStripSeparator12.Name = "toolStripSeparator12";
+            toolStripSeparator12.Size = new System.Drawing.Size(48, 54);
             // 
             // btnNew
             // 
-            this.btnNew.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.Image = global::Map_Editor.Properties.Resources._100;
-            this.btnNew.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(36, 51);
-            this.btnNew.Text = "New";
-            this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnNew.ToolTipText = "Create New Map (N)";
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            btnNew.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnNew.Image = Properties.Resources._100;
+            btnNew.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            btnNew.Name = "btnNew";
+            btnNew.Size = new System.Drawing.Size(36, 51);
+            btnNew.Text = "New";
+            btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            btnNew.ToolTipText = "Create New Map (N)";
+            btnNew.Click += btnNew_Click;
             // 
             // toolStripSeparator13
             // 
-            this.toolStripSeparator13.AutoSize = false;
-            this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(12, 56);
+            toolStripSeparator13.AutoSize = false;
+            toolStripSeparator13.Name = "toolStripSeparator13";
+            toolStripSeparator13.Size = new System.Drawing.Size(12, 56);
             // 
             // btnOpen
             // 
-            this.btnOpen.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpen.Image = global::Map_Editor.Properties.Resources._110;
-            this.btnOpen.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(40, 51);
-            this.btnOpen.Text = "Open";
-            this.btnOpen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnOpen.ToolTipText = "Open Map (O)";
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            btnOpen.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnOpen.Image = Properties.Resources._110;
+            btnOpen.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            btnOpen.Name = "btnOpen";
+            btnOpen.Size = new System.Drawing.Size(40, 51);
+            btnOpen.Text = "Open";
+            btnOpen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            btnOpen.ToolTipText = "Open Map (O)";
+            btnOpen.Click += btnOpen_Click;
             // 
             // toolStripSeparator7
             // 
-            this.toolStripSeparator7.AutoSize = false;
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(24, 56);
+            toolStripSeparator7.AutoSize = false;
+            toolStripSeparator7.Name = "toolStripSeparator7";
+            toolStripSeparator7.Size = new System.Drawing.Size(24, 56);
             // 
             // btnSave
             // 
-            this.btnSave.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Image = global::Map_Editor.Properties.Resources._120;
-            this.btnSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(38, 51);
-            this.btnSave.Text = "Save";
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSave.ToolTipText = "Save Map (Ctrl-S)";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnSave.Image = Properties.Resources._120;
+            btnSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            btnSave.Name = "btnSave";
+            btnSave.Size = new System.Drawing.Size(38, 51);
+            btnSave.Text = "Save";
+            btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            btnSave.ToolTipText = "Save Map (Ctrl-S)";
+            btnSave.Click += btnSave_Click;
             // 
             // toolStripSeparator8
             // 
-            this.toolStripSeparator8.AutoSize = false;
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(24, 56);
+            toolStripSeparator8.AutoSize = false;
+            toolStripSeparator8.Name = "toolStripSeparator8";
+            toolStripSeparator8.Size = new System.Drawing.Size(24, 56);
             // 
             // btnJump
             // 
-            this.btnJump.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnJump.Image = global::Map_Editor.Properties.Resources.Navigator;
-            this.btnJump.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnJump.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnJump.Name = "btnJump";
-            this.btnJump.Size = new System.Drawing.Size(40, 51);
-            this.btnJump.Text = "Jump";
-            this.btnJump.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnJump.ToolTipText = "Teleport to Location (J)";
-            this.btnJump.Click += new System.EventHandler(this.btnJump_Click);
+            btnJump.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnJump.Image = Properties.Resources.Navigator;
+            btnJump.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            btnJump.ImageTransparentColor = System.Drawing.Color.Magenta;
+            btnJump.Name = "btnJump";
+            btnJump.Size = new System.Drawing.Size(40, 51);
+            btnJump.Text = "Jump";
+            btnJump.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            btnJump.ToolTipText = "Teleport to Location (J)";
+            btnJump.Click += btnJump_Click;
             // 
             // toolStripSeparator14
             // 
-            this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 54);
+            toolStripSeparator14.Name = "toolStripSeparator14";
+            toolStripSeparator14.Size = new System.Drawing.Size(6, 54);
             // 
             // btnFreeMemory
             // 
-            this.btnFreeMemory.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFreeMemory.Image = global::Map_Editor.Properties.Resources.System_folder;
-            this.btnFreeMemory.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnFreeMemory.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFreeMemory.Name = "btnFreeMemory";
-            this.btnFreeMemory.Size = new System.Drawing.Size(79, 51);
-            this.btnFreeMemory.Text = "FreeMemory";
-            this.btnFreeMemory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnFreeMemory.ToolTipText = "Free Memory";
-            this.btnFreeMemory.Click += new System.EventHandler(this.btnFreeMemory_Click);
+            btnFreeMemory.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnFreeMemory.Image = Properties.Resources.System_folder;
+            btnFreeMemory.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            btnFreeMemory.ImageTransparentColor = System.Drawing.Color.Magenta;
+            btnFreeMemory.Name = "btnFreeMemory";
+            btnFreeMemory.Size = new System.Drawing.Size(79, 51);
+            btnFreeMemory.Text = "FreeMemory";
+            btnFreeMemory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            btnFreeMemory.ToolTipText = "Free Memory";
+            btnFreeMemory.Click += btnFreeMemory_Click;
             // 
             // toolStripSeparator15
             // 
-            this.toolStripSeparator15.Name = "toolStripSeparator15";
-            this.toolStripSeparator15.Size = new System.Drawing.Size(6, 54);
+            toolStripSeparator15.Name = "toolStripSeparator15";
+            toolStripSeparator15.Size = new System.Drawing.Size(6, 54);
             // 
             // toolStripDropDownButton2
             // 
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.chkBack,
-            this.chkMidd,
-            this.chkFront,
-            this.chkShowCellInfo,
-            this.chkDoor,
-            this.chkDoorSign,
-            this.chkFrontAnimationTag,
-            this.chkMiddleAnimationTag,
-            this.chkLightTag,
-            this.chkBackMask,
-            this.chkFrontMask,
-            this.chkDrawGrids,
-            this.chkFrontTag,
-            this.chkMiddleTag});
-            this.toolStripDropDownButton2.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripDropDownButton2.Image = global::Map_Editor.Properties.Resources._190;
-            this.toolStripDropDownButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(47, 51);
-            this.toolStripDropDownButton2.Text = "View";
-            this.toolStripDropDownButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripDropDownButton2.Click += new System.EventHandler(this.toolStripDropDownButton2_Click);
+            toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { chkBack, chkMidd, chkFront, chkShowCellInfo, chkDoor, chkDoorSign, chkFrontAnimationTag, chkMiddleAnimationTag, chkLightTag, chkBackMask, chkFrontMask, chkDrawGrids, chkFrontTag, chkMiddleTag });
+            toolStripDropDownButton2.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            toolStripDropDownButton2.Image = Properties.Resources._190;
+            toolStripDropDownButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            toolStripDropDownButton2.Size = new System.Drawing.Size(47, 51);
+            toolStripDropDownButton2.Text = "View";
+            toolStripDropDownButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            toolStripDropDownButton2.Click += toolStripDropDownButton2_Click;
             // 
             // chkBack
             // 
-            this.chkBack.Checked = true;
-            this.chkBack.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkBack.Name = "chkBack";
-            this.chkBack.ShortcutKeys = System.Windows.Forms.Keys.F8;
-            this.chkBack.Size = new System.Drawing.Size(323, 22);
-            this.chkBack.Text = "Show/Hide Background Image";
-            this.chkBack.Click += new System.EventHandler(this.chkBack_Click);
+            chkBack.Checked = true;
+            chkBack.CheckState = System.Windows.Forms.CheckState.Checked;
+            chkBack.Name = "chkBack";
+            chkBack.ShortcutKeys = System.Windows.Forms.Keys.F8;
+            chkBack.Size = new System.Drawing.Size(323, 22);
+            chkBack.Text = "Show/Hide Background Image";
+            chkBack.Click += chkBack_Click;
             // 
             // chkMidd
             // 
-            this.chkMidd.Checked = true;
-            this.chkMidd.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkMidd.Name = "chkMidd";
-            this.chkMidd.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.chkMidd.Size = new System.Drawing.Size(323, 22);
-            this.chkMidd.Text = "Show/Hide Middle Image";
-            this.chkMidd.Click += new System.EventHandler(this.chkMidd_Click);
+            chkMidd.Checked = true;
+            chkMidd.CheckState = System.Windows.Forms.CheckState.Checked;
+            chkMidd.Name = "chkMidd";
+            chkMidd.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            chkMidd.Size = new System.Drawing.Size(323, 22);
+            chkMidd.Text = "Show/Hide Middle Image";
+            chkMidd.Click += chkMidd_Click;
             // 
             // chkFront
             // 
-            this.chkFront.Checked = true;
-            this.chkFront.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkFront.Name = "chkFront";
-            this.chkFront.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.chkFront.Size = new System.Drawing.Size(323, 22);
-            this.chkFront.Text = "Show/Hide Front Image";
-            this.chkFront.Click += new System.EventHandler(this.chkFront_Click);
+            chkFront.Checked = true;
+            chkFront.CheckState = System.Windows.Forms.CheckState.Checked;
+            chkFront.Name = "chkFront";
+            chkFront.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            chkFront.Size = new System.Drawing.Size(323, 22);
+            chkFront.Text = "Show/Hide Front Image";
+            chkFront.Click += chkFront_Click;
             // 
             // chkShowCellInfo
             // 
-            this.chkShowCellInfo.Name = "chkShowCellInfo";
-            this.chkShowCellInfo.ShortcutKeys = System.Windows.Forms.Keys.F9;
-            this.chkShowCellInfo.Size = new System.Drawing.Size(323, 22);
-            this.chkShowCellInfo.Text = "Show/Hide Cell Info";
-            this.chkShowCellInfo.Click += new System.EventHandler(this.chkShowCellInfo_Click);
+            chkShowCellInfo.Name = "chkShowCellInfo";
+            chkShowCellInfo.ShortcutKeys = System.Windows.Forms.Keys.F9;
+            chkShowCellInfo.Size = new System.Drawing.Size(323, 22);
+            chkShowCellInfo.Text = "Show/Hide Cell Info";
+            chkShowCellInfo.Click += chkShowCellInfo_Click;
             // 
             // chkDoor
             // 
-            this.chkDoor.Name = "chkDoor";
-            this.chkDoor.Size = new System.Drawing.Size(323, 22);
-            this.chkDoor.Text = "Show Door Open";
-            this.chkDoor.Click += new System.EventHandler(this.chkDoor_Click);
+            chkDoor.Name = "chkDoor";
+            chkDoor.Size = new System.Drawing.Size(323, 22);
+            chkDoor.Text = "Show Door Open";
+            chkDoor.Click += chkDoor_Click;
             // 
             // chkDoorSign
             // 
-            this.chkDoorSign.Name = "chkDoorSign";
-            this.chkDoorSign.Size = new System.Drawing.Size(323, 22);
-            this.chkDoorSign.Text = "Show Door Tag";
-            this.chkDoorSign.Click += new System.EventHandler(this.chkDoorSign_Click);
+            chkDoorSign.Name = "chkDoorSign";
+            chkDoorSign.Size = new System.Drawing.Size(323, 22);
+            chkDoorSign.Text = "Show Door Tag";
+            chkDoorSign.Click += chkDoorSign_Click;
             // 
             // chkFrontAnimationTag
             // 
-            this.chkFrontAnimationTag.Name = "chkFrontAnimationTag";
-            this.chkFrontAnimationTag.Size = new System.Drawing.Size(323, 22);
-            this.chkFrontAnimationTag.Text = "Show Front Animation  Tag";
-            this.chkFrontAnimationTag.Click += new System.EventHandler(this.chkFrontAnimationTag_Click);
+            chkFrontAnimationTag.Name = "chkFrontAnimationTag";
+            chkFrontAnimationTag.Size = new System.Drawing.Size(323, 22);
+            chkFrontAnimationTag.Text = "Show Front Animation  Tag";
+            chkFrontAnimationTag.Click += chkFrontAnimationTag_Click;
             // 
             // chkMiddleAnimationTag
             // 
-            this.chkMiddleAnimationTag.Name = "chkMiddleAnimationTag";
-            this.chkMiddleAnimationTag.Size = new System.Drawing.Size(323, 22);
-            this.chkMiddleAnimationTag.Text = "Show Middle Animation  Tag";
-            this.chkMiddleAnimationTag.Click += new System.EventHandler(this.chkMiddleAnimationTag_Click);
+            chkMiddleAnimationTag.Name = "chkMiddleAnimationTag";
+            chkMiddleAnimationTag.Size = new System.Drawing.Size(323, 22);
+            chkMiddleAnimationTag.Text = "Show Middle Animation  Tag";
+            chkMiddleAnimationTag.Click += chkMiddleAnimationTag_Click;
             // 
             // chkLightTag
             // 
-            this.chkLightTag.Name = "chkLightTag";
-            this.chkLightTag.Size = new System.Drawing.Size(323, 22);
-            this.chkLightTag.Text = "Show Light Tag";
-            this.chkLightTag.Click += new System.EventHandler(this.chkLightTag_Click);
+            chkLightTag.Name = "chkLightTag";
+            chkLightTag.Size = new System.Drawing.Size(323, 22);
+            chkLightTag.Text = "Show Light Tag";
+            chkLightTag.Click += chkLightTag_Click;
             // 
             // chkBackMask
             // 
-            this.chkBackMask.Name = "chkBackMask";
-            this.chkBackMask.ShortcutKeys = System.Windows.Forms.Keys.F12;
-            this.chkBackMask.Size = new System.Drawing.Size(323, 22);
-            this.chkBackMask.Text = "Show Back Move Limit Tag (Yellow)";
-            this.chkBackMask.ToolTipText = "Low Objects\r\n(Can Shoot Over)";
-            this.chkBackMask.Click += new System.EventHandler(this.chkBackMask_Click);
+            chkBackMask.Name = "chkBackMask";
+            chkBackMask.ShortcutKeys = System.Windows.Forms.Keys.F12;
+            chkBackMask.Size = new System.Drawing.Size(323, 22);
+            chkBackMask.Text = "Show Back Move Limit Tag (Yellow)";
+            chkBackMask.ToolTipText = "Low Objects\r\n(Can Shoot Over)";
+            chkBackMask.Click += chkBackMask_Click;
             // 
             // chkFrontMask
             // 
-            this.chkFrontMask.Name = "chkFrontMask";
-            this.chkFrontMask.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12)));
-            this.chkFrontMask.Size = new System.Drawing.Size(323, 22);
-            this.chkFrontMask.Text = "Show Front Move Limit Tag (Red)";
-            this.chkFrontMask.ToolTipText = "High Objects \r\n(Cannot Shoot Over)";
-            this.chkFrontMask.Click += new System.EventHandler(this.chkFrontMask_Click);
+            chkFrontMask.Name = "chkFrontMask";
+            chkFrontMask.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12;
+            chkFrontMask.Size = new System.Drawing.Size(323, 22);
+            chkFrontMask.Text = "Show Front Move Limit Tag (Red)";
+            chkFrontMask.ToolTipText = "High Objects \r\n(Cannot Shoot Over)";
+            chkFrontMask.Click += chkFrontMask_Click;
             // 
             // chkDrawGrids
             // 
-            this.chkDrawGrids.Name = "chkDrawGrids";
-            this.chkDrawGrids.Size = new System.Drawing.Size(323, 22);
-            this.chkDrawGrids.Text = "Show/Hide Grid                                      G";
-            this.chkDrawGrids.Click += new System.EventHandler(this.chkDrawGrids_Click);
+            chkDrawGrids.Name = "chkDrawGrids";
+            chkDrawGrids.Size = new System.Drawing.Size(323, 22);
+            chkDrawGrids.Text = "Show/Hide Grid                                      G";
+            chkDrawGrids.Click += chkDrawGrids_Click;
             // 
             // chkFrontTag
             // 
-            this.chkFrontTag.Name = "chkFrontTag";
-            this.chkFrontTag.ShortcutKeys = System.Windows.Forms.Keys.F10;
-            this.chkFrontTag.Size = new System.Drawing.Size(323, 22);
-            this.chkFrontTag.Text = "Show/Hide Front Tag";
-            this.chkFrontTag.Click += new System.EventHandler(this.chkFrontTag_Click);
+            chkFrontTag.Name = "chkFrontTag";
+            chkFrontTag.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            chkFrontTag.Size = new System.Drawing.Size(323, 22);
+            chkFrontTag.Text = "Show/Hide Front Tag";
+            chkFrontTag.Click += chkFrontTag_Click;
             // 
             // chkMiddleTag
             // 
-            this.chkMiddleTag.Name = "chkMiddleTag";
-            this.chkMiddleTag.ShortcutKeys = System.Windows.Forms.Keys.F11;
-            this.chkMiddleTag.Size = new System.Drawing.Size(323, 22);
-            this.chkMiddleTag.Text = "Show/Hide Middle Tag";
-            this.chkMiddleTag.Click += new System.EventHandler(this.chkMiddleTag_Click);
+            chkMiddleTag.Name = "chkMiddleTag";
+            chkMiddleTag.ShortcutKeys = System.Windows.Forms.Keys.F11;
+            chkMiddleTag.Size = new System.Drawing.Size(323, 22);
+            chkMiddleTag.Text = "Show/Hide Middle Tag";
+            chkMiddleTag.Click += chkMiddleTag_Click;
             // 
             // toolStripSeparator5
             // 
-            this.toolStripSeparator5.AutoSize = false;
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(24, 56);
+            toolStripSeparator5.AutoSize = false;
+            toolStripSeparator5.Name = "toolStripSeparator5";
+            toolStripSeparator5.Size = new System.Drawing.Size(24, 56);
             // 
             // toolStripLabel1
             // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(79, 51);
-            this.toolStripLabel1.Text = "Editor Layer";
-            this.toolStripLabel1.ToolTipText = "Layer Actions";
-            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
+            toolStripLabel1.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            toolStripLabel1.Name = "toolStripLabel1";
+            toolStripLabel1.Size = new System.Drawing.Size(79, 51);
+            toolStripLabel1.Text = "Editor Layer";
+            toolStripLabel1.ToolTipText = "Layer Actions";
+            toolStripLabel1.Click += toolStripLabel1_Click;
             // 
             // cmbEditorLayer
             // 
-            this.cmbEditorLayer.AutoSize = false;
-            this.cmbEditorLayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEditorLayer.DropDownWidth = 210;
-            this.cmbEditorLayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbEditorLayer.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEditorLayer.Items.AddRange(new object[] {
-            "None------------------------(Escape)",
-            "Back Image-----------------(3)",
-            "Middle Image---------------(2)",
-            "Front Image----------------(1)",
-            "Back Limit (Yellow)--------(B)",
-            "Front Limit (Red)----------(F)",
-            "Back&Front Limit",
-            "Grasp Mir2 Front----------(4)",
-            "Grasp Mir3 Front&Middle-(6)",
-            "Place Objects--------------(5)",
-            "Clear All",
-            "Clear Back\t------------------(9)",
-            "Clear Midd------------------(8)",
-            "Clear Front-----------------(7)",
-            "Clear Back&Front Limit---(C)",
-            "Clear Back Limit",
-            "Clear Front Limit",
-            "Brush Mir2 BigTiles-------(0)",
-            "Brush SmTiles--------------(-)",
-            "Brush Mir3 BigTiles-------(=)"});
-            this.cmbEditorLayer.Name = "cmbEditorLayer";
-            this.cmbEditorLayer.Size = new System.Drawing.Size(185, 25);
-            this.cmbEditorLayer.SelectedIndexChanged += new System.EventHandler(this.cmbEditorLayer_SelectedIndexChanged);
-            this.cmbEditorLayer.Click += new System.EventHandler(this.cmbEditorLayer_Click);
+            cmbEditorLayer.AutoSize = false;
+            cmbEditorLayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cmbEditorLayer.DropDownWidth = 210;
+            cmbEditorLayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cmbEditorLayer.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            cmbEditorLayer.Items.AddRange(new object[] { "None------------------------(Escape)", "Back Image-----------------(3)", "Middle Image---------------(2)", "Front Image----------------(1)", "Back Limit (Yellow)--------(B)", "Front Limit (Red)----------(F)", "Back&Front Limit", "Grasp Mir2 Front----------(4)", "Grasp Mir3 Front&Middle-(6)", "Place Objects--------------(5)", "Clear All", "Clear Back\t------------------(9)", "Clear Midd------------------(8)", "Clear Front-----------------(7)", "Clear Back&Front Limit---(C)", "Clear Back Limit", "Clear Front Limit", "Brush Mir2 BigTiles-------(0)", "Brush SmTiles--------------(-)", "Brush Mir3 BigTiles-------(=)" });
+            cmbEditorLayer.Name = "cmbEditorLayer";
+            cmbEditorLayer.Size = new System.Drawing.Size(185, 25);
+            cmbEditorLayer.SelectedIndexChanged += cmbEditorLayer_SelectedIndexChanged;
+            cmbEditorLayer.Click += cmbEditorLayer_Click;
             // 
             // toolStripSeparator6
             // 
-            this.toolStripSeparator6.AutoSize = false;
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(24, 56);
+            toolStripSeparator6.AutoSize = false;
+            toolStripSeparator6.Name = "toolStripSeparator6";
+            toolStripSeparator6.Size = new System.Drawing.Size(24, 56);
             // 
             // BtnUnDo
             // 
-            this.BtnUnDo.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnUnDo.Image = global::Map_Editor.Properties.Resources._1110;
-            this.BtnUnDo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BtnUnDo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnUnDo.Name = "BtnUnDo";
-            this.BtnUnDo.Size = new System.Drawing.Size(42, 51);
-            this.BtnUnDo.Text = "UnDo";
-            this.BtnUnDo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnUnDo.ToolTipText = "(Z)";
-            this.BtnUnDo.Click += new System.EventHandler(this.menuUndo_Click);
+            BtnUnDo.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            BtnUnDo.Image = Properties.Resources._1110;
+            BtnUnDo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            BtnUnDo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            BtnUnDo.Name = "BtnUnDo";
+            BtnUnDo.Size = new System.Drawing.Size(42, 51);
+            BtnUnDo.Text = "UnDo";
+            BtnUnDo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            BtnUnDo.ToolTipText = "(Z)";
+            BtnUnDo.Click += menuUndo_Click;
             // 
             // BtnReDo
             // 
-            this.BtnReDo.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReDo.Image = global::Map_Editor.Properties.Resources._1120;
-            this.BtnReDo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BtnReDo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnReDo.Name = "BtnReDo";
-            this.BtnReDo.Size = new System.Drawing.Size(40, 51);
-            this.BtnReDo.Text = "ReDo";
-            this.BtnReDo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnReDo.ToolTipText = "(Ctrl-Z)";
-            this.BtnReDo.Click += new System.EventHandler(this.menuRedo_Click);
+            BtnReDo.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            BtnReDo.Image = Properties.Resources._1120;
+            BtnReDo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            BtnReDo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            BtnReDo.Name = "BtnReDo";
+            BtnReDo.Size = new System.Drawing.Size(40, 51);
+            BtnReDo.Text = "ReDo";
+            BtnReDo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            BtnReDo.ToolTipText = "(Ctrl-Z)";
+            BtnReDo.Click += menuRedo_Click;
             // 
             // toolStripSeparator3
             // 
-            this.toolStripSeparator3.AutoSize = false;
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(24, 56);
+            toolStripSeparator3.AutoSize = false;
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new System.Drawing.Size(24, 56);
             // 
             // BtnZoomOut
             // 
-            this.BtnZoomOut.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnZoomOut.Image = global::Map_Editor.Properties.Resources.Minus;
-            this.BtnZoomOut.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BtnZoomOut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnZoomOut.Name = "BtnZoomOut";
-            this.BtnZoomOut.Size = new System.Drawing.Size(67, 51);
-            this.BtnZoomOut.Text = "Zoom Out";
-            this.BtnZoomOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnZoomOut.ToolTipText = "(Shift) (-)";
-            this.BtnZoomOut.Click += new System.EventHandler(this.menuZoomOut_Click);
+            BtnZoomOut.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            BtnZoomOut.Image = Properties.Resources.Minus;
+            BtnZoomOut.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            BtnZoomOut.ImageTransparentColor = System.Drawing.Color.Magenta;
+            BtnZoomOut.Name = "BtnZoomOut";
+            BtnZoomOut.Size = new System.Drawing.Size(67, 51);
+            BtnZoomOut.Text = "Zoom Out";
+            BtnZoomOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            BtnZoomOut.ToolTipText = "(Shift) (-)";
+            BtnZoomOut.Click += menuZoomOut_Click;
             // 
             // BtnZoomIn
             // 
-            this.BtnZoomIn.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnZoomIn.Image = global::Map_Editor.Properties.Resources.Plus;
-            this.BtnZoomIn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BtnZoomIn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnZoomIn.Name = "BtnZoomIn";
-            this.BtnZoomIn.Size = new System.Drawing.Size(58, 51);
-            this.BtnZoomIn.Text = "Zoom In";
-            this.BtnZoomIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnZoomIn.ToolTipText = "(Shift) (+)";
-            this.BtnZoomIn.Click += new System.EventHandler(this.menuZoomIn_Click);
+            BtnZoomIn.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            BtnZoomIn.Image = Properties.Resources.Plus;
+            BtnZoomIn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            BtnZoomIn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            BtnZoomIn.Name = "BtnZoomIn";
+            BtnZoomIn.Size = new System.Drawing.Size(58, 51);
+            BtnZoomIn.Text = "Zoom In";
+            BtnZoomIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            BtnZoomIn.ToolTipText = "(Shift) (+)";
+            BtnZoomIn.Click += menuZoomIn_Click;
             // 
             // toolStripSeparator4
             // 
-            this.toolStripSeparator4.AutoSize = false;
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(24, 56);
+            toolStripSeparator4.AutoSize = false;
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new System.Drawing.Size(24, 56);
             // 
             // btnMiniMap
             // 
-            this.btnMiniMap.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMiniMap.Image = global::Map_Editor.Properties.Resources.Camera;
-            this.btnMiniMap.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnMiniMap.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnMiniMap.Name = "btnMiniMap";
-            this.btnMiniMap.Size = new System.Drawing.Size(58, 51);
-            this.btnMiniMap.Text = "MiniMap";
-            this.btnMiniMap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnMiniMap.ToolTipText = "Create MiniMap (M)";
-            this.btnMiniMap.Click += new System.EventHandler(this.btnMiniMap_Click);
+            btnMiniMap.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnMiniMap.Image = Properties.Resources.Camera;
+            btnMiniMap.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            btnMiniMap.ImageTransparentColor = System.Drawing.Color.Magenta;
+            btnMiniMap.Name = "btnMiniMap";
+            btnMiniMap.Size = new System.Drawing.Size(58, 51);
+            btnMiniMap.Text = "MiniMap";
+            btnMiniMap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            btnMiniMap.ToolTipText = "Create MiniMap (M)";
+            btnMiniMap.Click += btnMiniMap_Click;
             // 
             // toolStripSeparator9
             // 
-            this.toolStripSeparator9.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSeparator9.AutoSize = false;
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(48, 54);
+            toolStripSeparator9.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            toolStripSeparator9.AutoSize = false;
+            toolStripSeparator9.Name = "toolStripSeparator9";
+            toolStripSeparator9.Size = new System.Drawing.Size(48, 54);
             // 
             // BtnAbout
             // 
-            this.BtnAbout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.BtnAbout.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAbout.Image = global::Map_Editor.Properties.Resources._1100;
-            this.BtnAbout.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BtnAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnAbout.Name = "BtnAbout";
-            this.BtnAbout.Size = new System.Drawing.Size(44, 51);
-            this.BtnAbout.Text = "About";
-            this.BtnAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnAbout.ToolTipText = "About (Ctrl-A)";
-            this.BtnAbout.Click += new System.EventHandler(this.menuAbout_Click);
+            BtnAbout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            BtnAbout.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            BtnAbout.Image = Properties.Resources._1100;
+            BtnAbout.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            BtnAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            BtnAbout.Name = "BtnAbout";
+            BtnAbout.Size = new System.Drawing.Size(44, 51);
+            BtnAbout.Text = "About";
+            BtnAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            BtnAbout.ToolTipText = "About (Ctrl-A)";
+            BtnAbout.Click += menuAbout_Click;
             // 
             // toolStripSeparator10
             // 
-            this.toolStripSeparator10.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSeparator10.AutoSize = false;
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(24, 56);
+            toolStripSeparator10.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            toolStripSeparator10.AutoSize = false;
+            toolStripSeparator10.Name = "toolStripSeparator10";
+            toolStripSeparator10.Size = new System.Drawing.Size(24, 56);
             // 
             // Mir3toMir2
             // 
-            this.Mir3toMir2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.Mir3toMir2.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Mir3toMir2.Image = global::Map_Editor.Properties.Resources._120;
-            this.Mir3toMir2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.Mir3toMir2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Mir3toMir2.Name = "Mir3toMir2";
-            this.Mir3toMir2.Size = new System.Drawing.Size(115, 51);
-            this.Mir3toMir2.Text = "Invert Mir3 Layer";
-            this.Mir3toMir2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Mir3toMir2.ToolTipText = "(Ctrl-I) Save Mir3 Map As *.Mir3\r\nWith Middle & Front Layers Inverted.\r\nCurrent M" +
-    "ap Also Inverts. \r\nCannot UnDo!\r\n";
-            this.Mir3toMir2.Click += new System.EventHandler(this.menuInvertMir3Layer_Click);
+            Mir3toMir2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            Mir3toMir2.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            Mir3toMir2.Image = Properties.Resources._120;
+            Mir3toMir2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            Mir3toMir2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            Mir3toMir2.Name = "Mir3toMir2";
+            Mir3toMir2.Size = new System.Drawing.Size(115, 51);
+            Mir3toMir2.Text = "Invert Mir3 Layer";
+            Mir3toMir2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            Mir3toMir2.ToolTipText = "(Ctrl-I) Save Mir3 Map As *.Mir3\r\nWith Middle & Front Layers Inverted.\r\nCurrent Map Also Inverts. \r\nCannot UnDo!\r\n";
+            Mir3toMir2.Click += menuInvertMir3Layer_Click;
             // 
             // toolStripSeparator11
             // 
-            this.toolStripSeparator11.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 54);
+            toolStripSeparator11.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            toolStripSeparator11.Name = "toolStripSeparator11";
+            toolStripSeparator11.Size = new System.Drawing.Size(6, 54);
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.Image = global::Map_Editor.Properties.Resources._120;
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(99, 51);
-            this.toolStripButton1.Text = "Save As Object.X";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton1.ToolTipText = "(Ctrl-X) Save Map Or \r\nSelection As Object.X";
-            this.toolStripButton1.Click += new System.EventHandler(this.menu_SaveObject_Click);
+            toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            toolStripButton1.Image = Properties.Resources._120;
+            toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new System.Drawing.Size(99, 51);
+            toolStripButton1.Text = "Save As Object.X";
+            toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            toolStripButton1.ToolTipText = "(Ctrl-X) Save Map Or \r\nSelection As Object.X";
+            toolStripButton1.Click += menu_SaveObject_Click;
             // 
             // tabControl1
             // 
-            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabControl1.Controls.Add(this.tabMap);
-            this.tabControl1.Controls.Add(this.tabWemadeMir2);
-            this.tabControl1.Controls.Add(this.tabShandaMir2);
-            this.tabControl1.Controls.Add(this.tabWemadeMir3);
-            this.tabControl1.Controls.Add(this.tabShandaMir3);
-            this.tabControl1.Controls.Add(this.tabObjects);
-            this.tabControl1.Controls.Add(this.tabTiles);
-            this.tabControl1.Controls.Add(this.tabTileCutter);
-            this.tabControl1.Controls.Add(this.tabHelp);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tabControl1.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 54);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.ShowToolTips = true;
-            this.tabControl1.Size = new System.Drawing.Size(1729, 1007);
-            this.tabControl1.TabIndex = 4;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            tabControl1.Controls.Add(tabMap);
+            tabControl1.Controls.Add(tabWemadeMir2);
+            tabControl1.Controls.Add(tabShandaMir2);
+            tabControl1.Controls.Add(tabWemadeMir3);
+            tabControl1.Controls.Add(tabShandaMir3);
+            tabControl1.Controls.Add(tabObjects);
+            tabControl1.Controls.Add(tabTiles);
+            tabControl1.Controls.Add(tabTileCutter);
+            tabControl1.Controls.Add(tabHelp);
+            tabControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            tabControl1.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            tabControl1.Location = new System.Drawing.Point(0, 54);
+            tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            tabControl1.Multiline = true;
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.ShowToolTips = true;
+            tabControl1.Size = new System.Drawing.Size(1729, 1007);
+            tabControl1.TabIndex = 4;
+            tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
             // tabMap
             // 
-            this.tabMap.BackColor = System.Drawing.Color.Black;
-            this.tabMap.Controls.Add(this.tableLayoutPanel1);
-            this.tabMap.Location = new System.Drawing.Point(4, 29);
-            this.tabMap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabMap.Name = "tabMap";
-            this.tabMap.Size = new System.Drawing.Size(1721, 974);
-            this.tabMap.TabIndex = 2;
-            this.tabMap.Text = "Map";
-            this.tabMap.ToolTipText = "(F5)";
+            tabMap.BackColor = System.Drawing.Color.Black;
+            tabMap.Controls.Add(tableLayoutPanel1);
+            tabMap.Location = new System.Drawing.Point(4, 29);
+            tabMap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            tabMap.Name = "tabMap";
+            tabMap.Size = new System.Drawing.Size(1721, 974);
+            tabMap.TabIndex = 2;
+            tabMap.Text = "Map";
+            tabMap.ToolTipText = "(F5)";
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.vScrollBar, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.MapPanel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.hScrollBar, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1722, 974);
-            this.tableLayoutPanel1.TabIndex = 10;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            tableLayoutPanel1.Controls.Add(vScrollBar, 1, 0);
+            tableLayoutPanel1.Controls.Add(MapPanel, 0, 0);
+            tableLayoutPanel1.Controls.Add(hScrollBar, 0, 1);
+            tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(1722, 974);
+            tableLayoutPanel1.TabIndex = 10;
             // 
             // vScrollBar
             // 
-            this.vScrollBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vScrollBar.LargeChange = 1;
-            this.vScrollBar.Location = new System.Drawing.Point(1702, 0);
-            this.vScrollBar.Name = "vScrollBar";
-            this.vScrollBar.Size = new System.Drawing.Size(20, 954);
-            this.vScrollBar.TabIndex = 1;
-            this.vScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar_Scroll);
+            vScrollBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            vScrollBar.LargeChange = 1;
+            vScrollBar.Location = new System.Drawing.Point(1702, 0);
+            vScrollBar.Name = "vScrollBar";
+            vScrollBar.Size = new System.Drawing.Size(20, 954);
+            vScrollBar.TabIndex = 1;
+            vScrollBar.Scroll += vScrollBar_Scroll;
             // 
             // MapPanel
             // 
-            this.MapPanel.AutoScroll = true;
-            this.MapPanel.BackColor = System.Drawing.Color.Transparent;
-            this.MapPanel.ContextMenuStrip = this.contextMenuStrip1;
-            this.MapPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.MapPanel.Location = new System.Drawing.Point(4, 5);
-            this.MapPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MapPanel.Name = "MapPanel";
-            this.MapPanel.Size = new System.Drawing.Size(1694, 944);
-            this.MapPanel.TabIndex = 9;
-            this.MapPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MapPanel_MouseClick);
-            this.MapPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MapPanel_MouseDown);
-            this.MapPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MapPanel_MouseMove);
-            this.MapPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MapPanel_MouseUp);
+            MapPanel.AutoScroll = true;
+            MapPanel.BackColor = System.Drawing.Color.Transparent;
+            MapPanel.ContextMenuStrip = contextMenuStrip1;
+            MapPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            MapPanel.Location = new System.Drawing.Point(4, 5);
+            MapPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            MapPanel.Name = "MapPanel";
+            MapPanel.Size = new System.Drawing.Size(1694, 944);
+            MapPanel.TabIndex = 9;
+            MapPanel.MouseClick += MapPanel_MouseClick;
+            MapPanel.MouseDown += MapPanel_MouseDown;
+            MapPanel.MouseMove += MapPanel_MouseMove;
+            MapPanel.MouseUp += MapPanel_MouseUp;
+            MapPanel.Resize += MapPanel_Resize;
             // 
             // contextMenuStrip1
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.撤销ToolStripMenuItem,
-            this.返回ToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.menu_SaveObject,
-            this.btnSetDoor,
-            this.btnSetAnimation,
-            this.btnSetLight,
-            this.menu_DeleteSelectedCellData});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(338, 164);
+            contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { 撤销ToolStripMenuItem, 返回ToolStripMenuItem, toolStripSeparator2, menu_SaveObject, btnSetDoor, btnSetAnimation, btnSetLight, menu_DeleteSelectedCellData });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new System.Drawing.Size(338, 164);
             // 
             // 撤销ToolStripMenuItem
             // 
-            this.撤销ToolStripMenuItem.Name = "撤销ToolStripMenuItem";
-            this.撤销ToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
-            this.撤销ToolStripMenuItem.Text = "UnDo     Z";
-            this.撤销ToolStripMenuItem.Click += new System.EventHandler(this.撤销ToolStripMenuItem_Click);
+            撤销ToolStripMenuItem.Name = "撤销ToolStripMenuItem";
+            撤销ToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
+            撤销ToolStripMenuItem.Text = "UnDo     Z";
+            撤销ToolStripMenuItem.Click += 撤销ToolStripMenuItem_Click;
             // 
             // 返回ToolStripMenuItem
             // 
-            this.返回ToolStripMenuItem.Name = "返回ToolStripMenuItem";
-            this.返回ToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
-            this.返回ToolStripMenuItem.Text = "ReDo    Ctrl-Z";
-            this.返回ToolStripMenuItem.Click += new System.EventHandler(this.返回ToolStripMenuItem_Click);
+            返回ToolStripMenuItem.Name = "返回ToolStripMenuItem";
+            返回ToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
+            返回ToolStripMenuItem.Text = "ReDo    Ctrl-Z";
+            返回ToolStripMenuItem.Click += 返回ToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(334, 6);
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new System.Drawing.Size(334, 6);
             // 
             // menu_SaveObject
             // 
-            this.menu_SaveObject.Name = "menu_SaveObject";
-            this.menu_SaveObject.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.menu_SaveObject.Size = new System.Drawing.Size(337, 22);
-            this.menu_SaveObject.Text = "Save Selection As Object (.X)";
-            this.menu_SaveObject.Click += new System.EventHandler(this.menu_SaveObject_Click);
+            menu_SaveObject.Name = "menu_SaveObject";
+            menu_SaveObject.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X;
+            menu_SaveObject.Size = new System.Drawing.Size(337, 22);
+            menu_SaveObject.Text = "Save Selection As Object (.X)";
+            menu_SaveObject.Click += menu_SaveObject_Click;
             // 
             // btnSetDoor
             // 
-            this.btnSetDoor.Name = "btnSetDoor";
-            this.btnSetDoor.Size = new System.Drawing.Size(337, 22);
-            this.btnSetDoor.Text = "Set the Current Coordinates Door Properties";
-            this.btnSetDoor.Click += new System.EventHandler(this.btnSetDoor_Click);
+            btnSetDoor.Name = "btnSetDoor";
+            btnSetDoor.Size = new System.Drawing.Size(337, 22);
+            btnSetDoor.Text = "Set the Current Coordinates Door Properties";
+            btnSetDoor.Click += btnSetDoor_Click;
             // 
             // btnSetAnimation
             // 
-            this.btnSetAnimation.Name = "btnSetAnimation";
-            this.btnSetAnimation.Size = new System.Drawing.Size(337, 22);
-            this.btnSetAnimation.Text = "Set the Current Coordinates Animation Attributes ";
-            this.btnSetAnimation.Click += new System.EventHandler(this.btnSetAnimation_Click);
+            btnSetAnimation.Name = "btnSetAnimation";
+            btnSetAnimation.Size = new System.Drawing.Size(337, 22);
+            btnSetAnimation.Text = "Set the Current Coordinates Animation Attributes ";
+            btnSetAnimation.Click += btnSetAnimation_Click;
             // 
             // btnSetLight
             // 
-            this.btnSetLight.Name = "btnSetLight";
-            this.btnSetLight.Size = new System.Drawing.Size(337, 22);
-            this.btnSetLight.Text = "Set the Current Coordinates Brightness Property ";
-            this.btnSetLight.Click += new System.EventHandler(this.btnSetLight_Click);
+            btnSetLight.Name = "btnSetLight";
+            btnSetLight.Size = new System.Drawing.Size(337, 22);
+            btnSetLight.Text = "Set the Current Coordinates Brightness Property ";
+            btnSetLight.Click += btnSetLight_Click;
             // 
             // menu_DeleteSelectedCellData
             // 
-            this.menu_DeleteSelectedCellData.Name = "menu_DeleteSelectedCellData";
-            this.menu_DeleteSelectedCellData.Size = new System.Drawing.Size(337, 22);
-            this.menu_DeleteSelectedCellData.Text = "Delete Selected Cell Data";
-            this.menu_DeleteSelectedCellData.Click += new System.EventHandler(this.menu_DeleteSelectedCellData_Click);
+            menu_DeleteSelectedCellData.Name = "menu_DeleteSelectedCellData";
+            menu_DeleteSelectedCellData.Size = new System.Drawing.Size(337, 22);
+            menu_DeleteSelectedCellData.Text = "Delete Selected Cell Data";
+            menu_DeleteSelectedCellData.Click += menu_DeleteSelectedCellData_Click;
             // 
             // hScrollBar
             // 
-            this.hScrollBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hScrollBar.LargeChange = 1;
-            this.hScrollBar.Location = new System.Drawing.Point(0, 954);
-            this.hScrollBar.Name = "hScrollBar";
-            this.hScrollBar.Size = new System.Drawing.Size(1702, 20);
-            this.hScrollBar.TabIndex = 0;
-            this.hScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar_Scroll);
+            hScrollBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            hScrollBar.LargeChange = 1;
+            hScrollBar.Location = new System.Drawing.Point(0, 954);
+            hScrollBar.Name = "hScrollBar";
+            hScrollBar.Size = new System.Drawing.Size(1702, 20);
+            hScrollBar.TabIndex = 0;
+            hScrollBar.Scroll += hScrollBar_Scroll;
             // 
             // tabWemadeMir2
             // 
-            this.tabWemadeMir2.Controls.Add(this.labWemadeMir2OffSetY);
-            this.tabWemadeMir2.Controls.Add(this.labeWemadeMir2OffSetX);
-            this.tabWemadeMir2.Controls.Add(this.LabWemadeMir2Height);
-            this.tabWemadeMir2.Controls.Add(this.LabWemadeMir2Width);
-            this.tabWemadeMir2.Controls.Add(this.picWemdeMir2);
-            this.tabWemadeMir2.Controls.Add(this.WemadeMir2LibListBox);
-            this.tabWemadeMir2.Controls.Add(this.WemadeMir2LibListView);
-            this.tabWemadeMir2.Location = new System.Drawing.Point(4, 29);
-            this.tabWemadeMir2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabWemadeMir2.Name = "tabWemadeMir2";
-            this.tabWemadeMir2.Size = new System.Drawing.Size(1974, 1068);
-            this.tabWemadeMir2.TabIndex = 5;
-            this.tabWemadeMir2.Text = "WemadeMir2";
-            this.tabWemadeMir2.ToolTipText = "(F1)";
-            this.tabWemadeMir2.UseVisualStyleBackColor = true;
+            tabWemadeMir2.Controls.Add(labWemadeMir2OffSetY);
+            tabWemadeMir2.Controls.Add(labeWemadeMir2OffSetX);
+            tabWemadeMir2.Controls.Add(LabWemadeMir2Height);
+            tabWemadeMir2.Controls.Add(LabWemadeMir2Width);
+            tabWemadeMir2.Controls.Add(picWemdeMir2);
+            tabWemadeMir2.Controls.Add(WemadeMir2LibListBox);
+            tabWemadeMir2.Controls.Add(WemadeMir2LibListView);
+            tabWemadeMir2.Location = new System.Drawing.Point(4, 29);
+            tabWemadeMir2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            tabWemadeMir2.Name = "tabWemadeMir2";
+            tabWemadeMir2.Size = new System.Drawing.Size(1721, 974);
+            tabWemadeMir2.TabIndex = 5;
+            tabWemadeMir2.Text = "WemadeMir2";
+            tabWemadeMir2.ToolTipText = "(F1)";
+            tabWemadeMir2.UseVisualStyleBackColor = true;
             // 
             // labWemadeMir2OffSetY
             // 
-            this.labWemadeMir2OffSetY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labWemadeMir2OffSetY.AutoSize = true;
-            this.labWemadeMir2OffSetY.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labWemadeMir2OffSetY.Location = new System.Drawing.Point(1740, 73);
-            this.labWemadeMir2OffSetY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labWemadeMir2OffSetY.Name = "labWemadeMir2OffSetY";
-            this.labWemadeMir2OffSetY.Size = new System.Drawing.Size(59, 20);
-            this.labWemadeMir2OffSetY.TabIndex = 15;
-            this.labWemadeMir2OffSetY.Text = "OffSetY";
+            labWemadeMir2OffSetY.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            labWemadeMir2OffSetY.AutoSize = true;
+            labWemadeMir2OffSetY.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            labWemadeMir2OffSetY.Location = new System.Drawing.Point(1740, 73);
+            labWemadeMir2OffSetY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labWemadeMir2OffSetY.Name = "labWemadeMir2OffSetY";
+            labWemadeMir2OffSetY.Size = new System.Drawing.Size(59, 20);
+            labWemadeMir2OffSetY.TabIndex = 15;
+            labWemadeMir2OffSetY.Text = "OffSetY";
             // 
             // labeWemadeMir2OffSetX
             // 
-            this.labeWemadeMir2OffSetX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labeWemadeMir2OffSetX.AutoSize = true;
-            this.labeWemadeMir2OffSetX.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labeWemadeMir2OffSetX.Location = new System.Drawing.Point(1740, 25);
-            this.labeWemadeMir2OffSetX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labeWemadeMir2OffSetX.Name = "labeWemadeMir2OffSetX";
-            this.labeWemadeMir2OffSetX.Size = new System.Drawing.Size(60, 20);
-            this.labeWemadeMir2OffSetX.TabIndex = 14;
-            this.labeWemadeMir2OffSetX.Text = "OffSetX";
+            labeWemadeMir2OffSetX.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            labeWemadeMir2OffSetX.AutoSize = true;
+            labeWemadeMir2OffSetX.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            labeWemadeMir2OffSetX.Location = new System.Drawing.Point(1740, 25);
+            labeWemadeMir2OffSetX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labeWemadeMir2OffSetX.Name = "labeWemadeMir2OffSetX";
+            labeWemadeMir2OffSetX.Size = new System.Drawing.Size(60, 20);
+            labeWemadeMir2OffSetX.TabIndex = 14;
+            labeWemadeMir2OffSetX.Text = "OffSetX";
             // 
             // LabWemadeMir2Height
             // 
-            this.LabWemadeMir2Height.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabWemadeMir2Height.AutoSize = true;
-            this.LabWemadeMir2Height.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LabWemadeMir2Height.Location = new System.Drawing.Point(1625, 73);
-            this.LabWemadeMir2Height.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LabWemadeMir2Height.Name = "LabWemadeMir2Height";
-            this.LabWemadeMir2Height.Size = new System.Drawing.Size(55, 20);
-            this.LabWemadeMir2Height.TabIndex = 13;
-            this.LabWemadeMir2Height.Text = "Height";
+            LabWemadeMir2Height.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            LabWemadeMir2Height.AutoSize = true;
+            LabWemadeMir2Height.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            LabWemadeMir2Height.Location = new System.Drawing.Point(1625, 73);
+            LabWemadeMir2Height.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LabWemadeMir2Height.Name = "LabWemadeMir2Height";
+            LabWemadeMir2Height.Size = new System.Drawing.Size(55, 20);
+            LabWemadeMir2Height.TabIndex = 13;
+            LabWemadeMir2Height.Text = "Height";
             // 
             // LabWemadeMir2Width
             // 
-            this.LabWemadeMir2Width.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabWemadeMir2Width.AutoSize = true;
-            this.LabWemadeMir2Width.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LabWemadeMir2Width.Location = new System.Drawing.Point(1625, 25);
-            this.LabWemadeMir2Width.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LabWemadeMir2Width.Name = "LabWemadeMir2Width";
-            this.LabWemadeMir2Width.Size = new System.Drawing.Size(50, 20);
-            this.LabWemadeMir2Width.TabIndex = 12;
-            this.LabWemadeMir2Width.Text = "Width";
+            LabWemadeMir2Width.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            LabWemadeMir2Width.AutoSize = true;
+            LabWemadeMir2Width.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            LabWemadeMir2Width.Location = new System.Drawing.Point(1625, 25);
+            LabWemadeMir2Width.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LabWemadeMir2Width.Name = "LabWemadeMir2Width";
+            LabWemadeMir2Width.Size = new System.Drawing.Size(50, 20);
+            LabWemadeMir2Width.TabIndex = 12;
+            LabWemadeMir2Width.Text = "Width";
             // 
             // picWemdeMir2
             // 
-            this.picWemdeMir2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picWemdeMir2.BackColor = System.Drawing.Color.Black;
-            this.picWemdeMir2.Location = new System.Drawing.Point(1630, 135);
-            this.picWemdeMir2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.picWemdeMir2.Name = "picWemdeMir2";
-            this.picWemdeMir2.Size = new System.Drawing.Size(100, 50);
-            this.picWemdeMir2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picWemdeMir2.TabIndex = 11;
-            this.picWemdeMir2.TabStop = false;
+            picWemdeMir2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            picWemdeMir2.BackColor = System.Drawing.Color.Black;
+            picWemdeMir2.Location = new System.Drawing.Point(1630, 135);
+            picWemdeMir2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            picWemdeMir2.Name = "picWemdeMir2";
+            picWemdeMir2.Size = new System.Drawing.Size(100, 50);
+            picWemdeMir2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            picWemdeMir2.TabIndex = 11;
+            picWemdeMir2.TabStop = false;
             // 
             // WemadeMir2LibListBox
             // 
-            this.WemadeMir2LibListBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.WemadeMir2LibListBox.Font = new System.Drawing.Font("Comic Sans MS", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WemadeMir2LibListBox.FormattingEnabled = true;
-            this.WemadeMir2LibListBox.ItemHeight = 19;
-            this.WemadeMir2LibListBox.Location = new System.Drawing.Point(0, 0);
-            this.WemadeMir2LibListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.WemadeMir2LibListBox.Name = "WemadeMir2LibListBox";
-            this.WemadeMir2LibListBox.Size = new System.Drawing.Size(200, 1068);
-            this.WemadeMir2LibListBox.TabIndex = 10;
-            this.WemadeMir2LibListBox.SelectedIndexChanged += new System.EventHandler(this.WemadeMir2LibListBox_SelectedIndexChanged);
+            WemadeMir2LibListBox.Dock = System.Windows.Forms.DockStyle.Left;
+            WemadeMir2LibListBox.Font = new System.Drawing.Font("Comic Sans MS", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            WemadeMir2LibListBox.FormattingEnabled = true;
+            WemadeMir2LibListBox.ItemHeight = 19;
+            WemadeMir2LibListBox.Location = new System.Drawing.Point(0, 0);
+            WemadeMir2LibListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            WemadeMir2LibListBox.Name = "WemadeMir2LibListBox";
+            WemadeMir2LibListBox.Size = new System.Drawing.Size(200, 974);
+            WemadeMir2LibListBox.TabIndex = 10;
+            WemadeMir2LibListBox.SelectedIndexChanged += WemadeMir2LibListBox_SelectedIndexChanged;
             // 
             // WemadeMir2LibListView
             // 
-            this.WemadeMir2LibListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.WemadeMir2LibListView.HideSelection = false;
-            this.WemadeMir2LibListView.LargeImageList = this.WemadeMir2ImageList;
-            this.WemadeMir2LibListView.Location = new System.Drawing.Point(188, 5);
-            this.WemadeMir2LibListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.WemadeMir2LibListView.Name = "WemadeMir2LibListView";
-            this.WemadeMir2LibListView.Size = new System.Drawing.Size(1331, 1010);
-            this.WemadeMir2LibListView.TabIndex = 9;
-            this.WemadeMir2LibListView.UseCompatibleStateImageBehavior = false;
-            this.WemadeMir2LibListView.VirtualMode = true;
-            this.WemadeMir2LibListView.RetrieveVirtualItem += new System.Windows.Forms.RetrieveVirtualItemEventHandler(this.WemadeMir2LibListView_RetrieveVirtualItem);
-            this.WemadeMir2LibListView.SelectedIndexChanged += new System.EventHandler(this.WemadeMir2LibListView_SelectedIndexChanged);
-            this.WemadeMir2LibListView.Click += new System.EventHandler(this.WemadeMir2LibListView_Click);
+            WemadeMir2LibListView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            WemadeMir2LibListView.LargeImageList = WemadeMir2ImageList;
+            WemadeMir2LibListView.Location = new System.Drawing.Point(188, 5);
+            WemadeMir2LibListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            WemadeMir2LibListView.Name = "WemadeMir2LibListView";
+            WemadeMir2LibListView.Size = new System.Drawing.Size(1331, 1010);
+            WemadeMir2LibListView.TabIndex = 9;
+            WemadeMir2LibListView.UseCompatibleStateImageBehavior = false;
+            WemadeMir2LibListView.VirtualMode = true;
+            WemadeMir2LibListView.RetrieveVirtualItem += WemadeMir2LibListView_RetrieveVirtualItem;
+            WemadeMir2LibListView.SelectedIndexChanged += WemadeMir2LibListView_SelectedIndexChanged;
+            WemadeMir2LibListView.Click += WemadeMir2LibListView_Click;
             // 
             // WemadeMir2ImageList
             // 
-            this.WemadeMir2ImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.WemadeMir2ImageList.ImageSize = new System.Drawing.Size(64, 64);
-            this.WemadeMir2ImageList.TransparentColor = System.Drawing.Color.Transparent;
+            WemadeMir2ImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            WemadeMir2ImageList.ImageSize = new System.Drawing.Size(64, 64);
+            WemadeMir2ImageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // tabShandaMir2
             // 
-            this.tabShandaMir2.Controls.Add(this.labshandaMir2OffSetY);
-            this.tabShandaMir2.Controls.Add(this.labShandaMir2OffSetX);
-            this.tabShandaMir2.Controls.Add(this.labShandaMir2Height);
-            this.tabShandaMir2.Controls.Add(this.labShandaMir2Width);
-            this.tabShandaMir2.Controls.Add(this.picShandaMir2);
-            this.tabShandaMir2.Controls.Add(this.ShandaMir2LibListBox);
-            this.tabShandaMir2.Controls.Add(this.ShandaMir2LibListView);
-            this.tabShandaMir2.Location = new System.Drawing.Point(4, 29);
-            this.tabShandaMir2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabShandaMir2.Name = "tabShandaMir2";
-            this.tabShandaMir2.Size = new System.Drawing.Size(1974, 1068);
-            this.tabShandaMir2.TabIndex = 4;
-            this.tabShandaMir2.Text = "ShandaMir2";
-            this.tabShandaMir2.ToolTipText = "(F2)";
-            this.tabShandaMir2.UseVisualStyleBackColor = true;
+            tabShandaMir2.Controls.Add(labshandaMir2OffSetY);
+            tabShandaMir2.Controls.Add(labShandaMir2OffSetX);
+            tabShandaMir2.Controls.Add(labShandaMir2Height);
+            tabShandaMir2.Controls.Add(labShandaMir2Width);
+            tabShandaMir2.Controls.Add(picShandaMir2);
+            tabShandaMir2.Controls.Add(ShandaMir2LibListBox);
+            tabShandaMir2.Controls.Add(ShandaMir2LibListView);
+            tabShandaMir2.Location = new System.Drawing.Point(4, 29);
+            tabShandaMir2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            tabShandaMir2.Name = "tabShandaMir2";
+            tabShandaMir2.Size = new System.Drawing.Size(1721, 974);
+            tabShandaMir2.TabIndex = 4;
+            tabShandaMir2.Text = "ShandaMir2";
+            tabShandaMir2.ToolTipText = "(F2)";
+            tabShandaMir2.UseVisualStyleBackColor = true;
             // 
             // labshandaMir2OffSetY
             // 
-            this.labshandaMir2OffSetY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labshandaMir2OffSetY.AutoSize = true;
-            this.labshandaMir2OffSetY.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labshandaMir2OffSetY.Location = new System.Drawing.Point(1732, 70);
-            this.labshandaMir2OffSetY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labshandaMir2OffSetY.Name = "labshandaMir2OffSetY";
-            this.labshandaMir2OffSetY.Size = new System.Drawing.Size(59, 20);
-            this.labshandaMir2OffSetY.TabIndex = 20;
-            this.labshandaMir2OffSetY.Text = "OffSetY";
+            labshandaMir2OffSetY.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            labshandaMir2OffSetY.AutoSize = true;
+            labshandaMir2OffSetY.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            labshandaMir2OffSetY.Location = new System.Drawing.Point(1732, 70);
+            labshandaMir2OffSetY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labshandaMir2OffSetY.Name = "labshandaMir2OffSetY";
+            labshandaMir2OffSetY.Size = new System.Drawing.Size(59, 20);
+            labshandaMir2OffSetY.TabIndex = 20;
+            labshandaMir2OffSetY.Text = "OffSetY";
             // 
             // labShandaMir2OffSetX
             // 
-            this.labShandaMir2OffSetX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labShandaMir2OffSetX.AutoSize = true;
-            this.labShandaMir2OffSetX.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labShandaMir2OffSetX.Location = new System.Drawing.Point(1732, 22);
-            this.labShandaMir2OffSetX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labShandaMir2OffSetX.Name = "labShandaMir2OffSetX";
-            this.labShandaMir2OffSetX.Size = new System.Drawing.Size(60, 20);
-            this.labShandaMir2OffSetX.TabIndex = 19;
-            this.labShandaMir2OffSetX.Text = "OffSetX";
+            labShandaMir2OffSetX.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            labShandaMir2OffSetX.AutoSize = true;
+            labShandaMir2OffSetX.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            labShandaMir2OffSetX.Location = new System.Drawing.Point(1732, 22);
+            labShandaMir2OffSetX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labShandaMir2OffSetX.Name = "labShandaMir2OffSetX";
+            labShandaMir2OffSetX.Size = new System.Drawing.Size(60, 20);
+            labShandaMir2OffSetX.TabIndex = 19;
+            labShandaMir2OffSetX.Text = "OffSetX";
             // 
             // labShandaMir2Height
             // 
-            this.labShandaMir2Height.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labShandaMir2Height.AutoSize = true;
-            this.labShandaMir2Height.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labShandaMir2Height.Location = new System.Drawing.Point(1617, 70);
-            this.labShandaMir2Height.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labShandaMir2Height.Name = "labShandaMir2Height";
-            this.labShandaMir2Height.Size = new System.Drawing.Size(55, 20);
-            this.labShandaMir2Height.TabIndex = 18;
-            this.labShandaMir2Height.Text = "Height";
+            labShandaMir2Height.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            labShandaMir2Height.AutoSize = true;
+            labShandaMir2Height.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            labShandaMir2Height.Location = new System.Drawing.Point(1617, 70);
+            labShandaMir2Height.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labShandaMir2Height.Name = "labShandaMir2Height";
+            labShandaMir2Height.Size = new System.Drawing.Size(55, 20);
+            labShandaMir2Height.TabIndex = 18;
+            labShandaMir2Height.Text = "Height";
             // 
             // labShandaMir2Width
             // 
-            this.labShandaMir2Width.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labShandaMir2Width.AutoSize = true;
-            this.labShandaMir2Width.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labShandaMir2Width.Location = new System.Drawing.Point(1617, 22);
-            this.labShandaMir2Width.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labShandaMir2Width.Name = "labShandaMir2Width";
-            this.labShandaMir2Width.Size = new System.Drawing.Size(50, 20);
-            this.labShandaMir2Width.TabIndex = 17;
-            this.labShandaMir2Width.Text = "Width";
+            labShandaMir2Width.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            labShandaMir2Width.AutoSize = true;
+            labShandaMir2Width.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            labShandaMir2Width.Location = new System.Drawing.Point(1617, 22);
+            labShandaMir2Width.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labShandaMir2Width.Name = "labShandaMir2Width";
+            labShandaMir2Width.Size = new System.Drawing.Size(50, 20);
+            labShandaMir2Width.TabIndex = 17;
+            labShandaMir2Width.Text = "Width";
             // 
             // picShandaMir2
             // 
-            this.picShandaMir2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picShandaMir2.BackColor = System.Drawing.Color.Black;
-            this.picShandaMir2.Location = new System.Drawing.Point(1622, 125);
-            this.picShandaMir2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.picShandaMir2.Name = "picShandaMir2";
-            this.picShandaMir2.Size = new System.Drawing.Size(100, 50);
-            this.picShandaMir2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picShandaMir2.TabIndex = 16;
-            this.picShandaMir2.TabStop = false;
+            picShandaMir2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            picShandaMir2.BackColor = System.Drawing.Color.Black;
+            picShandaMir2.Location = new System.Drawing.Point(1622, 125);
+            picShandaMir2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            picShandaMir2.Name = "picShandaMir2";
+            picShandaMir2.Size = new System.Drawing.Size(100, 50);
+            picShandaMir2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            picShandaMir2.TabIndex = 16;
+            picShandaMir2.TabStop = false;
             // 
             // ShandaMir2LibListBox
             // 
-            this.ShandaMir2LibListBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ShandaMir2LibListBox.Font = new System.Drawing.Font("Comic Sans MS", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ShandaMir2LibListBox.FormattingEnabled = true;
-            this.ShandaMir2LibListBox.ItemHeight = 19;
-            this.ShandaMir2LibListBox.Location = new System.Drawing.Point(0, 0);
-            this.ShandaMir2LibListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ShandaMir2LibListBox.Name = "ShandaMir2LibListBox";
-            this.ShandaMir2LibListBox.Size = new System.Drawing.Size(175, 1068);
-            this.ShandaMir2LibListBox.TabIndex = 8;
-            this.ShandaMir2LibListBox.SelectedIndexChanged += new System.EventHandler(this.ShandaMir2LibListBox_SelectedIndexChanged);
+            ShandaMir2LibListBox.Dock = System.Windows.Forms.DockStyle.Left;
+            ShandaMir2LibListBox.Font = new System.Drawing.Font("Comic Sans MS", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            ShandaMir2LibListBox.FormattingEnabled = true;
+            ShandaMir2LibListBox.ItemHeight = 19;
+            ShandaMir2LibListBox.Location = new System.Drawing.Point(0, 0);
+            ShandaMir2LibListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            ShandaMir2LibListBox.Name = "ShandaMir2LibListBox";
+            ShandaMir2LibListBox.Size = new System.Drawing.Size(175, 974);
+            ShandaMir2LibListBox.TabIndex = 8;
+            ShandaMir2LibListBox.SelectedIndexChanged += ShandaMir2LibListBox_SelectedIndexChanged;
             // 
             // ShandaMir2LibListView
             // 
-            this.ShandaMir2LibListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ShandaMir2LibListView.HideSelection = false;
-            this.ShandaMir2LibListView.LargeImageList = this.ShandaMir2ImageList;
-            this.ShandaMir2LibListView.Location = new System.Drawing.Point(176, 2);
-            this.ShandaMir2LibListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ShandaMir2LibListView.Name = "ShandaMir2LibListView";
-            this.ShandaMir2LibListView.Size = new System.Drawing.Size(1432, 1013);
-            this.ShandaMir2LibListView.TabIndex = 7;
-            this.ShandaMir2LibListView.UseCompatibleStateImageBehavior = false;
-            this.ShandaMir2LibListView.VirtualMode = true;
-            this.ShandaMir2LibListView.RetrieveVirtualItem += new System.Windows.Forms.RetrieveVirtualItemEventHandler(this.ShandaMir2LiblistView_RetrieveVirtualItem);
-            this.ShandaMir2LibListView.SelectedIndexChanged += new System.EventHandler(this.ShandaMir2LibListView_SelectedIndexChanged);
-            this.ShandaMir2LibListView.Click += new System.EventHandler(this.ShandaMir2LibListView_Click);
+            ShandaMir2LibListView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            ShandaMir2LibListView.LargeImageList = ShandaMir2ImageList;
+            ShandaMir2LibListView.Location = new System.Drawing.Point(176, 2);
+            ShandaMir2LibListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            ShandaMir2LibListView.Name = "ShandaMir2LibListView";
+            ShandaMir2LibListView.Size = new System.Drawing.Size(1432, 1013);
+            ShandaMir2LibListView.TabIndex = 7;
+            ShandaMir2LibListView.UseCompatibleStateImageBehavior = false;
+            ShandaMir2LibListView.VirtualMode = true;
+            ShandaMir2LibListView.RetrieveVirtualItem += ShandaMir2LiblistView_RetrieveVirtualItem;
+            ShandaMir2LibListView.SelectedIndexChanged += ShandaMir2LibListView_SelectedIndexChanged;
+            ShandaMir2LibListView.Click += ShandaMir2LibListView_Click;
             // 
             // ShandaMir2ImageList
             // 
-            this.ShandaMir2ImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.ShandaMir2ImageList.ImageSize = new System.Drawing.Size(64, 64);
-            this.ShandaMir2ImageList.TransparentColor = System.Drawing.Color.Transparent;
+            ShandaMir2ImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            ShandaMir2ImageList.ImageSize = new System.Drawing.Size(64, 64);
+            ShandaMir2ImageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // tabWemadeMir3
             // 
-            this.tabWemadeMir3.Controls.Add(this.labWemadeMir3OffSetY);
-            this.tabWemadeMir3.Controls.Add(this.labeWemadeMir3OffSetX);
-            this.tabWemadeMir3.Controls.Add(this.LabWemadeMir3Height);
-            this.tabWemadeMir3.Controls.Add(this.LabWemadeMir3Width);
-            this.tabWemadeMir3.Controls.Add(this.picWemdeMir3);
-            this.tabWemadeMir3.Controls.Add(this.WemadeMir3LibListBox);
-            this.tabWemadeMir3.Controls.Add(this.WemadeMir3LibListView);
-            this.tabWemadeMir3.Location = new System.Drawing.Point(4, 29);
-            this.tabWemadeMir3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabWemadeMir3.Name = "tabWemadeMir3";
-            this.tabWemadeMir3.Size = new System.Drawing.Size(1974, 1068);
-            this.tabWemadeMir3.TabIndex = 6;
-            this.tabWemadeMir3.Text = "WemadeMir3";
-            this.tabWemadeMir3.ToolTipText = "(F3)";
-            this.tabWemadeMir3.UseVisualStyleBackColor = true;
+            tabWemadeMir3.Controls.Add(labWemadeMir3OffSetY);
+            tabWemadeMir3.Controls.Add(labeWemadeMir3OffSetX);
+            tabWemadeMir3.Controls.Add(LabWemadeMir3Height);
+            tabWemadeMir3.Controls.Add(LabWemadeMir3Width);
+            tabWemadeMir3.Controls.Add(picWemdeMir3);
+            tabWemadeMir3.Controls.Add(WemadeMir3LibListBox);
+            tabWemadeMir3.Controls.Add(WemadeMir3LibListView);
+            tabWemadeMir3.Location = new System.Drawing.Point(4, 29);
+            tabWemadeMir3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            tabWemadeMir3.Name = "tabWemadeMir3";
+            tabWemadeMir3.Size = new System.Drawing.Size(1721, 974);
+            tabWemadeMir3.TabIndex = 6;
+            tabWemadeMir3.Text = "WemadeMir3";
+            tabWemadeMir3.ToolTipText = "(F3)";
+            tabWemadeMir3.UseVisualStyleBackColor = true;
             // 
             // labWemadeMir3OffSetY
             // 
-            this.labWemadeMir3OffSetY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labWemadeMir3OffSetY.AutoSize = true;
-            this.labWemadeMir3OffSetY.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labWemadeMir3OffSetY.Location = new System.Drawing.Point(1733, 76);
-            this.labWemadeMir3OffSetY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labWemadeMir3OffSetY.Name = "labWemadeMir3OffSetY";
-            this.labWemadeMir3OffSetY.Size = new System.Drawing.Size(59, 20);
-            this.labWemadeMir3OffSetY.TabIndex = 20;
-            this.labWemadeMir3OffSetY.Text = "OffSetY";
+            labWemadeMir3OffSetY.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            labWemadeMir3OffSetY.AutoSize = true;
+            labWemadeMir3OffSetY.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            labWemadeMir3OffSetY.Location = new System.Drawing.Point(1733, 76);
+            labWemadeMir3OffSetY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labWemadeMir3OffSetY.Name = "labWemadeMir3OffSetY";
+            labWemadeMir3OffSetY.Size = new System.Drawing.Size(59, 20);
+            labWemadeMir3OffSetY.TabIndex = 20;
+            labWemadeMir3OffSetY.Text = "OffSetY";
             // 
             // labeWemadeMir3OffSetX
             // 
-            this.labeWemadeMir3OffSetX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labeWemadeMir3OffSetX.AutoSize = true;
-            this.labeWemadeMir3OffSetX.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labeWemadeMir3OffSetX.Location = new System.Drawing.Point(1733, 29);
-            this.labeWemadeMir3OffSetX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labeWemadeMir3OffSetX.Name = "labeWemadeMir3OffSetX";
-            this.labeWemadeMir3OffSetX.Size = new System.Drawing.Size(60, 20);
-            this.labeWemadeMir3OffSetX.TabIndex = 19;
-            this.labeWemadeMir3OffSetX.Text = "OffSetX";
+            labeWemadeMir3OffSetX.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            labeWemadeMir3OffSetX.AutoSize = true;
+            labeWemadeMir3OffSetX.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            labeWemadeMir3OffSetX.Location = new System.Drawing.Point(1733, 29);
+            labeWemadeMir3OffSetX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labeWemadeMir3OffSetX.Name = "labeWemadeMir3OffSetX";
+            labeWemadeMir3OffSetX.Size = new System.Drawing.Size(60, 20);
+            labeWemadeMir3OffSetX.TabIndex = 19;
+            labeWemadeMir3OffSetX.Text = "OffSetX";
             // 
             // LabWemadeMir3Height
             // 
-            this.LabWemadeMir3Height.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabWemadeMir3Height.AutoSize = true;
-            this.LabWemadeMir3Height.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LabWemadeMir3Height.Location = new System.Drawing.Point(1618, 76);
-            this.LabWemadeMir3Height.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LabWemadeMir3Height.Name = "LabWemadeMir3Height";
-            this.LabWemadeMir3Height.Size = new System.Drawing.Size(55, 20);
-            this.LabWemadeMir3Height.TabIndex = 18;
-            this.LabWemadeMir3Height.Text = "Height";
+            LabWemadeMir3Height.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            LabWemadeMir3Height.AutoSize = true;
+            LabWemadeMir3Height.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            LabWemadeMir3Height.Location = new System.Drawing.Point(1618, 76);
+            LabWemadeMir3Height.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LabWemadeMir3Height.Name = "LabWemadeMir3Height";
+            LabWemadeMir3Height.Size = new System.Drawing.Size(55, 20);
+            LabWemadeMir3Height.TabIndex = 18;
+            LabWemadeMir3Height.Text = "Height";
             // 
             // LabWemadeMir3Width
             // 
-            this.LabWemadeMir3Width.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabWemadeMir3Width.AutoSize = true;
-            this.LabWemadeMir3Width.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LabWemadeMir3Width.Location = new System.Drawing.Point(1618, 29);
-            this.LabWemadeMir3Width.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LabWemadeMir3Width.Name = "LabWemadeMir3Width";
-            this.LabWemadeMir3Width.Size = new System.Drawing.Size(50, 20);
-            this.LabWemadeMir3Width.TabIndex = 17;
-            this.LabWemadeMir3Width.Text = "Width";
+            LabWemadeMir3Width.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            LabWemadeMir3Width.AutoSize = true;
+            LabWemadeMir3Width.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            LabWemadeMir3Width.Location = new System.Drawing.Point(1618, 29);
+            LabWemadeMir3Width.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LabWemadeMir3Width.Name = "LabWemadeMir3Width";
+            LabWemadeMir3Width.Size = new System.Drawing.Size(50, 20);
+            LabWemadeMir3Width.TabIndex = 17;
+            LabWemadeMir3Width.Text = "Width";
             // 
             // picWemdeMir3
             // 
-            this.picWemdeMir3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picWemdeMir3.BackColor = System.Drawing.Color.Black;
-            this.picWemdeMir3.Location = new System.Drawing.Point(1624, 131);
-            this.picWemdeMir3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.picWemdeMir3.Name = "picWemdeMir3";
-            this.picWemdeMir3.Size = new System.Drawing.Size(100, 50);
-            this.picWemdeMir3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picWemdeMir3.TabIndex = 16;
-            this.picWemdeMir3.TabStop = false;
+            picWemdeMir3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            picWemdeMir3.BackColor = System.Drawing.Color.Black;
+            picWemdeMir3.Location = new System.Drawing.Point(1624, 131);
+            picWemdeMir3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            picWemdeMir3.Name = "picWemdeMir3";
+            picWemdeMir3.Size = new System.Drawing.Size(100, 50);
+            picWemdeMir3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            picWemdeMir3.TabIndex = 16;
+            picWemdeMir3.TabStop = false;
             // 
             // WemadeMir3LibListBox
             // 
-            this.WemadeMir3LibListBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.WemadeMir3LibListBox.Font = new System.Drawing.Font("Comic Sans MS", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WemadeMir3LibListBox.FormattingEnabled = true;
-            this.WemadeMir3LibListBox.ItemHeight = 19;
-            this.WemadeMir3LibListBox.Location = new System.Drawing.Point(0, 0);
-            this.WemadeMir3LibListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.WemadeMir3LibListBox.Name = "WemadeMir3LibListBox";
-            this.WemadeMir3LibListBox.Size = new System.Drawing.Size(224, 1068);
-            this.WemadeMir3LibListBox.TabIndex = 10;
-            this.WemadeMir3LibListBox.SelectedIndexChanged += new System.EventHandler(this.WemadeMir3LibListBox_SelectedIndexChanged);
+            WemadeMir3LibListBox.Dock = System.Windows.Forms.DockStyle.Left;
+            WemadeMir3LibListBox.Font = new System.Drawing.Font("Comic Sans MS", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            WemadeMir3LibListBox.FormattingEnabled = true;
+            WemadeMir3LibListBox.ItemHeight = 19;
+            WemadeMir3LibListBox.Location = new System.Drawing.Point(0, 0);
+            WemadeMir3LibListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            WemadeMir3LibListBox.Name = "WemadeMir3LibListBox";
+            WemadeMir3LibListBox.Size = new System.Drawing.Size(224, 974);
+            WemadeMir3LibListBox.TabIndex = 10;
+            WemadeMir3LibListBox.SelectedIndexChanged += WemadeMir3LibListBox_SelectedIndexChanged;
             // 
             // WemadeMir3LibListView
             // 
-            this.WemadeMir3LibListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.WemadeMir3LibListView.HideSelection = false;
-            this.WemadeMir3LibListView.LargeImageList = this.WemadeMir3ImageList;
-            this.WemadeMir3LibListView.Location = new System.Drawing.Point(224, 2);
-            this.WemadeMir3LibListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.WemadeMir3LibListView.Name = "WemadeMir3LibListView";
-            this.WemadeMir3LibListView.Size = new System.Drawing.Size(1375, 1013);
-            this.WemadeMir3LibListView.TabIndex = 9;
-            this.WemadeMir3LibListView.UseCompatibleStateImageBehavior = false;
-            this.WemadeMir3LibListView.VirtualMode = true;
-            this.WemadeMir3LibListView.RetrieveVirtualItem += new System.Windows.Forms.RetrieveVirtualItemEventHandler(this.WemadeMir3LibListView_RetrieveVirtualItem);
-            this.WemadeMir3LibListView.SelectedIndexChanged += new System.EventHandler(this.WemadeMir3LibListView_SelectedIndexChanged);
-            this.WemadeMir3LibListView.Click += new System.EventHandler(this.WemadeMir3LibListView_Click);
+            WemadeMir3LibListView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            WemadeMir3LibListView.LargeImageList = WemadeMir3ImageList;
+            WemadeMir3LibListView.Location = new System.Drawing.Point(224, 2);
+            WemadeMir3LibListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            WemadeMir3LibListView.Name = "WemadeMir3LibListView";
+            WemadeMir3LibListView.Size = new System.Drawing.Size(1375, 1013);
+            WemadeMir3LibListView.TabIndex = 9;
+            WemadeMir3LibListView.UseCompatibleStateImageBehavior = false;
+            WemadeMir3LibListView.VirtualMode = true;
+            WemadeMir3LibListView.RetrieveVirtualItem += WemadeMir3LibListView_RetrieveVirtualItem;
+            WemadeMir3LibListView.SelectedIndexChanged += WemadeMir3LibListView_SelectedIndexChanged;
+            WemadeMir3LibListView.Click += WemadeMir3LibListView_Click;
             // 
             // WemadeMir3ImageList
             // 
-            this.WemadeMir3ImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.WemadeMir3ImageList.ImageSize = new System.Drawing.Size(64, 64);
-            this.WemadeMir3ImageList.TransparentColor = System.Drawing.Color.Transparent;
+            WemadeMir3ImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            WemadeMir3ImageList.ImageSize = new System.Drawing.Size(64, 64);
+            WemadeMir3ImageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // tabShandaMir3
             // 
-            this.tabShandaMir3.Controls.Add(this.labshandaMir3OffSetY);
-            this.tabShandaMir3.Controls.Add(this.labShandaMir3OffSetX);
-            this.tabShandaMir3.Controls.Add(this.labShandaMir3Height);
-            this.tabShandaMir3.Controls.Add(this.labShandaMir3Width);
-            this.tabShandaMir3.Controls.Add(this.picShandaMir3);
-            this.tabShandaMir3.Controls.Add(this.ShandaMir3LibListBox);
-            this.tabShandaMir3.Controls.Add(this.ShandaMir3LibListView);
-            this.tabShandaMir3.Location = new System.Drawing.Point(4, 29);
-            this.tabShandaMir3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabShandaMir3.Name = "tabShandaMir3";
-            this.tabShandaMir3.Size = new System.Drawing.Size(1974, 1068);
-            this.tabShandaMir3.TabIndex = 7;
-            this.tabShandaMir3.Text = "ShandaMir3";
-            this.tabShandaMir3.UseVisualStyleBackColor = true;
+            tabShandaMir3.Controls.Add(labshandaMir3OffSetY);
+            tabShandaMir3.Controls.Add(labShandaMir3OffSetX);
+            tabShandaMir3.Controls.Add(labShandaMir3Height);
+            tabShandaMir3.Controls.Add(labShandaMir3Width);
+            tabShandaMir3.Controls.Add(picShandaMir3);
+            tabShandaMir3.Controls.Add(ShandaMir3LibListBox);
+            tabShandaMir3.Controls.Add(ShandaMir3LibListView);
+            tabShandaMir3.Location = new System.Drawing.Point(4, 29);
+            tabShandaMir3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            tabShandaMir3.Name = "tabShandaMir3";
+            tabShandaMir3.Size = new System.Drawing.Size(1721, 974);
+            tabShandaMir3.TabIndex = 7;
+            tabShandaMir3.Text = "ShandaMir3";
+            tabShandaMir3.UseVisualStyleBackColor = true;
             // 
             // labshandaMir3OffSetY
             // 
-            this.labshandaMir3OffSetY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labshandaMir3OffSetY.AutoSize = true;
-            this.labshandaMir3OffSetY.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labshandaMir3OffSetY.Location = new System.Drawing.Point(1745, 73);
-            this.labshandaMir3OffSetY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labshandaMir3OffSetY.Name = "labshandaMir3OffSetY";
-            this.labshandaMir3OffSetY.Size = new System.Drawing.Size(59, 20);
-            this.labshandaMir3OffSetY.TabIndex = 20;
-            this.labshandaMir3OffSetY.Text = "OffSetY";
+            labshandaMir3OffSetY.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            labshandaMir3OffSetY.AutoSize = true;
+            labshandaMir3OffSetY.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            labshandaMir3OffSetY.Location = new System.Drawing.Point(1745, 73);
+            labshandaMir3OffSetY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labshandaMir3OffSetY.Name = "labshandaMir3OffSetY";
+            labshandaMir3OffSetY.Size = new System.Drawing.Size(59, 20);
+            labshandaMir3OffSetY.TabIndex = 20;
+            labshandaMir3OffSetY.Text = "OffSetY";
             // 
             // labShandaMir3OffSetX
             // 
-            this.labShandaMir3OffSetX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labShandaMir3OffSetX.AutoSize = true;
-            this.labShandaMir3OffSetX.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labShandaMir3OffSetX.Location = new System.Drawing.Point(1745, 25);
-            this.labShandaMir3OffSetX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labShandaMir3OffSetX.Name = "labShandaMir3OffSetX";
-            this.labShandaMir3OffSetX.Size = new System.Drawing.Size(60, 20);
-            this.labShandaMir3OffSetX.TabIndex = 19;
-            this.labShandaMir3OffSetX.Text = "OffSetX";
+            labShandaMir3OffSetX.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            labShandaMir3OffSetX.AutoSize = true;
+            labShandaMir3OffSetX.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            labShandaMir3OffSetX.Location = new System.Drawing.Point(1745, 25);
+            labShandaMir3OffSetX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labShandaMir3OffSetX.Name = "labShandaMir3OffSetX";
+            labShandaMir3OffSetX.Size = new System.Drawing.Size(60, 20);
+            labShandaMir3OffSetX.TabIndex = 19;
+            labShandaMir3OffSetX.Text = "OffSetX";
             // 
             // labShandaMir3Height
             // 
-            this.labShandaMir3Height.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labShandaMir3Height.AutoSize = true;
-            this.labShandaMir3Height.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labShandaMir3Height.Location = new System.Drawing.Point(1630, 73);
-            this.labShandaMir3Height.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labShandaMir3Height.Name = "labShandaMir3Height";
-            this.labShandaMir3Height.Size = new System.Drawing.Size(55, 20);
-            this.labShandaMir3Height.TabIndex = 18;
-            this.labShandaMir3Height.Text = "Height";
+            labShandaMir3Height.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            labShandaMir3Height.AutoSize = true;
+            labShandaMir3Height.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            labShandaMir3Height.Location = new System.Drawing.Point(1630, 73);
+            labShandaMir3Height.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labShandaMir3Height.Name = "labShandaMir3Height";
+            labShandaMir3Height.Size = new System.Drawing.Size(55, 20);
+            labShandaMir3Height.TabIndex = 18;
+            labShandaMir3Height.Text = "Height";
             // 
             // labShandaMir3Width
             // 
-            this.labShandaMir3Width.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labShandaMir3Width.AutoSize = true;
-            this.labShandaMir3Width.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labShandaMir3Width.Location = new System.Drawing.Point(1630, 25);
-            this.labShandaMir3Width.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labShandaMir3Width.Name = "labShandaMir3Width";
-            this.labShandaMir3Width.Size = new System.Drawing.Size(50, 20);
-            this.labShandaMir3Width.TabIndex = 17;
-            this.labShandaMir3Width.Text = "Width";
+            labShandaMir3Width.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            labShandaMir3Width.AutoSize = true;
+            labShandaMir3Width.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 134);
+            labShandaMir3Width.Location = new System.Drawing.Point(1630, 25);
+            labShandaMir3Width.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labShandaMir3Width.Name = "labShandaMir3Width";
+            labShandaMir3Width.Size = new System.Drawing.Size(50, 20);
+            labShandaMir3Width.TabIndex = 17;
+            labShandaMir3Width.Text = "Width";
             // 
             // picShandaMir3
             // 
-            this.picShandaMir3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picShandaMir3.BackColor = System.Drawing.Color.Black;
-            this.picShandaMir3.Location = new System.Drawing.Point(1636, 130);
-            this.picShandaMir3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.picShandaMir3.Name = "picShandaMir3";
-            this.picShandaMir3.Size = new System.Drawing.Size(100, 50);
-            this.picShandaMir3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picShandaMir3.TabIndex = 16;
-            this.picShandaMir3.TabStop = false;
+            picShandaMir3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            picShandaMir3.BackColor = System.Drawing.Color.Black;
+            picShandaMir3.Location = new System.Drawing.Point(1636, 130);
+            picShandaMir3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            picShandaMir3.Name = "picShandaMir3";
+            picShandaMir3.Size = new System.Drawing.Size(100, 50);
+            picShandaMir3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            picShandaMir3.TabIndex = 16;
+            picShandaMir3.TabStop = false;
             // 
             // ShandaMir3LibListBox
             // 
-            this.ShandaMir3LibListBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ShandaMir3LibListBox.Font = new System.Drawing.Font("Comic Sans MS", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ShandaMir3LibListBox.FormattingEnabled = true;
-            this.ShandaMir3LibListBox.ItemHeight = 19;
-            this.ShandaMir3LibListBox.Location = new System.Drawing.Point(0, 0);
-            this.ShandaMir3LibListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ShandaMir3LibListBox.Name = "ShandaMir3LibListBox";
-            this.ShandaMir3LibListBox.Size = new System.Drawing.Size(220, 1068);
-            this.ShandaMir3LibListBox.TabIndex = 10;
-            this.ShandaMir3LibListBox.SelectedIndexChanged += new System.EventHandler(this.ShandaMir3LibListBox_SelectedIndexChanged);
+            ShandaMir3LibListBox.Dock = System.Windows.Forms.DockStyle.Left;
+            ShandaMir3LibListBox.Font = new System.Drawing.Font("Comic Sans MS", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            ShandaMir3LibListBox.FormattingEnabled = true;
+            ShandaMir3LibListBox.ItemHeight = 19;
+            ShandaMir3LibListBox.Location = new System.Drawing.Point(0, 0);
+            ShandaMir3LibListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            ShandaMir3LibListBox.Name = "ShandaMir3LibListBox";
+            ShandaMir3LibListBox.Size = new System.Drawing.Size(220, 974);
+            ShandaMir3LibListBox.TabIndex = 10;
+            ShandaMir3LibListBox.SelectedIndexChanged += ShandaMir3LibListBox_SelectedIndexChanged;
             // 
             // ShandaMir3LibListView
             // 
-            this.ShandaMir3LibListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ShandaMir3LibListView.HideSelection = false;
-            this.ShandaMir3LibListView.LargeImageList = this.ShandaMir3ImageList;
-            this.ShandaMir3LibListView.Location = new System.Drawing.Point(219, 0);
-            this.ShandaMir3LibListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ShandaMir3LibListView.Name = "ShandaMir3LibListView";
-            this.ShandaMir3LibListView.Size = new System.Drawing.Size(1377, 1015);
-            this.ShandaMir3LibListView.TabIndex = 9;
-            this.ShandaMir3LibListView.UseCompatibleStateImageBehavior = false;
-            this.ShandaMir3LibListView.VirtualMode = true;
-            this.ShandaMir3LibListView.RetrieveVirtualItem += new System.Windows.Forms.RetrieveVirtualItemEventHandler(this.ShandaMir3LibListView_RetrieveVirtualItem);
-            this.ShandaMir3LibListView.SelectedIndexChanged += new System.EventHandler(this.ShandaMir3LibListView_SelectedIndexChanged);
-            this.ShandaMir3LibListView.Click += new System.EventHandler(this.ShandaMir3LibListView_Click);
+            ShandaMir3LibListView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            ShandaMir3LibListView.LargeImageList = ShandaMir3ImageList;
+            ShandaMir3LibListView.Location = new System.Drawing.Point(219, 0);
+            ShandaMir3LibListView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            ShandaMir3LibListView.Name = "ShandaMir3LibListView";
+            ShandaMir3LibListView.Size = new System.Drawing.Size(1377, 1015);
+            ShandaMir3LibListView.TabIndex = 9;
+            ShandaMir3LibListView.UseCompatibleStateImageBehavior = false;
+            ShandaMir3LibListView.VirtualMode = true;
+            ShandaMir3LibListView.RetrieveVirtualItem += ShandaMir3LibListView_RetrieveVirtualItem;
+            ShandaMir3LibListView.SelectedIndexChanged += ShandaMir3LibListView_SelectedIndexChanged;
+            ShandaMir3LibListView.Click += ShandaMir3LibListView_Click;
             // 
             // ShandaMir3ImageList
             // 
-            this.ShandaMir3ImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.ShandaMir3ImageList.ImageSize = new System.Drawing.Size(64, 64);
-            this.ShandaMir3ImageList.TransparentColor = System.Drawing.Color.Transparent;
+            ShandaMir3ImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            ShandaMir3ImageList.ImageSize = new System.Drawing.Size(64, 64);
+            ShandaMir3ImageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // tabObjects
             // 
-            this.tabObjects.Controls.Add(this.splitContainer1);
-            this.tabObjects.Location = new System.Drawing.Point(4, 29);
-            this.tabObjects.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabObjects.Name = "tabObjects";
-            this.tabObjects.Size = new System.Drawing.Size(1974, 1068);
-            this.tabObjects.TabIndex = 8;
-            this.tabObjects.Text = "Objects";
-            this.tabObjects.ToolTipText = "(R)";
-            this.tabObjects.UseVisualStyleBackColor = true;
+            tabObjects.Controls.Add(splitContainer1);
+            tabObjects.Location = new System.Drawing.Point(4, 29);
+            tabObjects.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            tabObjects.Name = "tabObjects";
+            tabObjects.Size = new System.Drawing.Size(1721, 974);
+            tabObjects.TabIndex = 8;
+            tabObjects.Text = "Objects";
+            tabObjects.ToolTipText = "(R)";
+            tabObjects.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
+            splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            splitContainer1.Location = new System.Drawing.Point(0, 0);
+            splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.ObjectslistBox);
+            splitContainer1.Panel1.Controls.Add(ObjectslistBox);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1974, 1068);
-            this.splitContainer1.SplitterDistance = 198;
-            this.splitContainer1.TabIndex = 8;
+            splitContainer1.Panel2.Controls.Add(splitContainer2);
+            splitContainer1.Size = new System.Drawing.Size(1721, 974);
+            splitContainer1.SplitterDistance = 172;
+            splitContainer1.TabIndex = 8;
             // 
             // ObjectslistBox
             // 
-            this.ObjectslistBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ObjectslistBox.Font = new System.Drawing.Font("Comic Sans MS", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ObjectslistBox.FormattingEnabled = true;
-            this.ObjectslistBox.ItemHeight = 19;
-            this.ObjectslistBox.Location = new System.Drawing.Point(0, 0);
-            this.ObjectslistBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ObjectslistBox.Name = "ObjectslistBox";
-            this.ObjectslistBox.Size = new System.Drawing.Size(198, 1068);
-            this.ObjectslistBox.TabIndex = 6;
-            this.ObjectslistBox.SelectedIndexChanged += new System.EventHandler(this.ObjectslistBox_SelectedIndexChanged);
+            ObjectslistBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            ObjectslistBox.Font = new System.Drawing.Font("Comic Sans MS", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            ObjectslistBox.FormattingEnabled = true;
+            ObjectslistBox.ItemHeight = 19;
+            ObjectslistBox.Location = new System.Drawing.Point(0, 0);
+            ObjectslistBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            ObjectslistBox.Name = "ObjectslistBox";
+            ObjectslistBox.Size = new System.Drawing.Size(172, 974);
+            ObjectslistBox.TabIndex = 6;
+            ObjectslistBox.SelectedIndexChanged += ObjectslistBox_SelectedIndexChanged;
             // 
             // splitContainer2
             // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            splitContainer2.Location = new System.Drawing.Point(0, 0);
+            splitContainer2.Name = "splitContainer2";
+            splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.btnRefreshList);
-            this.splitContainer2.Panel1.Controls.Add(this.btnDeleteObjects);
+            splitContainer2.Panel1.Controls.Add(btnRefreshList);
+            splitContainer2.Panel1.Controls.Add(btnDeleteObjects);
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.picObjects);
-            this.splitContainer2.Size = new System.Drawing.Size(1772, 1068);
-            this.splitContainer2.SplitterDistance = 43;
-            this.splitContainer2.TabIndex = 3;
+            splitContainer2.Panel2.Controls.Add(picObjects);
+            splitContainer2.Size = new System.Drawing.Size(1545, 974);
+            splitContainer2.SplitterDistance = 39;
+            splitContainer2.TabIndex = 3;
             // 
             // btnRefreshList
             // 
-            this.btnRefreshList.Location = new System.Drawing.Point(111, 5);
-            this.btnRefreshList.Name = "btnRefreshList";
-            this.btnRefreshList.Size = new System.Drawing.Size(100, 36);
-            this.btnRefreshList.TabIndex = 3;
-            this.btnRefreshList.Text = "Refresh";
-            this.btnRefreshList.UseVisualStyleBackColor = true;
-            this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
+            btnRefreshList.Location = new System.Drawing.Point(111, 5);
+            btnRefreshList.Name = "btnRefreshList";
+            btnRefreshList.Size = new System.Drawing.Size(100, 36);
+            btnRefreshList.TabIndex = 3;
+            btnRefreshList.Text = "Refresh";
+            btnRefreshList.UseVisualStyleBackColor = true;
+            btnRefreshList.Click += btnRefreshList_Click;
             // 
             // btnDeleteObjects
             // 
-            this.btnDeleteObjects.Location = new System.Drawing.Point(4, 5);
-            this.btnDeleteObjects.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnDeleteObjects.Name = "btnDeleteObjects";
-            this.btnDeleteObjects.Size = new System.Drawing.Size(100, 36);
-            this.btnDeleteObjects.TabIndex = 2;
-            this.btnDeleteObjects.Text = "Delete";
-            this.btnDeleteObjects.UseVisualStyleBackColor = true;
-            this.btnDeleteObjects.Click += new System.EventHandler(this.btnDeleteObjects_Click);
+            btnDeleteObjects.Location = new System.Drawing.Point(4, 5);
+            btnDeleteObjects.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnDeleteObjects.Name = "btnDeleteObjects";
+            btnDeleteObjects.Size = new System.Drawing.Size(100, 36);
+            btnDeleteObjects.TabIndex = 2;
+            btnDeleteObjects.Text = "Delete";
+            btnDeleteObjects.UseVisualStyleBackColor = true;
+            btnDeleteObjects.Click += btnDeleteObjects_Click;
             // 
             // picObjects
             // 
-            this.picObjects.BackColor = System.Drawing.Color.Transparent;
-            this.picObjects.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picObjects.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picObjects.Location = new System.Drawing.Point(0, 0);
-            this.picObjects.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.picObjects.Name = "picObjects";
-            this.picObjects.Size = new System.Drawing.Size(1772, 1021);
-            this.picObjects.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picObjects.TabIndex = 0;
-            this.picObjects.TabStop = false;
+            picObjects.BackColor = System.Drawing.Color.Transparent;
+            picObjects.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picObjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            picObjects.Location = new System.Drawing.Point(0, 0);
+            picObjects.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            picObjects.Name = "picObjects";
+            picObjects.Size = new System.Drawing.Size(1545, 931);
+            picObjects.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            picObjects.TabIndex = 0;
+            picObjects.TabStop = false;
             // 
             // tabTiles
             // 
-            this.tabTiles.Controls.Add(this.picTile);
-            this.tabTiles.Controls.Add(this.TileslistView);
-            this.tabTiles.Location = new System.Drawing.Point(4, 29);
-            this.tabTiles.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabTiles.Name = "tabTiles";
-            this.tabTiles.Size = new System.Drawing.Size(1974, 1068);
-            this.tabTiles.TabIndex = 9;
-            this.tabTiles.Text = "Tiles";
-            this.tabTiles.ToolTipText = "(T)";
-            this.tabTiles.UseVisualStyleBackColor = true;
+            tabTiles.Controls.Add(picTile);
+            tabTiles.Controls.Add(TileslistView);
+            tabTiles.Location = new System.Drawing.Point(4, 29);
+            tabTiles.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            tabTiles.Name = "tabTiles";
+            tabTiles.Size = new System.Drawing.Size(1721, 974);
+            tabTiles.TabIndex = 9;
+            tabTiles.Text = "Tiles";
+            tabTiles.ToolTipText = "(T)";
+            tabTiles.UseVisualStyleBackColor = true;
             // 
             // picTile
             // 
-            this.picTile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picTile.BackColor = System.Drawing.Color.Black;
-            this.picTile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picTile.Location = new System.Drawing.Point(1563, 24);
-            this.picTile.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.picTile.Name = "picTile";
-            this.picTile.Size = new System.Drawing.Size(935, 762);
-            this.picTile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picTile.TabIndex = 11;
-            this.picTile.TabStop = false;
+            picTile.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            picTile.BackColor = System.Drawing.Color.Black;
+            picTile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picTile.Location = new System.Drawing.Point(1563, 24);
+            picTile.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            picTile.Name = "picTile";
+            picTile.Size = new System.Drawing.Size(935, 762);
+            picTile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            picTile.TabIndex = 11;
+            picTile.TabStop = false;
             // 
             // TileslistView
             // 
-            this.TileslistView.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TileslistView.HideSelection = false;
-            this.TileslistView.LargeImageList = this.TilesImageList;
-            this.TileslistView.Location = new System.Drawing.Point(0, 0);
-            this.TileslistView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TileslistView.Name = "TileslistView";
-            this.TileslistView.Size = new System.Drawing.Size(1539, 1068);
-            this.TileslistView.TabIndex = 10;
-            this.TileslistView.UseCompatibleStateImageBehavior = false;
-            this.TileslistView.VirtualMode = true;
-            this.TileslistView.RetrieveVirtualItem += new System.Windows.Forms.RetrieveVirtualItemEventHandler(this.TileslistView_RetrieveVirtualItem);
-            this.TileslistView.SelectedIndexChanged += new System.EventHandler(this.TileslistView_SelectedIndexChanged);
+            TileslistView.Dock = System.Windows.Forms.DockStyle.Left;
+            TileslistView.LargeImageList = TilesImageList;
+            TileslistView.Location = new System.Drawing.Point(0, 0);
+            TileslistView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            TileslistView.Name = "TileslistView";
+            TileslistView.Size = new System.Drawing.Size(1539, 974);
+            TileslistView.TabIndex = 10;
+            TileslistView.UseCompatibleStateImageBehavior = false;
+            TileslistView.VirtualMode = true;
+            TileslistView.RetrieveVirtualItem += TileslistView_RetrieveVirtualItem;
+            TileslistView.SelectedIndexChanged += TileslistView_SelectedIndexChanged;
             // 
             // TilesImageList
             // 
-            this.TilesImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.TilesImageList.ImageSize = new System.Drawing.Size(144, 96);
-            this.TilesImageList.TransparentColor = System.Drawing.Color.Transparent;
+            TilesImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            TilesImageList.ImageSize = new System.Drawing.Size(144, 96);
+            TilesImageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // tabTileCutter
             // 
-            this.tabTileCutter.Controls.Add(this.splitContainer3);
-            this.tabTileCutter.Location = new System.Drawing.Point(4, 29);
-            this.tabTileCutter.Name = "tabTileCutter";
-            this.tabTileCutter.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTileCutter.Size = new System.Drawing.Size(1974, 1068);
-            this.tabTileCutter.TabIndex = 10;
-            this.tabTileCutter.Text = "TileCutter";
-            this.tabTileCutter.ToolTipText = "(F4)";
-            this.tabTileCutter.UseVisualStyleBackColor = true;
+            tabTileCutter.Controls.Add(splitContainer3);
+            tabTileCutter.Location = new System.Drawing.Point(4, 29);
+            tabTileCutter.Name = "tabTileCutter";
+            tabTileCutter.Padding = new System.Windows.Forms.Padding(3);
+            tabTileCutter.Size = new System.Drawing.Size(1721, 974);
+            tabTileCutter.TabIndex = 10;
+            tabTileCutter.Text = "TileCutter";
+            tabTileCutter.ToolTipText = "(F4)";
+            tabTileCutter.UseVisualStyleBackColor = true;
             // 
             // splitContainer3
             // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer3.Name = "splitContainer3";
+            splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            splitContainer3.Location = new System.Drawing.Point(3, 3);
+            splitContainer3.Name = "splitContainer3";
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.btn_grid);
-            this.splitContainer3.Panel1.Controls.Add(this.btn_vCut);
-            this.splitContainer3.Panel1.Controls.Add(this.btn_load);
-            this.splitContainer3.Panel1.Controls.Add(this.label1);
-            this.splitContainer3.Panel1.Controls.Add(this.btn_up);
-            this.splitContainer3.Panel1.Controls.Add(this.comboBox_cellSize);
-            this.splitContainer3.Panel1.Controls.Add(this.btn_left);
-            this.splitContainer3.Panel1.Controls.Add(this.btn_down);
-            this.splitContainer3.Panel1.Controls.Add(this.btn_right);
-            this.splitContainer3.Panel1MinSize = 170;
+            splitContainer3.Panel1.Controls.Add(btn_grid);
+            splitContainer3.Panel1.Controls.Add(btn_vCut);
+            splitContainer3.Panel1.Controls.Add(btn_load);
+            splitContainer3.Panel1.Controls.Add(label1);
+            splitContainer3.Panel1.Controls.Add(btn_up);
+            splitContainer3.Panel1.Controls.Add(comboBox_cellSize);
+            splitContainer3.Panel1.Controls.Add(btn_left);
+            splitContainer3.Panel1.Controls.Add(btn_down);
+            splitContainer3.Panel1.Controls.Add(btn_right);
+            splitContainer3.Panel1MinSize = 170;
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.AutoScroll = true;
-            this.splitContainer3.Panel2.Controls.Add(this.pictureBox_Highlight);
-            this.splitContainer3.Panel2.Controls.Add(this.pictureBox_Grid);
-            this.splitContainer3.Panel2.Controls.Add(this.pictureBox_Image);
-            this.splitContainer3.Panel2MinSize = 50;
-            this.splitContainer3.Size = new System.Drawing.Size(1968, 1062);
-            this.splitContainer3.SplitterDistance = 173;
-            this.splitContainer3.TabIndex = 0;
+            splitContainer3.Panel2.AutoScroll = true;
+            splitContainer3.Panel2.Controls.Add(pictureBox_Highlight);
+            splitContainer3.Panel2.Controls.Add(pictureBox_Grid);
+            splitContainer3.Panel2.Controls.Add(pictureBox_Image);
+            splitContainer3.Panel2MinSize = 50;
+            splitContainer3.Size = new System.Drawing.Size(1715, 968);
+            splitContainer3.SplitterDistance = 170;
+            splitContainer3.TabIndex = 0;
             // 
             // btn_grid
             // 
-            this.btn_grid.Location = new System.Drawing.Point(125, 19);
-            this.btn_grid.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_grid.Name = "btn_grid";
-            this.btn_grid.Size = new System.Drawing.Size(27, 25);
-            this.btn_grid.TabIndex = 17;
-            this.btn_grid.Text = "#";
-            this.btn_grid.UseVisualStyleBackColor = true;
-            this.btn_grid.Click += new System.EventHandler(this.btn_grid_Click);
+            btn_grid.Location = new System.Drawing.Point(125, 19);
+            btn_grid.Margin = new System.Windows.Forms.Padding(0);
+            btn_grid.Name = "btn_grid";
+            btn_grid.Size = new System.Drawing.Size(27, 25);
+            btn_grid.TabIndex = 17;
+            btn_grid.Text = "#";
+            btn_grid.UseVisualStyleBackColor = true;
+            btn_grid.Click += btn_grid_Click;
             // 
             // btn_vCut
             // 
-            this.btn_vCut.Location = new System.Drawing.Point(21, 212);
-            this.btn_vCut.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_vCut.Name = "btn_vCut";
-            this.btn_vCut.Size = new System.Drawing.Size(100, 28);
-            this.btn_vCut.TabIndex = 16;
-            this.btn_vCut.Text = "Save Lib";
-            this.btn_vCut.UseVisualStyleBackColor = true;
-            this.btn_vCut.Click += new System.EventHandler(this.btn_vCut_Click);
+            btn_vCut.Location = new System.Drawing.Point(21, 212);
+            btn_vCut.Margin = new System.Windows.Forms.Padding(4);
+            btn_vCut.Name = "btn_vCut";
+            btn_vCut.Size = new System.Drawing.Size(100, 28);
+            btn_vCut.TabIndex = 16;
+            btn_vCut.Text = "Save Lib";
+            btn_vCut.UseVisualStyleBackColor = true;
+            btn_vCut.Click += btn_vCut_Click;
             // 
             // btn_load
             // 
-            this.btn_load.Location = new System.Drawing.Point(21, 17);
-            this.btn_load.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_load.Name = "btn_load";
-            this.btn_load.Size = new System.Drawing.Size(100, 28);
-            this.btn_load.TabIndex = 9;
-            this.btn_load.Text = "Load Image";
-            this.btn_load.UseVisualStyleBackColor = true;
-            this.btn_load.Click += new System.EventHandler(this.btn_load_Click);
+            btn_load.Location = new System.Drawing.Point(21, 17);
+            btn_load.Margin = new System.Windows.Forms.Padding(4);
+            btn_load.Name = "btn_load";
+            btn_load.Size = new System.Drawing.Size(100, 28);
+            btn_load.TabIndex = 9;
+            btn_load.Text = "Load Image";
+            btn_load.UseVisualStyleBackColor = true;
+            btn_load.Click += btn_load_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 141);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 17);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Tile Size";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(21, 141);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(58, 17);
+            label1.TabIndex = 15;
+            label1.Text = "Tile Size";
             // 
             // btn_up
             // 
-            this.btn_up.Location = new System.Drawing.Point(58, 54);
-            this.btn_up.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_up.Name = "btn_up";
-            this.btn_up.Size = new System.Drawing.Size(27, 25);
-            this.btn_up.TabIndex = 10;
-            this.btn_up.UseVisualStyleBackColor = true;
-            this.btn_up.Click += new System.EventHandler(this.btn_up_Click);
+            btn_up.Location = new System.Drawing.Point(58, 54);
+            btn_up.Margin = new System.Windows.Forms.Padding(0);
+            btn_up.Name = "btn_up";
+            btn_up.Size = new System.Drawing.Size(27, 25);
+            btn_up.TabIndex = 10;
+            btn_up.UseVisualStyleBackColor = true;
+            btn_up.Click += btn_up_Click;
             // 
             // comboBox_cellSize
             // 
-            this.comboBox_cellSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_cellSize.FormattingEnabled = true;
-            this.comboBox_cellSize.Items.AddRange(new object[] {
-            "48 x 32",
-            "96 x 64"});
-            this.comboBox_cellSize.Location = new System.Drawing.Point(21, 161);
-            this.comboBox_cellSize.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox_cellSize.Name = "comboBox_cellSize";
-            this.comboBox_cellSize.Size = new System.Drawing.Size(99, 25);
-            this.comboBox_cellSize.TabIndex = 14;
-            this.comboBox_cellSize.SelectedIndexChanged += new System.EventHandler(this.comboBox_cellSize_SelectedIndexChanged);
+            comboBox_cellSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            comboBox_cellSize.FormattingEnabled = true;
+            comboBox_cellSize.Items.AddRange(new object[] { "48 x 32", "96 x 64" });
+            comboBox_cellSize.Location = new System.Drawing.Point(21, 161);
+            comboBox_cellSize.Margin = new System.Windows.Forms.Padding(4);
+            comboBox_cellSize.Name = "comboBox_cellSize";
+            comboBox_cellSize.Size = new System.Drawing.Size(99, 25);
+            comboBox_cellSize.TabIndex = 14;
+            comboBox_cellSize.SelectedIndexChanged += comboBox_cellSize_SelectedIndexChanged;
             // 
             // btn_left
             // 
-            this.btn_left.Location = new System.Drawing.Point(32, 78);
-            this.btn_left.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_left.Name = "btn_left";
-            this.btn_left.Size = new System.Drawing.Size(27, 25);
-            this.btn_left.TabIndex = 11;
-            this.btn_left.UseVisualStyleBackColor = true;
-            this.btn_left.Click += new System.EventHandler(this.btn_left_Click);
+            btn_left.Location = new System.Drawing.Point(32, 78);
+            btn_left.Margin = new System.Windows.Forms.Padding(0);
+            btn_left.Name = "btn_left";
+            btn_left.Size = new System.Drawing.Size(27, 25);
+            btn_left.TabIndex = 11;
+            btn_left.UseVisualStyleBackColor = true;
+            btn_left.Click += btn_left_Click;
             // 
             // btn_down
             // 
-            this.btn_down.Location = new System.Drawing.Point(58, 103);
-            this.btn_down.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_down.Name = "btn_down";
-            this.btn_down.Size = new System.Drawing.Size(27, 25);
-            this.btn_down.TabIndex = 13;
-            this.btn_down.UseVisualStyleBackColor = true;
-            this.btn_down.Click += new System.EventHandler(this.btn_down_Click);
+            btn_down.Location = new System.Drawing.Point(58, 103);
+            btn_down.Margin = new System.Windows.Forms.Padding(0);
+            btn_down.Name = "btn_down";
+            btn_down.Size = new System.Drawing.Size(27, 25);
+            btn_down.TabIndex = 13;
+            btn_down.UseVisualStyleBackColor = true;
+            btn_down.Click += btn_down_Click;
             // 
             // btn_right
             // 
-            this.btn_right.Location = new System.Drawing.Point(85, 78);
-            this.btn_right.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_right.Name = "btn_right";
-            this.btn_right.Size = new System.Drawing.Size(27, 25);
-            this.btn_right.TabIndex = 12;
-            this.btn_right.UseVisualStyleBackColor = true;
-            this.btn_right.Click += new System.EventHandler(this.btn_right_Click);
+            btn_right.Location = new System.Drawing.Point(85, 78);
+            btn_right.Margin = new System.Windows.Forms.Padding(0);
+            btn_right.Name = "btn_right";
+            btn_right.Size = new System.Drawing.Size(27, 25);
+            btn_right.TabIndex = 12;
+            btn_right.UseVisualStyleBackColor = true;
+            btn_right.Click += btn_right_Click;
             // 
             // pictureBox_Highlight
             // 
-            this.pictureBox_Highlight.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox_Highlight.ContextMenuStrip = this.contextMenuTileCutter;
-            this.pictureBox_Highlight.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox_Highlight.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox_Highlight.Name = "pictureBox_Highlight";
-            this.pictureBox_Highlight.Size = new System.Drawing.Size(1500, 900);
-            this.pictureBox_Highlight.TabIndex = 5;
-            this.pictureBox_Highlight.TabStop = false;
-            this.pictureBox_Highlight.Click += new System.EventHandler(this.pictureBox_Highlight_Click);
+            pictureBox_Highlight.BackColor = System.Drawing.Color.Transparent;
+            pictureBox_Highlight.ContextMenuStrip = contextMenuTileCutter;
+            pictureBox_Highlight.Location = new System.Drawing.Point(0, 0);
+            pictureBox_Highlight.Margin = new System.Windows.Forms.Padding(4);
+            pictureBox_Highlight.Name = "pictureBox_Highlight";
+            pictureBox_Highlight.Size = new System.Drawing.Size(1500, 900);
+            pictureBox_Highlight.TabIndex = 5;
+            pictureBox_Highlight.TabStop = false;
+            pictureBox_Highlight.Click += pictureBox_Highlight_Click;
             // 
             // contextMenuTileCutter
             // 
-            this.contextMenuTileCutter.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuTileCutter.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuSelectAllCells,
-            this.menuDeselectAllCells});
-            this.contextMenuTileCutter.Name = "contextMenuStrip1";
-            this.contextMenuTileCutter.Size = new System.Drawing.Size(133, 48);
+            contextMenuTileCutter.ImageScalingSize = new System.Drawing.Size(20, 20);
+            contextMenuTileCutter.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { menuSelectAllCells, menuDeselectAllCells });
+            contextMenuTileCutter.Name = "contextMenuStrip1";
+            contextMenuTileCutter.Size = new System.Drawing.Size(133, 48);
             // 
             // menuSelectAllCells
             // 
-            this.menuSelectAllCells.Name = "menuSelectAllCells";
-            this.menuSelectAllCells.Size = new System.Drawing.Size(132, 22);
-            this.menuSelectAllCells.Text = "SelectAll";
-            this.menuSelectAllCells.Click += new System.EventHandler(this.menuSelectAllCells_Click);
+            menuSelectAllCells.Name = "menuSelectAllCells";
+            menuSelectAllCells.Size = new System.Drawing.Size(132, 22);
+            menuSelectAllCells.Text = "SelectAll";
+            menuSelectAllCells.Click += menuSelectAllCells_Click;
             // 
             // menuDeselectAllCells
             // 
-            this.menuDeselectAllCells.Name = "menuDeselectAllCells";
-            this.menuDeselectAllCells.Size = new System.Drawing.Size(132, 22);
-            this.menuDeselectAllCells.Text = "DeselectAll";
-            this.menuDeselectAllCells.Click += new System.EventHandler(this.menuDeselectAllCells_Click);
+            menuDeselectAllCells.Name = "menuDeselectAllCells";
+            menuDeselectAllCells.Size = new System.Drawing.Size(132, 22);
+            menuDeselectAllCells.Text = "DeselectAll";
+            menuDeselectAllCells.Click += menuDeselectAllCells_Click;
             // 
             // pictureBox_Grid
             // 
-            this.pictureBox_Grid.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox_Grid.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox_Grid.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox_Grid.Name = "pictureBox_Grid";
-            this.pictureBox_Grid.Size = new System.Drawing.Size(1550, 950);
-            this.pictureBox_Grid.TabIndex = 4;
-            this.pictureBox_Grid.TabStop = false;
+            pictureBox_Grid.BackColor = System.Drawing.Color.Transparent;
+            pictureBox_Grid.Location = new System.Drawing.Point(0, 0);
+            pictureBox_Grid.Margin = new System.Windows.Forms.Padding(0);
+            pictureBox_Grid.Name = "pictureBox_Grid";
+            pictureBox_Grid.Size = new System.Drawing.Size(1550, 950);
+            pictureBox_Grid.TabIndex = 4;
+            pictureBox_Grid.TabStop = false;
             // 
             // pictureBox_Image
             // 
-            this.pictureBox_Image.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox_Image.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox_Image.Name = "pictureBox_Image";
-            this.pictureBox_Image.Size = new System.Drawing.Size(1600, 1000);
-            this.pictureBox_Image.TabIndex = 3;
-            this.pictureBox_Image.TabStop = false;
+            pictureBox_Image.Location = new System.Drawing.Point(0, 0);
+            pictureBox_Image.Margin = new System.Windows.Forms.Padding(4);
+            pictureBox_Image.Name = "pictureBox_Image";
+            pictureBox_Image.Size = new System.Drawing.Size(1600, 1000);
+            pictureBox_Image.TabIndex = 3;
+            pictureBox_Image.TabStop = false;
             // 
             // tabHelp
             // 
-            this.tabHelp.AutoScroll = true;
-            this.tabHelp.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tabHelp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabHelp.BackgroundImage")));
-            this.tabHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tabHelp.Location = new System.Drawing.Point(4, 29);
-            this.tabHelp.Name = "tabHelp";
-            this.tabHelp.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHelp.Size = new System.Drawing.Size(1974, 1068);
-            this.tabHelp.TabIndex = 11;
-            this.tabHelp.Text = "Help";
-            this.tabHelp.ToolTipText = "(H)";
-            this.tabHelp.UseVisualStyleBackColor = true;
+            tabHelp.AutoScroll = true;
+            tabHelp.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            tabHelp.BackgroundImage = (System.Drawing.Image)resources.GetObject("tabHelp.BackgroundImage");
+            tabHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            tabHelp.Location = new System.Drawing.Point(4, 29);
+            tabHelp.Name = "tabHelp";
+            tabHelp.Padding = new System.Windows.Forms.Padding(3);
+            tabHelp.Size = new System.Drawing.Size(1721, 974);
+            tabHelp.TabIndex = 11;
+            tabHelp.Text = "Help";
+            tabHelp.ToolTipText = "(H)";
+            tabHelp.UseVisualStyleBackColor = true;
             // 
             // ObjectsimageList
             // 
-            this.ObjectsimageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.ObjectsimageList.ImageSize = new System.Drawing.Size(96, 96);
-            this.ObjectsimageList.TransparentColor = System.Drawing.Color.Transparent;
+            ObjectsimageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            ObjectsimageList.ImageSize = new System.Drawing.Size(96, 96);
+            ObjectsimageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // menuStrip1
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolsToolStripMenuItem,
-            this.toolStripMenuItem9,
-            this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1982, 24);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.Visible = false;
+            menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolsToolStripMenuItem, toolStripMenuItem9, helpToolStripMenuItem });
+            menuStrip1.Location = new System.Drawing.Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new System.Drawing.Size(1982, 24);
+            menuStrip1.TabIndex = 5;
+            menuStrip1.Text = "menuStrip1";
+            menuStrip1.Visible = false;
             // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuNew,
-            this.menuOpen,
-            this.menuSave});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
-            this.toolStripMenuItem1.Text = "File";
+            toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuNew, menuOpen, menuSave });
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            toolStripMenuItem1.Text = "File";
             // 
             // menuNew
             // 
-            this.menuNew.Name = "menuNew";
-            this.menuNew.Size = new System.Drawing.Size(138, 22);
-            this.menuNew.Text = "New";
-            this.menuNew.Click += new System.EventHandler(this.menuNew_Click);
+            menuNew.Name = "menuNew";
+            menuNew.Size = new System.Drawing.Size(138, 22);
+            menuNew.Text = "New";
+            menuNew.Click += menuNew_Click;
             // 
             // menuOpen
             // 
-            this.menuOpen.Name = "menuOpen";
-            this.menuOpen.Size = new System.Drawing.Size(138, 22);
-            this.menuOpen.Text = "Open";
-            this.menuOpen.Click += new System.EventHandler(this.menuOpen_Click);
+            menuOpen.Name = "menuOpen";
+            menuOpen.Size = new System.Drawing.Size(138, 22);
+            menuOpen.Text = "Open";
+            menuOpen.Click += menuOpen_Click;
             // 
             // menuSave
             // 
-            this.menuSave.Name = "menuSave";
-            this.menuSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.menuSave.Size = new System.Drawing.Size(138, 22);
-            this.menuSave.Text = "Save";
-            this.menuSave.Click += new System.EventHandler(this.menuSave_Click);
+            menuSave.Name = "menuSave";
+            menuSave.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S;
+            menuSave.Size = new System.Drawing.Size(138, 22);
+            menuSave.Text = "Save";
+            menuSave.Click += menuSave_Click;
             // 
             // toolStripMenuItem2
             // 
-            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuUndo,
-            this.menuRedo,
-            this.toolStripSeparator1,
-            this.menuClearMap});
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(39, 20);
-            this.toolStripMenuItem2.Text = "Edit";
+            toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuUndo, menuRedo, toolStripSeparator1, menuClearMap });
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new System.Drawing.Size(39, 20);
+            toolStripMenuItem2.Text = "Edit";
             // 
             // menuUndo
             // 
-            this.menuUndo.Name = "menuUndo";
-            this.menuUndo.Size = new System.Drawing.Size(128, 22);
-            this.menuUndo.Text = "Undo";
-            this.menuUndo.Click += new System.EventHandler(this.menuUndo_Click);
+            menuUndo.Name = "menuUndo";
+            menuUndo.Size = new System.Drawing.Size(128, 22);
+            menuUndo.Text = "Undo";
+            menuUndo.Click += menuUndo_Click;
             // 
             // menuRedo
             // 
-            this.menuRedo.Name = "menuRedo";
-            this.menuRedo.Size = new System.Drawing.Size(128, 22);
-            this.menuRedo.Text = "Redo";
-            this.menuRedo.Click += new System.EventHandler(this.menuRedo_Click);
+            menuRedo.Name = "menuRedo";
+            menuRedo.Size = new System.Drawing.Size(128, 22);
+            menuRedo.Text = "Redo";
+            menuRedo.Click += menuRedo_Click;
             // 
             // toolStripSeparator1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(125, 6);
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new System.Drawing.Size(125, 6);
             // 
             // menuClearMap
             // 
-            this.menuClearMap.Name = "menuClearMap";
-            this.menuClearMap.Size = new System.Drawing.Size(128, 22);
-            this.menuClearMap.Text = "Clear Map";
-            this.menuClearMap.Click += new System.EventHandler(this.menuClearMap_Click);
+            menuClearMap.Name = "menuClearMap";
+            menuClearMap.Size = new System.Drawing.Size(128, 22);
+            menuClearMap.Text = "Clear Map";
+            menuClearMap.Click += menuClearMap_Click;
             // 
             // toolsToolStripMenuItem
             // 
-            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuFreeMemory,
-            this.menuJump,
-            this.menuInvertMir3Layer});
-            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.toolsToolStripMenuItem.Text = "Tools";
+            toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuFreeMemory, menuJump, menuInvertMir3Layer });
+            toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            toolsToolStripMenuItem.Text = "Tools";
             // 
             // menuFreeMemory
             // 
-            this.menuFreeMemory.Name = "menuFreeMemory";
-            this.menuFreeMemory.Size = new System.Drawing.Size(202, 22);
-            this.menuFreeMemory.Text = "Free Memory";
-            this.menuFreeMemory.Click += new System.EventHandler(this.menuFreeMemory_Click);
+            menuFreeMemory.Name = "menuFreeMemory";
+            menuFreeMemory.Size = new System.Drawing.Size(202, 22);
+            menuFreeMemory.Text = "Free Memory";
+            menuFreeMemory.Click += menuFreeMemory_Click;
             // 
             // menuJump
             // 
-            this.menuJump.Name = "menuJump";
-            this.menuJump.Size = new System.Drawing.Size(202, 22);
-            this.menuJump.Text = "Jump";
-            this.menuJump.Click += new System.EventHandler(this.menuJump_Click);
+            menuJump.Name = "menuJump";
+            menuJump.Size = new System.Drawing.Size(202, 22);
+            menuJump.Text = "Jump";
+            menuJump.Click += menuJump_Click;
             // 
             // menuInvertMir3Layer
             // 
-            this.menuInvertMir3Layer.Name = "menuInvertMir3Layer";
-            this.menuInvertMir3Layer.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.menuInvertMir3Layer.Size = new System.Drawing.Size(202, 22);
-            this.menuInvertMir3Layer.Text = "Invert Mir 3 Layer";
-            this.menuInvertMir3Layer.Click += new System.EventHandler(this.menuInvertMir3Layer_Click);
+            menuInvertMir3Layer.Name = "menuInvertMir3Layer";
+            menuInvertMir3Layer.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I;
+            menuInvertMir3Layer.Size = new System.Drawing.Size(202, 22);
+            menuInvertMir3Layer.Text = "Invert Mir 3 Layer";
+            menuInvertMir3Layer.Click += menuInvertMir3Layer_Click;
             // 
             // toolStripMenuItem9
             // 
-            this.toolStripMenuItem9.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuZoomIn,
-            this.menuZoomOut});
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(44, 20);
-            this.toolStripMenuItem9.Text = "View";
+            toolStripMenuItem9.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuZoomIn, menuZoomOut });
+            toolStripMenuItem9.Name = "toolStripMenuItem9";
+            toolStripMenuItem9.Size = new System.Drawing.Size(44, 20);
+            toolStripMenuItem9.Text = "View";
             // 
             // menuZoomIn
             // 
-            this.menuZoomIn.Name = "menuZoomIn";
-            this.menuZoomIn.Size = new System.Drawing.Size(145, 22);
-            this.menuZoomIn.Text = "Zoom In (+)";
-            this.menuZoomIn.Click += new System.EventHandler(this.menuZoomIn_Click);
+            menuZoomIn.Name = "menuZoomIn";
+            menuZoomIn.Size = new System.Drawing.Size(145, 22);
+            menuZoomIn.Text = "Zoom In (+)";
+            menuZoomIn.Click += menuZoomIn_Click;
             // 
             // menuZoomOut
             // 
-            this.menuZoomOut.Name = "menuZoomOut";
-            this.menuZoomOut.Size = new System.Drawing.Size(145, 22);
-            this.menuZoomOut.Text = "Zoom Out (-)";
-            this.menuZoomOut.Click += new System.EventHandler(this.menuZoomOut_Click);
+            menuZoomOut.Name = "menuZoomOut";
+            menuZoomOut.Size = new System.Drawing.Size(145, 22);
+            menuZoomOut.Text = "Zoom Out (-)";
+            menuZoomOut.Click += menuZoomOut_Click;
             // 
             // helpToolStripMenuItem
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuAbout});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuAbout });
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            helpToolStripMenuItem.Text = "Help";
             // 
             // menuAbout
             // 
-            this.menuAbout.Name = "menuAbout";
-            this.menuAbout.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.menuAbout.Size = new System.Drawing.Size(149, 22);
-            this.menuAbout.Text = "About";
-            this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
+            menuAbout.Name = "menuAbout";
+            menuAbout.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A;
+            menuAbout.Size = new System.Drawing.Size(149, 22);
+            menuAbout.Text = "About";
+            menuAbout.Click += menuAbout_Click;
             // 
             // SaveLibraryDialog
             // 
-            this.SaveLibraryDialog.Filter = "Lib|*.lib";
+            SaveLibraryDialog.Filter = "Lib|*.lib";
             // 
             // TreeBrowser
             // 
-            this.TreeBrowser.Location = new System.Drawing.Point(0, 51);
-            this.TreeBrowser.Name = "TreeBrowser";
-            this.TreeBrowser.Size = new System.Drawing.Size(253, 892);
-            this.TreeBrowser.TabIndex = 6;
-            this.TreeBrowser.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeBrowser_AfterSelect);
-            this.TreeBrowser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TreeBrowser_KeyPress);
+            TreeBrowser.Location = new System.Drawing.Point(0, 51);
+            TreeBrowser.Name = "TreeBrowser";
+            TreeBrowser.Size = new System.Drawing.Size(253, 892);
+            TreeBrowser.TabIndex = 6;
+            TreeBrowser.AfterSelect += TreeBrowser_AfterSelect;
+            TreeBrowser.KeyPress += TreeBrowser_KeyPress;
             // 
             // PathTextBox
             // 
-            this.PathTextBox.Location = new System.Drawing.Point(6, 18);
-            this.PathTextBox.Name = "PathTextBox";
-            this.PathTextBox.Size = new System.Drawing.Size(196, 27);
-            this.PathTextBox.TabIndex = 7;
+            PathTextBox.Location = new System.Drawing.Point(6, 18);
+            PathTextBox.Name = "PathTextBox";
+            PathTextBox.Size = new System.Drawing.Size(196, 27);
+            PathTextBox.TabIndex = 7;
             // 
             // OpenMapDirectory
             // 
-            this.OpenMapDirectory.Location = new System.Drawing.Point(208, 18);
-            this.OpenMapDirectory.Name = "OpenMapDirectory";
-            this.OpenMapDirectory.Size = new System.Drawing.Size(39, 23);
-            this.OpenMapDirectory.TabIndex = 8;
-            this.OpenMapDirectory.Text = "GO";
-            this.OpenMapDirectory.UseVisualStyleBackColor = true;
-            this.OpenMapDirectory.Click += new System.EventHandler(this.OpenMapDirectory_Click);
+            OpenMapDirectory.Location = new System.Drawing.Point(208, 18);
+            OpenMapDirectory.Name = "OpenMapDirectory";
+            OpenMapDirectory.Size = new System.Drawing.Size(39, 23);
+            OpenMapDirectory.TabIndex = 8;
+            OpenMapDirectory.Text = "GO";
+            OpenMapDirectory.UseVisualStyleBackColor = true;
+            OpenMapDirectory.Click += OpenMapDirectory_Click;
             // 
             // TreeViewBox
             // 
-            this.TreeViewBox.Controls.Add(this.TreeBrowser);
-            this.TreeViewBox.Controls.Add(this.PathTextBox);
-            this.TreeViewBox.Controls.Add(this.OpenMapDirectory);
-            this.TreeViewBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.TreeViewBox.Location = new System.Drawing.Point(1729, 54);
-            this.TreeViewBox.Name = "TreeViewBox";
-            this.TreeViewBox.Size = new System.Drawing.Size(253, 1007);
-            this.TreeViewBox.TabIndex = 9;
-            this.TreeViewBox.TabStop = false;
+            TreeViewBox.Controls.Add(TreeBrowser);
+            TreeViewBox.Controls.Add(PathTextBox);
+            TreeViewBox.Controls.Add(OpenMapDirectory);
+            TreeViewBox.Dock = System.Windows.Forms.DockStyle.Right;
+            TreeViewBox.Location = new System.Drawing.Point(1729, 54);
+            TreeViewBox.Name = "TreeViewBox";
+            TreeViewBox.Size = new System.Drawing.Size(253, 1007);
+            TreeViewBox.TabIndex = 9;
+            TreeViewBox.TabStop = false;
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1982, 1061);
-            this.Controls.Add(this.TreeViewBox);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.menuStrip1);
-            this.Font = new System.Drawing.Font("Comic Sans MS", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.KeyPreview = true;
-            this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Main";
-            this.Text = "Map Editor";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
-            this.Load += new System.EventHandler(this.Main_Load);
-            this.ResizeEnd += new System.EventHandler(this.Main_ResizeEnd);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Main_KeyUp);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabMap.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.tabWemadeMir2.ResumeLayout(false);
-            this.tabWemadeMir2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picWemdeMir2)).EndInit();
-            this.tabShandaMir2.ResumeLayout(false);
-            this.tabShandaMir2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picShandaMir2)).EndInit();
-            this.tabWemadeMir3.ResumeLayout(false);
-            this.tabWemadeMir3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picWemdeMir3)).EndInit();
-            this.tabShandaMir3.ResumeLayout(false);
-            this.tabShandaMir3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picShandaMir3)).EndInit();
-            this.tabObjects.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picObjects)).EndInit();
-            this.tabTiles.ResumeLayout(false);
-            this.tabTiles.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picTile)).EndInit();
-            this.tabTileCutter.ResumeLayout(false);
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel1.PerformLayout();
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Highlight)).EndInit();
-            this.contextMenuTileCutter.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Grid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Image)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.TreeViewBox.ResumeLayout(false);
-            this.TreeViewBox.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1982, 1061);
+            Controls.Add(TreeViewBox);
+            Controls.Add(tabControl1);
+            Controls.Add(toolStrip1);
+            Controls.Add(menuStrip1);
+            Font = new System.Drawing.Font("Comic Sans MS", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            KeyPreview = true;
+            MainMenuStrip = menuStrip1;
+            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            Name = "Main";
+            Text = "Map Editor";
+            WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            FormClosing += Main_FormClosing;
+            Load += Main_Load;
+            ResizeEnd += Main_ResizeEnd;
+            KeyDown += Main_KeyDown;
+            KeyUp += Main_KeyUp;
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
+            tabControl1.ResumeLayout(false);
+            tabMap.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            contextMenuStrip1.ResumeLayout(false);
+            tabWemadeMir2.ResumeLayout(false);
+            tabWemadeMir2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picWemdeMir2).EndInit();
+            tabShandaMir2.ResumeLayout(false);
+            tabShandaMir2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picShandaMir2).EndInit();
+            tabWemadeMir3.ResumeLayout(false);
+            tabWemadeMir3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picWemdeMir3).EndInit();
+            tabShandaMir3.ResumeLayout(false);
+            tabShandaMir3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picShandaMir3).EndInit();
+            tabObjects.ResumeLayout(false);
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
+            splitContainer2.Panel1.ResumeLayout(false);
+            splitContainer2.Panel2.ResumeLayout(false);
+            splitContainer2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
+            splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picObjects).EndInit();
+            tabTiles.ResumeLayout(false);
+            tabTiles.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picTile).EndInit();
+            tabTileCutter.ResumeLayout(false);
+            splitContainer3.Panel1.ResumeLayout(false);
+            splitContainer3.Panel1.PerformLayout();
+            splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
+            splitContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox_Highlight).EndInit();
+            contextMenuTileCutter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox_Grid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox_Image).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            TreeViewBox.ResumeLayout(false);
+            TreeViewBox.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

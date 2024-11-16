@@ -5,9 +5,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
-using Microsoft.DirectX;
-using Microsoft.DirectX.Direct3D;
-using Blend = Microsoft.DirectX.Direct3D.Blend;
+using SlimDX;
+using SlimDX.Direct3D9;
+using Blend = SlimDX.Direct3D9.Blend;
 
 namespace Map_Editor
 {
@@ -86,7 +86,7 @@ namespace Map_Editor
                 //Retrieves or sets the format of the back buffer // A 32-bit RGB pixel format using 8 bits per color.
                 BackBufferFormat = Format.X8R8G8B8,
                 //Retrieve or set the presentation flag //Notify the driver that the back buffer contains video data
-                PresentFlag = PresentFlag.LockableBackBuffer,
+                PresentFlags = PresentFlags.LockableBackBuffer,
                 //Retrieves or sets the height of the swap chain's back buffer
                 BackBufferWidth = control.Width,
                 //Retrieves or sets the width of the swap chain's back buffer
@@ -97,20 +97,23 @@ namespace Map_Editor
 				//One The driver needs to wait for the vertical retrace cycle (the runtime will implement tracking to prevent disconnection). The frequency of the Present operation being affected does not exceed the refresh rate of the screen; the runtime completes at most one Present operation per adapter refresh cycle. This option is always available for both windowed and fullscreen swap chains.
 				//Immediate The runtime will update the window client area immediately, and may update it more than once during the adapter refresh cycle. The Present operation may be affected immediately. This option is always available for both windowed and fullscreen swap chains
                 PresentationInterval =  PresentInterval.One,
+                DeviceWindowHandle = control.Handle,
                 //Indicates whether the application is running in windowed mode. //If the application runs with a window, it is true, otherwise it is false
                 Windowed = true
             };
 
+            Direct3D d3d = new Direct3D();
+
             //Retrieve device-specific information.
-            Caps devCaps = Manager.GetDeviceCaps(0, DeviceType.Hardware);
+            Capabilities devCaps = d3d.GetDeviceCaps(0, DeviceType.Hardware);
 
             // Specifies the device type.
 
             //---------------DeviceType------------
-			//NullReference 4 A null reference rasterizer version.
-			//Software 3 A software device.
-			//Reference 2 Microsoft Direct3D features are implemented in software; however, the reference rasterizer uses special CPU instructions whenever possible.
-			//Hardware 1 A hardware device
+            //NullReference 4 A null reference rasterizer version.
+            //Software 3 A software device.
+            //Reference 2 Microsoft Direct3D features are implemented in software; however, the reference rasterizer uses special CPU instructions whenever possible.
+            //Hardware 1 A hardware device
             DeviceType devType = DeviceType.Reference;
             //Defines the flags to use when creating a device
             CreateFlags devFlags = CreateFlags.HardwareVertexProcessing; //Specifying hardware vertex processing
@@ -120,23 +123,23 @@ namespace Map_Editor
                 devType = DeviceType.Hardware;
 
             //NoWindowChanges 2048 Microsoft Direct3D instructs the runtime not to change the focused window in any way. Use with caution! The burden of supporting centralized management events (ALT tabs, etc.) falls on the application, and appropriate responses (switching display modes, etc.) should be coded.
-			//DisableDriverManagementEx 1024 Specifies that resource management utilizes Direct3D instead of the device. Direct3D resource calls will not fail for errors such as insufficient video memory.
-			//AdapterGroupDevice 512
-			//DisableDriverManagement 256 Specifies that resource management utilizes Direct3D instead of the device. Direct3D resource calls will not fail for errors such as insufficient video memory.
-			//MixedVertexProcessing 128 Specifies mixed vertex processing (both software and hardware).
-			//HardwareVertexProcessing 64 Specifies hardware vertex processing.
-			//SoftwareVertexProcessing 32 Specifies software vertex processing.
-			//PureDevice 16 If the device does not support vertex processing, the application can only use post-change vertices.
-			//MultiThreaded 4 indicates that the application requests multithreaded safety for Direct3D. This causes Direct3D to check its global critical sections more frequently, which can reduce performance. Starting with the Microsoft DirectX 9.0 SDK Update (Summer 2003), this always specifies the enumeration value unless the parameter is four. ForceNoMultiThreadedFlag is set to true.
-			//FpuPreserve 2 indicates that the application requires floating-point unit (FPU) exceptions or double-precision floating-point exceptions to be enabled. By default, Direct3D uses single precision. Because Direct3D sets the FPU state each time it is called, setting this flag reduces Direct3D performance.
+            //DisableDriverManagementEx 1024 Specifies that resource management utilizes Direct3D instead of the device. Direct3D resource calls will not fail for errors such as insufficient video memory.
+            //AdapterGroupDevice 512
+            //DisableDriverManagement 256 Specifies that resource management utilizes Direct3D instead of the device. Direct3D resource calls will not fail for errors such as insufficient video memory.
+            //MixedVertexProcessing 128 Specifies mixed vertex processing (both software and hardware).
+            //HardwareVertexProcessing 64 Specifies hardware vertex processing.
+            //SoftwareVertexProcessing 32 Specifies software vertex processing.
+            //PureDevice 16 If the device does not support vertex processing, the application can only use post-change vertices.
+            //MultiThreaded 4 indicates that the application requests multithreaded safety for Direct3D. This causes Direct3D to check its global critical sections more frequently, which can reduce performance. Starting with the Microsoft DirectX 9.0 SDK Update (Summer 2003), this always specifies the enumeration value unless the parameter is four. ForceNoMultiThreadedFlag is set to true.
+            //FpuPreserve 2 indicates that the application requires floating-point unit (FPU) exceptions or double-precision floating-point exceptions to be enabled. By default, Direct3D uses single precision. Because Direct3D sets the FPU state each time it is called, setting this flag reduces Direct3D performance.
 
-			//Indicates whether the device supports hardware transformations and lighting.
-            if (devCaps.DeviceCaps.SupportsHardwareTransformAndLight)
+            //Indicates whether the device supports hardware transformations and lighting.
+            if ((devCaps.DeviceCaps & DeviceCaps.HWTransformAndLight) != 0)
                 //Specifies hardware vertex processing.
                 devFlags = CreateFlags.HardwareVertexProcessing;
 
             //Indicates whether the device supports rasterization, transformations, lighting, and shading in hardware.
-            if (devCaps.DeviceCaps.SupportsPureDevice)
+            if ((devCaps.DeviceCaps & DeviceCaps.PureDevice) != 0)
                 //If the device does not support vertex processing, the application can just use the altered vertices.
                 devFlags |= CreateFlags.PureDevice;
 
@@ -156,55 +159,15 @@ namespace Map_Editor
 
             //presentationParameters
             //    一个 PresentParameters Object that describes the presentation parameters of the device to be created.
-            Device = new Device(Manager.Adapters.Default.Adapter, devType, control, devFlags, Parameters);
-            //Occurs when the device is about to be lost
-            Device.DeviceLost += Device_DeviceLost;
-            //Occurs when the device is resized
-            Device.DeviceResizing += Device_DeviceResizing;
-            //Occurs after resetting the device
-            Device.DeviceReset += Device_DeviceReset;
-            //When the Dispose method is called, or when the device object is finalized and reclaimed by the garbage collector.
-            Device.Disposing += Device_Disposing;
-            //Device.DeviceLost += (o, e) => DeviceLost = true;
-            //Device.DeviceResizing += (o, e) => e.Cancel = true;
-            //Device.DeviceReset += (o, e) => LoadTextures();
-            //Device.Disposing += (o, e) => Clean();
+
+            Device = new Device(d3d, d3d.Adapters.DefaultAdapter.Adapter, devType, control.Handle, devFlags, Parameters);
 
             //Enables use of the Microsoft Windows Graphics Device Interface (GDI) in full-screen application dialog boxes.
-            Device.SetDialogBoxesEnabled(true);
+            Device.SetDialogBoxMode(true);
 
             LoadTextures();
         }
 
-        #region Device Event
-        private static void Device_Disposing(object sender, EventArgs e)
-        {
-            Clean();
-        }
-
-        private static void Device_DeviceReset(object sender, EventArgs e)
-        {
-            LoadTextures();
-        }
-
-        private static void Device_DeviceResizing(object sender, CancelEventArgs e)
-        {
-          
-            if (_control.Size==new Size(0,0) )
-            {
-                e.Cancel = true;
-            }
-            else
-            {
-                e.Cancel = false;
-            }
-        }
-
-        private static void Device_DeviceLost(object sender, EventArgs e)
-        {
-            DeviceLost = true;
-        }
-        #endregion
         /// <summary>
         /// Loading Textures
         /// </summary>
@@ -231,7 +194,7 @@ namespace Map_Editor
 			//backBufferType
 			//The type of the back buffer to return. Only Mono is a valid value.
 			//Return value: A Surface that represents the returned back buffer surface.
-            MainSurface = Device.GetBackBuffer(0, 0, BackBufferType.Mono);
+            MainSurface = Device.GetBackBuffer(0, 0);
             CurrentSurface = MainSurface;
 
 			//SetRenderTarget sets a new color buffer for the device.
@@ -358,9 +321,9 @@ namespace Map_Editor
                 int height = LightSizes[i].Y;
                 Texture light = new Texture(Device, width, height, 1, Usage.None, Format.A8R8G8B8, Pool.Managed);
                 ////LockRectangle Locks the rectangle in the texture resource
-                using (GraphicsStream stream = light.LockRectangle(0, LockFlags.Discard))
+                DataRectangle stream = light.LockRectangle(0, LockFlags.Discard);
                 //Initializes a new instance of the Bitmap class with the specified size, pixel format, and pixel data.
-                using (Bitmap image = new Bitmap(width, height, width * 4, PixelFormat.Format32bppArgb, (IntPtr)stream.InternalDataPointer))
+                using (Bitmap image = new Bitmap(width, height, width * 4, PixelFormat.Format32bppArgb, stream.Data.DataPointer))
                 {
                     //Creates a new Graphics from the specified Image.
                     using (Graphics graphics = Graphics.FromImage(image))
@@ -412,10 +375,12 @@ namespace Map_Editor
                         }
                     }
                 }
+                light.UnlockRectangle(0);
+
+                stream.Data.Dispose();
+
                 //Adding lights
                 Lights.Add(light);
-                //为light添加 Disposing 事件 ，用来Lights.Remove(light);
-                light.Disposing += (o, e) => Lights.Remove(light);
             }
         }
         /// <summary>
@@ -439,16 +404,16 @@ namespace Map_Editor
         {
             try
             {
-                int result;
+                Result result;
                 //CheckCooperativeLevel reports the current cooperative level state of the Direct3D device for a windowed or full-screen application.
-				//Parameters
+                //Parameters
 
-				//hResult
-				// The current cooperative level state of the device for a windowed or full-screen application, reported with a ResultCode value. A Success result indicates that the device is operational and the calling application can continue. A DeviceLost result indicates that the device is lost, but cannot be reset at this time; therefore, rendering is not possible. A DeviceNotReset result indicates that the device is lost, but can be reset at this time.
+                //hResult
+                // The current cooperative level state of the device for a windowed or full-screen application, reported with a ResultCode value. A Success result indicates that the device is operational and the calling application can continue. A DeviceLost result indicates that the device is lost, but cannot be reset at this time; therefore, rendering is not possible. A DeviceNotReset result indicates that the device is lost, but can be reset at this time.
 
-				//Return value
-				// True if the device is operational and the calling application can continue; false if the device is lost or needs to be reset.
-                Device.CheckCooperativeLevel(out result);
+                //Return value
+                // True if the device is operational and the calling application can continue; false if the device is lost or needs to be reset.
+                result = Device.TestCooperativeLevel();
 
                 //    -------------ResultCode)result return value type-------------
                 // AlreadyLocked The device is locked.
@@ -476,45 +441,70 @@ namespace Map_Editor
                 // UnsupportedFactorValue The device does not support the specified texture factor value.
                 // UnsupportedTextureFilter The device does not support the specified texture filter.
                 // WrongTextureFormat The pixel format of the texture surface is invalid.
-                switch ((ResultCode)result)
+
+                //The device does not support the technology being queried.
+                if (result.Code == ResultCode.DeviceNotReset.Code)
                 {
-                    //The device does not support the technology being queried.
-                    case ResultCode.DeviceNotReset:
-                        //Device.Reset(Parameters) resets the presentation parameters of the current device. 
-                        //parameter
+                    //Device.Reset(Parameters) resets the presentation parameters of the current device. 
+                    //parameter
 
-                        //presentationParameters
-                        //    A PresentParameters structure that describes the new presentation parameters. This parameter cannot be null.
+                    //presentationParameters
+                    //    A PresentParameters structure that describes the new presentation parameters. This parameter cannot be null.
 
-                        //Remarks
-                        //When switching to full-screen mode, Direct3D attempts to find a desktop format that matches the back buffer format so that the back buffer format and the front buffer format are the same. This eliminates the need to convert colors.
-                        //If the call to Reset fails, the device is placed in the "lost" state (indicated by a value of false returned from a call to CheckCooperativeLevel) unless the device is in the "not reset" state (indicated by DeviceNotReset returned from the hResult parameter of the CheckCooperativeLevel method).
-                        //Calling Reset causes all texture memory surfaces and state information to be lost, and also causes managed textures to be flushed in video memory. Before calling Reset on a device, the application should release any explicit render targets, depth stencil surfaces, attached swap chains, state blocks, and default resources associated with the device.
-                        //Swap chains can be full-screen or windowed. If the new swap chain is full-screen, the adapter is placed in a display mode that matches the new size.
-                        //If the thread calling Reset is not the thread that created the device being reset, the call will fail.
-                        //When calling Device, Reset, and SwapChain, you can specify the format of the window mode back buffer as "unknown". This means that the application does not have to query the current desktop format before calling Device in window mode. For full-screen mode, the back buffer format must be specified. Setting BackBufferCount to 0 creates a back buffer.
-                        //When trying to reset multiple display adapters in a group, you can pass in an array of PresentParameters objects, each of which corresponds to a display adapter in the adapter group.
-                        Device.Reset(Parameters);
-                        break;
-                    //The device has been lost, but it cannot be reset at this time. Therefore, rendering is not possible.
-                    case ResultCode.DeviceLost:
-                        break;
-                    //Successful operation
-                    case ResultCode.Success:
-                        DeviceLost = false;
-                        //Gets the specified back buffer.
-                        MainSurface = Device.GetBackBuffer(0, 0, BackBufferType.Mono);
-                        //Get the specified back buffer
-                        CurrentSurface = Device.GetBackBuffer(0, 0, BackBufferType.Mono);
-                        //Sets a new color buffer for the device.
-                        Device.SetRenderTarget(0, CurrentSurface);
-                        break;
+                    //Remarks
+                    //When switching to full-screen mode, Direct3D attempts to find a desktop format that matches the back buffer format so that the back buffer format and the front buffer format are the same. This eliminates the need to convert colors.
+                    //If the call to Reset fails, the device is placed in the "lost" state (indicated by a value of false returned from a call to CheckCooperativeLevel) unless the device is in the "not reset" state (indicated by DeviceNotReset returned from the hResult parameter of the CheckCooperativeLevel method).
+                    //Calling Reset causes all texture memory surfaces and state information to be lost, and also causes managed textures to be flushed in video memory. Before calling Reset on a device, the application should release any explicit render targets, depth stencil surfaces, attached swap chains, state blocks, and default resources associated with the device.
+                    //Swap chains can be full-screen or windowed. If the new swap chain is full-screen, the adapter is placed in a display mode that matches the new size.
+                    //If the thread calling Reset is not the thread that created the device being reset, the call will fail.
+                    //When calling Device, Reset, and SwapChain, you can specify the format of the window mode back buffer as "unknown". This means that the application does not have to query the current desktop format before calling Device in window mode. For full-screen mode, the back buffer format must be specified. Setting BackBufferCount to 0 creates a back buffer.
+                    //When trying to reset multiple display adapters in a group, you can pass in an array of PresentParameters objects, each of which corresponds to a display adapter in the adapter group.
+                    ResetDevice();
                 }
+                //The device has been lost, but it cannot be reset at this time. Therefore, rendering is not possible.
+                else if (result.Code == ResultCode.DeviceLost.Code)
+                {
+                }
+                //Successful operation
+                else if (result.Code == ResultCode.Success.Code)
+                {
+                    DeviceLost = false;
+                    //Gets the specified back buffer.
+                    MainSurface = Device.GetBackBuffer(0, 0);
+                    //Get the specified back buffer
+                    CurrentSurface = Device.GetBackBuffer(0, 0);
+                    //Sets a new color buffer for the device.
+                    Device.SetRenderTarget(0, CurrentSurface);
+                }
+
+                DeviceLost = false;
             }
             catch
             {
             }
         }
+
+        public static void ResetDevice()
+        {
+            if (DeviceLost) return;
+
+            Clean();
+            DeviceLost = true;
+
+            if (Parameters == null) return;
+
+            Size clientSize = _control.ClientSize;
+
+            if (clientSize.Width == 0 || clientSize.Height == 0) return;
+
+
+            Parameters.BackBufferWidth = clientSize.Width;
+            Parameters.BackBufferHeight = clientSize.Height;
+            Device.Reset(Parameters);
+
+            LoadTextures();
+        }
+
         /// <summary>
         /// Attempt to recover
         /// </summary>
@@ -549,7 +539,7 @@ namespace Map_Editor
             try
             {
                 ////Get the specified back buffer
-                MainSurface = Device.GetBackBuffer(0, 0, BackBufferType.Mono);
+                MainSurface = Device.GetBackBuffer(0, 0);
                 CurrentSurface = MainSurface;
                 ////Sets a new color buffer for the device.
                 Device.SetRenderTarget(0, MainSurface);
@@ -569,7 +559,7 @@ namespace Map_Editor
             //Forces all batch sprites to be submitted to the device. 
             Sprite.Flush();
             //获取设备的呈现状态值。AlphaBlendEnable= true;
-            Device.RenderState.AlphaBlendEnable = true;
+            Device.SetRenderState(RenderState.AlphaBlendEnable, true);
             if (opacity >= 1 || opacity < 0)
             {
 
@@ -587,21 +577,21 @@ namespace Map_Editor
                 //	Zero	The mixing factor is (0, 0, 0, 0)。 
 
                 //Gets or sets the color blending mode. 
-                Device.RenderState.SourceBlend = Blend.SourceAlpha;
+                Device.SetRenderState(RenderState.SourceBlend, SlimDX.Direct3D9.Blend.SourceAlpha);
                 //Indicates the current blending mode or the blending mode to be set
-                Device.RenderState.DestinationBlend = Blend.InvSourceAlpha;
+                Device.SetRenderState(RenderState.DestinationBlend, SlimDX.Direct3D9.Blend.InverseSourceAlpha);
                 //Get or set the alpha blending mode
-                Device.RenderState.AlphaSourceBlend = Blend.One;
+                Device.SetRenderState(RenderState.SourceBlendAlpha, Blend.One);
                 //Blend a drawing operation using an existing color
-                Device.RenderState.BlendFactor = Color.FromArgb(255, 255, 255, 255);
+                Device.SetRenderState(RenderState.BlendFactor, Color.FromArgb(255, 255, 255, 255).ToArgb());
             }
             else
             {
-                Device.RenderState.SourceBlend = Blend.BlendFactor;
-                Device.RenderState.DestinationBlend = Blend.InvBlendFactor;
-                Device.RenderState.AlphaSourceBlend = Blend.SourceAlpha;
-                Device.RenderState.BlendFactor = Color.FromArgb((byte)(255 * opacity), (byte)(255 * opacity),
-                                                                (byte)(255 * opacity), (byte)(255 * opacity));
+                var r = (byte)(255 * opacity);
+                Device.SetRenderState(RenderState.SourceBlend, Blend.BlendFactor);
+                Device.SetRenderState(RenderState.DestinationBlend, Blend.InverseBlendFactor);
+                Device.SetRenderState(RenderState.SourceBlendAlpha, Blend.SourceAlpha);
+                Device.SetRenderState(RenderState.BlendFactor, Color.FromArgb(r, r, r, r).ToArgb());
             }
             Opacity = opacity;
             //Forces all batch sprites to be submitted to the device.
@@ -639,11 +629,11 @@ namespace Map_Editor
 				// SortTexture Sort sprites by texture, before drawing. This option is recommended when drawing non-overlapping sprites of uniform depth; for example, when drawing screen-aligned text with a Font. 
 
                 Sprite.Begin(SpriteFlags.DoNotSaveState);//Disables saving or restoring device state between calls to Begin and End. 
-                Device.RenderState.AlphaBlendEnable = true;
-                Device.RenderState.SourceBlend = Blend.BlendFactor;
-                Device.RenderState.DestinationBlend = Blend.One;
-                Device.RenderState.BlendFactor = Color.FromArgb((byte)(255 * rate), (byte)(255 * rate),
-                                                                (byte)(255 * rate), (byte)(255 * rate));
+                var r = (byte)(255 * rate);
+                Device.SetRenderState(RenderState.AlphaBlendEnable, true);
+                Device.SetRenderState(RenderState.SourceBlend, Blend.BlendFactor);
+                Device.SetRenderState(RenderState.DestinationBlend, Blend.One);
+                Device.SetRenderState(RenderState.BlendFactor, Color.FromArgb(r, r, r, r).ToArgb());
             }
             else
                 //Sprite.Begin prepares the drawing of the sub-screen
@@ -656,23 +646,65 @@ namespace Map_Editor
         /// </summary>
         public static void Clean()
         {
-            for (int i = TextureList.Count - 1; i >= 0; i--)
+            if (Sprite != null)
             {
-                MLibrary.MImage m = TextureList[i];
-
-                if (m == null)
+                if (!Sprite.Disposed)
                 {
-                    TextureList.RemoveAt(i);
-                    continue;
+                    Sprite.Dispose();
                 }
 
-                //if (CMain.Time <= m.CleanTime) continue;
-
-
-                TextureList.RemoveAt(i);
-                //if (m.Image != null && !m.Image.Disposed)
-                //    m.Image.Dispose();
+                Sprite = null;
             }
+
+            if (TextSprite != null)
+            {
+                if (!TextSprite.Disposed)
+                {
+                    TextSprite.Dispose();
+                }
+
+                TextSprite = null;
+            }
+
+            if (Line != null)
+            {
+                if (!Line.Disposed)
+                {
+                    Line.Dispose();
+                }
+
+                Line = null;
+            }
+
+            if (CurrentSurface != null)
+            {
+                if (!CurrentSurface.Disposed)
+                {
+                    CurrentSurface.Dispose();
+                }
+
+                CurrentSurface = null;
+            }
+
+            if (Lights != null)
+            {
+                for (int i = 0; i < Lights.Count; i++)
+                {
+                    if (!Lights[i].Disposed)
+                        Lights[i].Dispose();
+                }
+                Lights.Clear();
+            }
+
+            for(int i = TextureList.Count - 1; i >= 0; i--)
+            {
+                var m = TextureList[i];
+
+                if (m == null) continue;
+
+                m.DisposeTexture();
+            }
+            TextureList.Clear();
         }
     }
 }

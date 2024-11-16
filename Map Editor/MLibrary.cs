@@ -7,8 +7,8 @@ using System.IO;
 using System.IO.Compression;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Microsoft.DirectX;
-using Microsoft.DirectX.Direct3D;
+using SlimDX;
+using SlimDX.Direct3D9;
 
 namespace Map_Editor
 {
@@ -753,17 +753,17 @@ namespace Map_Editor
                     return;
                 if ((w < 2) || (h < 2)) return;
 
-                GraphicsStream stream = null;
+                DataRectangle stream = null;
 
                 ImageTexture = new Texture(DXManager.Device, w, h, 1, Usage.None, Format.A8R8G8B8, Pool.Managed);
                 stream = ImageTexture.LockRectangle(0, LockFlags.Discard);
-                Data = (byte*)stream.InternalDataPointer;
+                Data = (byte*)stream.Data.DataPointer;
 
                 byte[] decomp = DecompressImage(reader.ReadBytes(Length));
 
-                stream.Write(decomp, 0, decomp.Length);
+                stream.Data.Write(decomp, 0, decomp.Length);
 
-                stream.Dispose();
+                stream.Data.Dispose();
                 ImageTexture.UnlockRectangle(0);
 
                 if (HasMask)
@@ -777,9 +777,9 @@ namespace Map_Editor
 
                     decomp = DecompressImage(reader.ReadBytes(Length));
 
-                    stream.Write(decomp, 0, decomp.Length);
+                    stream.Data.Write(decomp, 0, decomp.Length);
 
-                    stream.Dispose();
+                    stream.Data.Dispose();
                     MaskImageTexture.UnlockRectangle(0);
                 }
 
@@ -793,6 +793,38 @@ namespace Map_Editor
                 //    Data = null;
                 //    DXManager.TextureList.Remove(this);
                 //};
+            }
+
+            public unsafe void DisposeTexture()
+            {
+                DXManager.TextureList.Remove(this);
+
+                if (Image != null)
+                {
+                    Image.Dispose();
+                }
+
+                if (MaskImage != null)
+                {
+                    MaskImage.Dispose();
+                }
+
+                if (ImageTexture != null && !ImageTexture.Disposed)
+                {
+                    ImageTexture.Dispose();
+                }
+
+                if (MaskImageTexture != null && !MaskImageTexture.Disposed)
+                {
+                    MaskImageTexture.Dispose();
+                }
+
+                TextureValid = false;
+                Image = null;
+                MaskImage = null;
+                ImageTexture = null;
+                MaskImageTexture = null;
+                Data = null;
             }
 
             public void Save(BinaryWriter writer)
