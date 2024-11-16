@@ -9,8 +9,8 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Threading;
 using System.Windows.Forms;
-using Microsoft.DirectX;
-using Microsoft.DirectX.Direct3D;
+using SlimDX;
+using SlimDX.Direct3D9;
 using Font = System.Drawing.Font;
 using System.Linq;
 
@@ -245,8 +245,9 @@ namespace Map_Editor
                     DXManager.Device.Present();
                 }
             }
-            catch (DeviceLostException)
+            catch (Direct3D9Exception)
             {
+                DXManager.DeviceLost = true;
             }
             catch (Exception)
             {
@@ -312,9 +313,16 @@ namespace Map_Editor
             if (mi.Image == null || mi.ImageTexture == null) return;
             int w = mi.Width;
             int h = mi.Height;
-            DXManager.Sprite.Draw2D(mi.ImageTexture, Rectangle.Empty, new SizeF(w*zoomMIN/zoomMAX, h*zoomMIN/zoomMAX), new PointF(drawX, drawY), Color.White);
+            float zoom = zoomMIN / zoomMAX;
+            float scaleX = zoom;
+            float scaleY = zoom;
 
-            //DXManager.Sprite.Draw2D(mi.ImageTexture, new Rectangle(Point.Empty, new Size(w * zoomMIN / zoomMAX, h * zoomMIN / zoomMAX)), new Rectangle(Point.Empty, new Size(w * zoomMIN / zoomMAX, h * zoomMIN / zoomMAX)), new Point(drawX, drawY), Color.White);
+            var matrix = SlimDX.Matrix.Scaling(scaleX, scaleY, 0);
+            DXManager.Sprite.Transform = matrix;
+            DXManager.Sprite.Draw(mi.ImageTexture, new Rectangle(0, 0, mi.Width, mi.Height), Vector3.Zero, new Vector3((float)drawX / scaleX, (float)drawY / scaleY, 0.0F), Color.White);
+            DXManager.Sprite.Transform = SlimDX.Matrix.Identity;
+
+            //DXManager.Sprite.Draw2D(mi.ImageTexture, new Rectangle(Point.Empty, new Size(w * zoom, h * zoom)), new Rectangle(Point.Empty, new Size(w * zoom, h * zoom)), new Point(drawX, drawY), Color.White);
         }
 
         public void DrawBlend(int libindex, int index, Point point, Color colour, bool offSet = false, float rate = 1f)
@@ -324,13 +332,20 @@ namespace Map_Editor
             if (mi.Image == null || mi.ImageTexture == null) return;
             int w = mi.Width;
             int h = mi.Height;
+            float zoom = zoomMIN / zoomMAX;
+            float scaleX = zoom;
+            float scaleY = zoom;
 
-            if (offSet) point.Offset(mi.X*zoomMIN/zoomMAX, mi.Y*zoomMIN/zoomMAX);
+            if (offSet) point.Offset(mi.X * (int)zoom, mi.Y * (int)zoom);
             var oldBlend = DXManager.Blending;
             DXManager.SetBlend(true, rate);
-            DXManager.Sprite.Draw2D(mi.ImageTexture, Rectangle.Empty, new SizeF(w*zoomMIN/zoomMAX, h*zoomMIN/zoomMAX), point, Color.White);
 
-            //DXManager.Sprite.Draw2D(mi.ImageTexture, new Rectangle(Point.Empty, new Size(w * zoomMIN / zoomMAX, h * zoomMIN / zoomMAX)), new Rectangle(Point.Empty, new Size(w * zoomMIN / zoomMAX, h * zoomMIN / zoomMAX)), point, Color.White);
+            var matrix = SlimDX.Matrix.Scaling(scaleX, scaleY, 0);
+            DXManager.Sprite.Transform = matrix;
+            DXManager.Sprite.Draw(mi.ImageTexture, new Rectangle(0, 0, mi.Width, mi.Height), Vector3.Zero, new Vector3((float)drawX / scaleX, (float)drawY / scaleY, 0.0F), Color.White);
+            DXManager.Sprite.Transform = SlimDX.Matrix.Identity;
+
+            //DXManager.Sprite.Draw2D(mi.ImageTexture, new Rectangle(Point.Empty, new Size(w * zoom, h * zoom)), new Rectangle(Point.Empty, new Size(w * zoom, h * zoom)), point, Color.White);
             DXManager.SetBlend(oldBlend);
         }
 
@@ -398,6 +413,16 @@ namespace Map_Editor
                         break;
                 }
             }
+        }
+
+        private void MapPanel_Resize(object sender, EventArgs e)
+        {
+            if (DXManager.Device == null)
+                return;
+
+            DXManager.Device.Clear(ClearFlags.Target, Color.Black, 0, 0);
+            DXManager.Device.Present();
+            DXManager.ResetDevice();
         }
 
         private void DrawLimit()
@@ -1113,7 +1138,7 @@ namespace Map_Editor
             byte DoorOffset;
             bool EntityDoor;
             var font = new Font("Comic Sans MS", 10, FontStyle.Bold);
-            var dxFont = new Microsoft.DirectX.Direct3D.Font(DXManager.Device, font);
+            var dxFont = new SlimDX.Direct3D9.Font(DXManager.Device, font);
             for (var y = mapPoint.Y; y <= mapPoint.Y + OffSetY; y++)
             {
                 if (y >= mapHeight || y < 0) continue;
@@ -1136,7 +1161,7 @@ namespace Map_Editor
                         {
                             szText = string.Format("D{0}/{1}", DoorIndex, DoorOffset);
                         }
-                        dxFont.DrawText(DXManager.TextSprite, szText, drawX, drawY, Color.AliceBlue);
+                        dxFont.DrawString(DXManager.TextSprite, szText, drawX, drawY, Color.AliceBlue);
                     }
                 }
             }
@@ -1160,7 +1185,7 @@ namespace Map_Editor
             byte FrontAnimationTick;
             bool CoreAnimation;
             var font = new Font("Comic Sans MS", 10, FontStyle.Bold);
-            var dxFont = new Microsoft.DirectX.Direct3D.Font(DXManager.Device, font);
+            var dxFont = new SlimDX.Direct3D9.Font(DXManager.Device, font);
             for (var y = mapPoint.Y; y <= mapPoint.Y + OffSetY; y++)
             {
                 if (y >= mapHeight || y < 0) continue;
@@ -1187,7 +1212,7 @@ namespace Map_Editor
                         {
                             szText = string.Format("FA{0}/{1}", FrontAnimationFrame, FrontAnimationTick);
                         }
-                        dxFont.DrawText(DXManager.TextSprite, szText, drawX, drawY, Color.AliceBlue);
+                        dxFont.DrawString(DXManager.TextSprite, szText, drawX, drawY, Color.AliceBlue);
                     }
                 }
             }
@@ -1206,7 +1231,7 @@ namespace Map_Editor
             byte MiddleAnimationTick;
             bool BlendAnimation;
             var font = new Font("Comic Sans MS", 10, FontStyle.Bold);
-            var dxFont = new Microsoft.DirectX.Direct3D.Font(DXManager.Device, font);
+            var dxFont = new SlimDX.Direct3D9.Font(DXManager.Device, font);
             for (var y = mapPoint.Y; y <= mapPoint.Y + OffSetY; y++)
             {
                 if (y >= mapHeight || y < 0) continue;
@@ -1233,7 +1258,7 @@ namespace Map_Editor
                         {
                             szText = string.Format("MA{0}/{1}", MiddleAnimationFrame, MiddleAnimationTick);
                         }
-                        dxFont.DrawText(DXManager.TextSprite, szText, drawX, drawY, Color.Black);
+                        dxFont.DrawString(DXManager.TextSprite, szText, drawX, drawY, Color.Black);
                     }
                 }
             }
@@ -1255,7 +1280,7 @@ namespace Map_Editor
             var szText = "";
             int Light;
             var font = new Font("Comic Sans MS", 10, FontStyle.Bold);
-            var dxFont = new Microsoft.DirectX.Direct3D.Font(DXManager.Device, font);
+            var dxFont = new SlimDX.Direct3D9.Font(DXManager.Device, font);
             for (var y = mapPoint.Y - 1; y <= mapPoint.Y + OffSetY + 35; y++)
             {
                 if (y >= mapHeight || y < 0) continue;
@@ -1270,7 +1295,7 @@ namespace Map_Editor
                     {
                         Draw(1, 57, drawX, drawY);
                         szText = string.Format("L{0}", Light);
-                        dxFont.DrawText(DXManager.TextSprite, szText, drawX + 32*zoomMIN/zoomMAX, drawY, Color.AliceBlue);
+                        dxFont.DrawString(DXManager.TextSprite, szText, drawX + 32 * zoomMIN / zoomMAX, drawY, Color.AliceBlue);
                     }
                 }
             }
