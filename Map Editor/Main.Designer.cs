@@ -1721,9 +1721,9 @@
             // 
             // TreeBrowser
             // 
-            TreeBrowser.Location = new System.Drawing.Point(0, 51);
+            TreeBrowser.Location = new System.Drawing.Point(0, 75);
             TreeBrowser.Name = "TreeBrowser";
-            TreeBrowser.Size = new System.Drawing.Size(253, 892);
+            TreeBrowser.Size = new System.Drawing.Size(253, 868);
             TreeBrowser.TabIndex = 6;
             TreeBrowser.AfterSelect += TreeBrowser_AfterSelect;
             TreeBrowser.KeyPress += TreeBrowser_KeyPress;
@@ -1732,12 +1732,12 @@
             // 
             PathTextBox.Location = new System.Drawing.Point(6, 18);
             PathTextBox.Name = "PathTextBox";
-            PathTextBox.Size = new System.Drawing.Size(196, 27);
+            PathTextBox.Size = new System.Drawing.Size(184, 27);
             PathTextBox.TabIndex = 7;
             // 
             // OpenMapDirectory
             // 
-            OpenMapDirectory.Location = new System.Drawing.Point(208, 18);
+            OpenMapDirectory.Location = new System.Drawing.Point(75, 46);
             OpenMapDirectory.Name = "OpenMapDirectory";
             OpenMapDirectory.Size = new System.Drawing.Size(39, 23);
             OpenMapDirectory.TabIndex = 8;
@@ -1750,7 +1750,6 @@
             TreeViewBox.Controls.Add(TreeBrowser);
             TreeViewBox.Controls.Add(PathTextBox);
             TreeViewBox.Controls.Add(OpenMapDirectory);
-            TreeViewBox.Dock = System.Windows.Forms.DockStyle.Right;
             TreeViewBox.Location = new System.Drawing.Point(1729, 54);
             TreeViewBox.Name = "TreeViewBox";
             TreeViewBox.Size = new System.Drawing.Size(253, 1007);
