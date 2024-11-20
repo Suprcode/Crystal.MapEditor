@@ -306,7 +306,7 @@ namespace Map_Editor
         }
 
 
-        private void Draw(int libIndex, int index, int drawX, int drawY)
+        private void Draw(int libIndex, int index, int dx, int dy)
         {
             Libraries.MapLibs[libIndex].CheckImage(index);
             var mi = Libraries.MapLibs[libIndex].Images[index];
@@ -319,10 +319,10 @@ namespace Map_Editor
 
             var matrix = SlimDX.Matrix.Scaling(scaleX, scaleY, 0);
             DXManager.Sprite.Transform = matrix;
-            DXManager.Sprite.Draw(mi.ImageTexture, new Rectangle(0, 0, mi.Width, mi.Height), Vector3.Zero, new Vector3((float)drawX / scaleX, (float)drawY / scaleY, 0.0F), Color.White);
+            DXManager.Sprite.Draw(mi.ImageTexture, new Rectangle(0, 0, mi.Width, mi.Height), Vector3.Zero, new Vector3((float)dx / scaleX, (float)dy / scaleY, 0.0F), Color.White);
             DXManager.Sprite.Transform = SlimDX.Matrix.Identity;
 
-            //DXManager.Sprite.Draw2D(mi.ImageTexture, new Rectangle(Point.Empty, new Size(w * zoom, h * zoom)), new Rectangle(Point.Empty, new Size(w * zoom, h * zoom)), new Point(drawX, drawY), Color.White);
+            //DXManager.Sprite.Draw2D(mi.ImageTexture, new Rectangle(Point.Empty, new Size(w * zoom, h * zoom)), new Rectangle(Point.Empty, new Size(w * zoom, h * zoom)), new Point(dx, dy), Color.White);
         }
 
         public void DrawBlend(int libindex, int index, Point point, Color colour, bool offSet = false, float rate = 1f)
@@ -342,7 +342,7 @@ namespace Map_Editor
 
             var matrix = SlimDX.Matrix.Scaling(scaleX, scaleY, 0);
             DXManager.Sprite.Transform = matrix;
-            DXManager.Sprite.Draw(mi.ImageTexture, new Rectangle(0, 0, mi.Width, mi.Height), Vector3.Zero, new Vector3((float)drawX / scaleX, (float)drawY / scaleY, 0.0F), Color.White);
+            DXManager.Sprite.Draw(mi.ImageTexture, new Rectangle(0, 0, mi.Width, mi.Height), Vector3.Zero, new Vector3((float)point.X / scaleX, (float)point.Y / scaleY, 0.0F), Color.White);
             DXManager.Sprite.Transform = SlimDX.Matrix.Identity;
 
             //DXManager.Sprite.Draw2D(mi.ImageTexture, new Rectangle(Point.Empty, new Size(w * zoom, h * zoom)), new Rectangle(Point.Empty, new Size(w * zoom, h * zoom)), point, Color.White);
