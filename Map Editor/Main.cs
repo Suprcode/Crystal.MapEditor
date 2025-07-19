@@ -1054,8 +1054,25 @@ namespace Map_Editor
         {
             for (var i = 0; i < Libraries.MapLibs.Length; i++)
             {
+                if (Libraries.MapLibs[i] == null) continue;
+
                 for (var j = 0; j < Libraries.MapLibs[i].Images.Count; j++)
                 {
+                    var mImage = Libraries.MapLibs[i].Images[j];
+                    if (mImage == null) continue;
+
+                    if (mImage.Image != null)
+                    {
+                        mImage.Image.Dispose();
+                        mImage.Image = null;
+                    }
+
+                    if (mImage.ImageTexture != null && !mImage.ImageTexture.Disposed)
+                    {
+                        mImage.ImageTexture.Dispose();
+                        mImage.ImageTexture = null;
+                    }
+
                     Libraries.MapLibs[i].Images[j] = null;
                 }
             }
