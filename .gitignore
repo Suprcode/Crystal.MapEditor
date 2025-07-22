@@ -3,3 +3,6 @@
 /Map Editor/bin/Release
 /Map Editor/obj/Release
 /.vs/Map Editor
+/.vs
+/Map Editor/bin
+/Map Editor/obj
