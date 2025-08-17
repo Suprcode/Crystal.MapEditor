@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net8.0-windows</TargetFramework>
+		<TargetFramework>net10.0-windows7.0</TargetFramework>
 		<Nullable>disable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>disable</ImplicitUsings>
@@ -71,12 +71,6 @@
 		<EmbeddedResource Include="Resources\Radar.png" />
 		<EmbeddedResource Include="Resources\Square.png" />
 		<EmbeddedResource Include="Resources\System folder.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Reference Include="SlimDX">
-			<HintPath>..\Components\SlimDX.dll</HintPath>
-		</Reference>
 	</ItemGroup>
 
 	<ItemGroup>
