@@ -13,4 +13,30 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="CellInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FrmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmJump.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmSetAnimation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmSetDoor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmSetLight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewFileFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
 </Project>
