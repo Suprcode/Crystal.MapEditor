@@ -128,6 +128,94 @@ namespace Map_Editor
             //Tilecutter
             pictureBox_Grid.Parent = pictureBox_Image;
             pictureBox_Highlight.Parent = pictureBox_Grid;
+
+            AddMapInformationButton();
+        }
+
+        private void AddMapInformationButton()
+        {
+            var separator = new ToolStripSeparator
+            {
+                Alignment = ToolStripItemAlignment.Right
+            };
+            var mapInformationButton = new ToolStripButton
+            {
+                Alignment = ToolStripItemAlignment.Right,
+                AutoSize = false,
+                Name = "btnMapInformation",
+                Size = new Size(76, 51),
+                Text = "Map Info",
+                TextImageRelation = TextImageRelation.ImageAboveText,
+                ToolTipText = "Show map library references and remap them"
+            };
+
+            mapInformationButton.Click += (_, _) => ShowMapInformation();
+            toolStrip1.Items.Add(separator);
+            toolStrip1.Items.Add(mapInformationButton);
+        }
+
+        private void ShowMapInformation()
+        {
+            if (M2CellInfo == null)
+            {
+                MessageBox.Show(
+                    this,
+                    "Open or create a map first.",
+                    "Map Information",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+
+            var displayName = string.IsNullOrWhiteSpace(mapFileName)
+                ? "Untitled map"
+                : Path.GetFileName(mapFileName);
+
+            using (var form = new MapInformationForm(displayName, M2CellInfo, RemapMapLibrary))
+            {
+                form.ShowDialog(this);
+            }
+        }
+
+        private int RemapMapLibrary(MapReferenceLayer layer, short sourceIndex, short targetIndex)
+        {
+            if (M2CellInfo == null)
+                return 0;
+            if (targetIndex < 0 || targetIndex >= Libraries.MapLibs.Length)
+                throw new ArgumentOutOfRangeException(nameof(targetIndex));
+
+            var changedCells = new List<CellInfoData>();
+            for (var x = 0; x < M2CellInfo.GetLength(0); x++)
+            {
+                for (var y = 0; y < M2CellInfo.GetLength(1); y++)
+                {
+                    var cell = M2CellInfo[x, y];
+                    if (cell == null ||
+                        !MapReferenceInspector.HasReference(cell, layer) ||
+                        MapReferenceInspector.GetLibraryIndex(cell, layer) != sourceIndex)
+                    {
+                        continue;
+                    }
+
+                    changedCells.Add(new CellInfoData(x, y, cell));
+                }
+            }
+
+            if (changedCells.Count == 0)
+                return 0;
+
+            _editor.ReDoClear();
+            _editor.UnDo = changedCells.ToArray();
+
+            foreach (var changedCell in changedCells)
+            {
+                MapReferenceInspector.SetLibraryIndex(
+                    M2CellInfo[changedCell.X, changedCell.Y],
+                    layer,
+                    targetIndex);
+            }
+
+            return changedCells.Count;
         }
 
         private void Application_Idle(object sender, EventArgs e)
